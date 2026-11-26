@@ -1,0 +1,111 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { Picture } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import { company, products, type Product } from '../../data/site';
+
+export const getStaticPaths = (() =>
+  products.map((product) => ({ params: { slug: product.slug }, props: { product } }))) satisfies GetStaticPaths;
+
+interface Props { product: Product }
+const { product: p } = Astro.props;
+const url = `${company.url}/products/${p.slug}/`;
+const ctaHref = `/?product=${encodeURIComponent(p.formValue)}#contact`;
+const idx = products.findIndex((o) => o.slug === p.slug);
+const others = products.filter((o) => o.slug !== p.slug);
+
+// Product + BreadcrumbList. No offers block: the source's price "0" offer is dropped.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Product',
+      name: p.name,
+      description: p.metaDescription,
+      image: new URL(p.heroImage.src, company.url).href,
+      brand: { '@type': 'Brand', name: company.name },
+      manufacturer: { '@type': 'Organization', name: company.name, url: company.url },
+      material: p.composition,
+      additionalProperty: p.specs.map((s) => ({ '@type': 'PropertyValue', name: s.label, value: s.value })),
+      url,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${company.url}/` },
+        { '@type': 'ListItem', position: 2, name: 'Products', item: `${company.url}/#products` },
+        { '@type': 'ListItem', position: 3, name: p.name, item: url },
+      ],
+    },
+  ],
+};
+---
+<Base title={p.metaTitle} description={p.metaDescription} jsonLd={jsonLd}>
+  <section class="phero container" aria-labelledby="p-title">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#products">Yarns</a></li>
+        <li><a href={`/products/${p.slug}/`} aria-current="page">{p.name}</a></li>
+      </ol>
+    </nav>
+    <h1 id="p-title">{p.name}</h1>
+    <div class="phero__grid">
+      <div>
+        <p class="label">Yarn {String(idx + 1).padStart(2, '0')} / 04 — {p.badge} · {p.tagline}</p>
+        <p class="lede" style="margin-top: var(--s-5);">{p.intro}</p>
+        <dl class="keyfacts">{p.keyFacts.map((k) => <div><dt>{k.label}</dt><dd>{k.value}</dd></div>)}</dl>
+        <div class="hero__ctas" style="margin-top: var(--s-8);">
+          <a class="btn btn--solid" href={ctaHref}>Request a sample <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn btn--line" href="/#manufacturing">How it's made <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class:list={['phero__img', { 'phero__img--small': p.lowRes }]}>
+        <Picture src={p.heroImage} alt={p.alt} formats={['avif']} fallbackFormat="webp" widths={p.lowRes ? [p.heroImage.width] : [480, 800, Math.min(1200, p.heroImage.width)]} sizes="(min-width: 56rem) 45vw, 100vw" loading="eager" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--khadi" aria-labelledby="benefits-title">
+    <div class="container">
+      <header class="ledger-head"><p class="label">01 — Benefits</p><h2 id="benefits-title">Why buyers choose it</h2></header>
+      <ul class="benefits">{p.benefits.map((b) => <li><h3>{b.title}</h3><p>{b.body}</p></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="specs-title">
+    <div class="container">
+      <header class="ledger-head"><p class="label">02 — Spec sheet</p><h2 id="specs-title">Technical specifications</h2></header>
+      <div class="table-scroll" tabindex="0" role="region" aria-labelledby="specs-title">
+        <table class="spec-table" style="min-width: 32rem;">
+          <caption>{p.name} — baseline specification. Contracts and proforma invoices state the exact agreed parameters for each lot.</caption>
+          <thead><tr><th scope="col">Parameter</th><th scope="col">Details</th></tr></thead>
+          <tbody>{p.specs.map((s) => <tr><th scope="row">{s.label}</th><td>{s.value}</td></tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--khadi" aria-labelledby="apps-title">
+    <div class="container">
+      <header class="ledger-head"><p class="label">03 — End uses</p><h2 id="apps-title">Applications</h2></header>
+      <ol class="apps">{p.applications.map((a, i) => <li><span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>{a}</li>)}</ol>
+    </div>
+  </section>
+
+  <section class="section section--loom on-dark contact" aria-labelledby="cta-title">
+    <div class="container" style="display: grid; gap: var(--s-8);">
+      <p class="label">Direct from the mill</p>
+      <h2 id="cta-title">Tell us the count. <em class="serif">We'll tell you what we can spin.</em></h2>
+      <p class="lede">Share your count, application and quantity. You'll speak directly with the family — no intermediaries.</p>
+      <div class="hero__ctas">
+        <a class="btn btn--solid" href={ctaHref}>Request a {p.short} sample <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="btn btn--line" href={`mailto:${company.email}?subject=${encodeURIComponent(p.name + ' enquiry')}`}>Email {company.email}</a>
+      </div>
+      <nav aria-labelledby="other-title">
+        <p class="label" id="other-title">Other yarn lines</p>
+        <ul class="tags">{others.map((o) => <li><a href={`/products/${o.slug}/`}>{o.name}</a></li>)}</ul>
+      </nav>
+    </div>
+  </section>
+</Base>

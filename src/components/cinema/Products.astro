@@ -1,0 +1,59 @@
+---
+// Products — the four AKR yarn lines with their published specifications.
+// Low-resolution source photos are shown at native size on a mat instead of being stretched.
+import { Picture } from 'astro:assets';
+import { products, productsScene as ps } from '../../data/site';
+---
+<section class="section products" id="products" aria-labelledby="products-title">
+  <div class="container">
+    <header class="sec-head">
+      <p class="eyebrow">Products · {ps.eyebrow}</p>
+      <h2 id="products-title" class="display display--lg" data-split>{ps.title}</h2>
+      <p class="lede">{ps.intro}</p>
+    </header>
+
+    <ol class="yarns">
+      {products.map((p, i) => (
+        <li class:list={['yarn', { 'yarn--flip': i % 2 === 1 }]} data-yarn>
+          <a class:list={['yarn__media', 'img-frame', { 'yarn__media--small': p.lowRes }]} href={`/products/${p.slug}/`} tabindex="-1" aria-hidden="true">
+            <Picture src={p.heroImage} alt="" formats={['avif']} fallbackFormat="webp" widths={p.lowRes ? [p.heroImage.width] : [480, 800, Math.min(1200, p.heroImage.width)]} sizes={p.lowRes ? `${p.heroImage.width}px` : '(min-width: 64rem) 50vw, 100vw'} loading="lazy" decoding="async" data-yarn-img />
+          </a>
+          <div class="yarn__copy">
+            <p class="yarn__n"><span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span> {p.badge} · {p.tagline}</p>
+            <h3 class="yarn__name"><a href={`/products/${p.slug}/`}>{p.name}</a></h3>
+            <p>{p.intro}</p>
+            <dl class="facts">
+              <div><dt>Composition</dt><dd>{p.compositionShort}</dd></div>
+              <div><dt>Count</dt><dd>{p.count}</dd></div>
+              <div><dt>Tenacity</dt><dd>{p.rkm}</dd></div>
+              <div><dt>Handle</dt><dd>{p.handle}</dd></div>
+            </dl>
+            <ul class="chips" aria-label={`${p.name}: typical applications`}>{p.tags.map((t) => <li>{t}</li>)}</ul>
+            <div class="yarn__actions">
+              <a class="btn btn--forest" href={`/products/${p.slug}/`}>View specifications<span class="sr-only"> for {p.name}</span> <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="textlink" href={`/?product=${encodeURIComponent(p.formValue)}#contact`} data-product-cta={p.formValue}>Request a sample<span class="sr-only"> of {p.name}</span></a>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <div class="compare">
+      <h3 id="compare-title" class="display display--sm">Side by side</h3>
+      <div class="table-scroll" tabindex="0" role="region" aria-labelledby="compare-title">
+        <table class="spec-table">
+          <caption>{ps.tableCaption}</caption>
+          <thead>
+            <tr><th scope="col">Yarn</th><th scope="col">Composition</th><th scope="col">Count (Ne)</th><th scope="col">Tenacity</th><th scope="col">Handle</th><th scope="col">Shrinkage</th></tr>
+          </thead>
+          <tbody>
+            {products.map((p) => (
+              <tr><th scope="row"><a href={`/products/${p.slug}/`}>{p.short}</a></th><td>{p.compositionShort}</td><td>{p.count}</td><td>{p.rkm}</td><td>{p.handle}</td><td>{p.shrinkage}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="scroll-hint">Scroll the table sideways to see every column.</p>
+    </div>
+  </div>
+</section>

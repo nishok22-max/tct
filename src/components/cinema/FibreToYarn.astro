@@ -1,0 +1,65 @@
+---
+// Chapter 4 · CRAFT begins: loose fibres drift in from the left, converge, and twist into one
+// continuous two-ply strand that runs off towards the mill. Paths are generated at build time
+// (deterministic), drawn by scroll (stroke-dashoffset, scrubbed). Normal scroll — no pin.
+import { fibre } from '../../data/site';
+
+const W = 1600;
+const H = 520;
+const NODE = { x: 640, y: 260 };
+
+// Deterministic PRNG so the build output is stable.
+let seed = 7;
+const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+
+const fibres = Array.from({ length: 14 }, (_, i) => {
+  const y0 = 70 + (i / 13) * (H - 140) + (rnd() - 0.5) * 30;
+  const x0 = -40 + rnd() * 160;
+  const c1x = 180 + rnd() * 140;
+  const c1y = y0 + (rnd() - 0.5) * 120;
+  const c2x = 440 + rnd() * 90;
+  const c2y = NODE.y + (y0 - NODE.y) * (0.25 + rnd() * 0.2);
+  return { d: `M${x0.toFixed(1)} ${y0.toFixed(1)} C ${c1x.toFixed(1)} ${c1y.toFixed(1)}, ${c2x.toFixed(1)} ${c2y.toFixed(1)}, ${NODE.x} ${NODE.y}`, w: (0.6 + rnd() * 0.9).toFixed(2), o: (0.35 + rnd() * 0.5).toFixed(2) };
+});
+
+// Two-ply yarn: two strands wrapped around each other (S-twist look), slowly tightening.
+const ply = (phase: number) => {
+  const pts: string[] = [];
+  for (let x = NODE.x; x <= W + 40; x += 6) {
+    const t = (x - NODE.x) / (W - NODE.x);
+    const amp = 9 - 3 * t;
+    const freq = 0.085 + t * 0.02;
+    const y = NODE.y + Math.sin((x - NODE.x) * freq + phase) * amp * Math.min(1, (x - NODE.x) / 60);
+    pts.push(`${x === NODE.x ? 'M' : 'L'}${x.toFixed(1)} ${y.toFixed(2)}`);
+  }
+  return pts.join(' ');
+};
+const plyA = ply(0);
+const plyB = ply(Math.PI);
+---
+<section class="fibre" id="fibre" aria-labelledby="fibre-title" data-fibre-section>
+  <div class="container fibre__head">
+    <p class="eyebrow">{fibre.eyebrow}</p>
+    <h2 id="fibre-title" class="display display--lg" data-split>{fibre.title}</h2>
+    <p class="lede">{fibre.body}</p>
+  </div>
+  <div class="fibre__art" aria-hidden="true">
+    <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" focusable="false" data-fibre-svg>
+      <defs>
+        <linearGradient id="yarn-shade" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#C68F4C" />
+          <stop offset="0.5" stop-color="#8A6A3E" />
+          <stop offset="1" stop-color="#243B2E" />
+        </linearGradient>
+      </defs>
+      <g class="fibre__loose">
+        {fibres.map((f) => <path d={f.d} pathLength="1" stroke-width={f.w} style={`--o:${f.o}`} data-fibre-path />)}
+      </g>
+      <g class="fibre__yarn">
+        <path d={plyA} pathLength="1" data-yarn-path />
+        <path d={plyB} pathLength="1" data-yarn-path />
+      </g>
+      <circle class="fibre__node" cx={NODE.x} cy={NODE.y} r="5" data-fibre-node />
+    </svg>
+  </div>
+</section>

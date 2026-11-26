@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/akr-logo.png';
+import { company, products, nav } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <ul class="pillars" aria-label="Our pillars">
+    {company.pillars.map((p) => <li>{p}</li>)}
+  </ul>
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="footer__logo" href="/" aria-label={`${company.name} — home`}>
+          <Image src={logo} alt="" width={200} widths={[200, 400]} sizes="200px" loading="lazy" />
+        </a>
+        <p>{company.description}</p>
+      </div>
+      <nav aria-labelledby="f-products">
+        <h2 id="f-products">Yarns</h2>
+        <ul class="links">{products.map((p) => <li><a href={`/products/${p.slug}/`}>{p.name}</a></li>)}</ul>
+      </nav>
+      <nav aria-labelledby="f-company">
+        <h2 id="f-company">The mill</h2>
+        <ul class="links">
+          {nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+          <li><a href="/#machinery">Machinery partners</a></li>
+          <li><a href="/#contact">Enquire</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Mill & head office</h2>
+        <address>
+          <p>{company.address.full}</p>
+          <p class="footer__hours">{company.hours.short}</p>
+          <ul class="links">
+            <li><a href={`mailto:${company.email}`}>{company.email}</a></li>
+            <li><a href={company.mapsUrl} rel="noopener" target="_blank">View on Google Maps ↗<span class="sr-only"> (opens in a new tab)</span></a></li>
+          </ul>
+        </address>
+      </div>
+    </div>
+    <div class="footer__base">
+      <p>© {year} {company.name}. All rights reserved. · GSTIN {company.gstin}</p>
+      <p><a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms & Conditions</a></p>
+    </div>
+  </div>
+</footer>

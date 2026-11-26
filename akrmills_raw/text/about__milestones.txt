@@ -1,0 +1,42 @@
+# PAGE: about__milestones.html
+
+TITLE: Milestones | AKR Spinning Mills | AKR Spinning Mills
+META description: Key milestones in AKR Spinning Mills' journey across three generations: from cotton trading and ginning to modern ring spinning.
+META og:title: Milestones | AKR Spinning Mills | AKR Spinning Mills
+META og:description: Key milestones in AKR Spinning Mills' journey across three generations: from cotton trading and ginning to modern ring spinning.
+META og:url: https://akrmills.com/about/milestones/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: Milestones | AKR Spinning Mills | AKR Spinning Mills
+META twitter:description: Key milestones in AKR Spinning Mills' journey across three generations: from cotton trading and ginning to modern ring spinning.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/about/milestones/">
+
+===== MAIN CONTENT =====
+
+About ⟨/about⟩/MilestonesThree-Generation Evolution
+# Traders. Ginners. Spinners.
+The key turning points that shaped our journey from cotton trading and ginning under N. Srinivasan to modern ring spinning under MD Asok Kumar and JMD Keerthan Asok Kumar.
+1st Generation · Founder N. Srinivasan
+## Raw Cotton Trading & Merchanting
+Founding Era
+N. Srinivasan establishes the family business in raw cotton trading. Direct procurement from growers and deep understanding of staple lengths establish the company's foundational reputation for fibre integrity.
+1st to 2nd Generation Expansion
+## Cotton Ginning Operations
+Ginning Era
+The family expands from trading into cotton ginning, separating seed cotton into clean lint bales. Controlling the ginning stage allows the family to ensure fibre purity and supply high-grade raw cotton directly to mills.
+2nd Generation · Led by Asok Kumar (MD)
+## Commissioning AKR Spinning Mills
+Spinning Transition
+Managing Director Asok Kumar leads the strategic leap into industrial manufacturing. AKR Spinning Mills is established with modern ring-spinning frames, carding lines, and autoconers from LMW, Trützschler, Rieter, and Saurer.
+3rd Generation · Led by Keerthan Asok Kumar (JMD)
+## Modernization, Blends & Combed Yarns
+Current Era
+Joint Managing Director Keerthan Asok Kumar leads technological modernization. The mill expands into 100% Combed Cotton, Polyester Cotton (PC), and Cotton Polyester (CP/CVC) blends, with laboratory testing benchmarked to international Uster standards.
+Three Generations of Continuous Growth: From raw cotton merchanting to precision ring spinning, our family has dedicated over six decades to understanding cotton fibre from farm to yarn.
+Let's Work Together
+## Partner With AKR Spinning Mills
+Experience the difference of precision-engineered yarns backed by decades of expertise. Contact our team to discuss your specific textile requirements.
+Get in Touch ⟨/contact⟩View Product Catalogue ⟨/products⟩

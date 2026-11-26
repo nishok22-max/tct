@@ -1,0 +1,105 @@
+# PAGE: about.html
+
+TITLE: About Us | AKR Spinning Mills | AKR Spinning Mills
+META description: AKR Spinning Mills is a three-generation family-run enterprise rooted in cotton trading, ginning, and modern ring spinning in Tamil Nadu. Learn about our story, leadership, and principles.
+META og:title: About Us | AKR Spinning Mills | AKR Spinning Mills
+META og:description: AKR Spinning Mills is a three-generation family-run enterprise rooted in cotton trading, ginning, and modern ring spinning in Tamil Nadu. Learn about our story, leadership, and principles.
+META og:url: https://akrmills.com/about/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: About Us | AKR Spinning Mills | AKR Spinning Mills
+META twitter:description: AKR Spinning Mills is a three-generation family-run enterprise rooted in cotton trading, ginning, and modern ring spinning in Tamil Nadu. Learn about our story, leadership, and principles.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/about/">
+
+JSON-LD:
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "AKR Spinning Mills",
+      "url": "https://akrmills.com",
+      "logo": "https://akrmills.com/images/akr-logo.webp",
+      "description": "Three-generation karded cotton and blended yarn manufacturer based in Pollachi, Tamil Nadu, India.",
+      "foundingDate": "1998",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "No. 85/16 Palakkad Road, Gandhi Nagar",
+        "addressLocality": "Pollachi",
+        "postalCode": "642001",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "info@akrmills.com"
+      },
+      "knowsAbout": [
+        "Cotton Yarn Manufacturing",
+        "Karded Cotton Yarn",
+        "Ring Spinning",
+        "Textile Processing",
+        "Polyester Cotton Blended Yarns"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://akrmills.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://akrmills.com/about"
+        }
+      ]
+    }
+  ]
+}
+
+===== MAIN CONTENT =====
+
+About AKR Spinning Mills
+# A Family That Has Lived Cotton for Three Generations.
+We are not a distant corporation — we are a family enterprise. Founded by N. Srinivasan as cotton traders and ginners, and developed into a premier spinning mill by MD Asok Kumar and JMD Keerthan Asok Kumar.
+## Our Mission
+To produce consistent, high-performance 100% cotton, polyester-cotton, and blended yarns that knitters and weavers can rely on without compromise — backed by direct personal accountability.
+## Our Vision
+To grow as a respected, family-run textile manufacturer — investing in our people, our machinery, and our community — while supplying yarn that meets the quality expectations of a competitive market.
+Explore Our Story
+## Get to Know AKR
+### Our History
+Three generations of cotton knowledge: from trading and ginning under N. Srinivasan to modern ring spinning.
+Read more
+⟨/about/history⟩
+### Management
+Meet MD Asok Kumar, JMD Keerthan Asok Kumar, and our family leadership.
+Read more
+⟨/about/management⟩
+### Milestones
+Key turning points in our transition from cotton trading to manufacturing.
+Read more
+⟨/about/milestones⟩
+Our Values
+## The Principles That Guide How We Work
+### Family Commitment
+Three generations of cotton and textile mastery in every cone we produce.
+### Consistent Quality
+Quality benchmarked to Uster standards — measured at every stage of production.
+### Long-term Partnerships
+Building lasting relationships with buyers, suppliers, and our local community.
+### Technical Support
+Helping buyers specify the right count, ply, and twist for their end application.
+Let's Work Together
+## Partner With AKR Spinning Mills
+Experience the difference of precision-engineered yarns backed by decades of expertise. Contact our team to discuss your specific textile requirements.
+Get in Touch ⟨/contact⟩View Product Catalogue ⟨/products⟩

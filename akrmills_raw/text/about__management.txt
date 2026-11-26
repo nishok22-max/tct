@@ -1,0 +1,69 @@
+# PAGE: about__management.html
+
+TITLE: Management & Leadership | AKR Spinning Mills | AKR Spinning Mills
+META description: Meet the three-generation leadership team behind AKR Spinning Mills: Founder N. Srinivasan, Managing Director Asok Kumar, and Joint Managing Director Keerthan Asok Kumar.
+META og:title: Management & Leadership | AKR Spinning Mills | AKR Spinning Mills
+META og:description: Meet the three-generation leadership team behind AKR Spinning Mills: Founder N. Srinivasan, Managing Director Asok Kumar, and Joint Managing Director Keerthan Asok Kumar.
+META og:url: https://akrmills.com/about/management/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: Management & Leadership | AKR Spinning Mills | AKR Spinning Mills
+META twitter:description: Meet the three-generation leadership team behind AKR Spinning Mills: Founder N. Srinivasan, Managing Director Asok Kumar, and Joint Managing Director Keerthan Asok Kumar.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/about/management/">
+
+===== MAIN CONTENT =====
+
+About ⟨/about⟩/ManagementExecutive Leadership
+# Three Generations of Stewardship.
+AKR Spinning Mills is guided by three generations of hands-on family leadership, combining deep-rooted cotton trading heritage with modern ring-spinning technology.
+Key Leadership
+## The Family Behind AKR
+From trading raw cotton bales to operating a world-class spinning fleet, our leaders have steered AKR with personal integrity and technical dedication.
+11st Generation
+Founding Visionary
+### N. Srinivasan
+Founder
+Established the enterprise rooted in raw cotton merchanting and ginning. His foundational knowledge of cotton staple lengths, farmer relationships, and uncompromising trade integrity laid the bedrock of trust that AKR stands upon today.
+Key Milestones & Focus:
+Cotton Trading Roots
+Ginning Expansion
+Purity & Integrity
+22nd Generation
+Industrial Leadership
+### Asok Kumar
+Managing Director (MD)
+Pioneered the family's transition from trading and ginning into modern ring spinning. He directed the establishment of our precision manufacturing infrastructure, commissioning advanced machinery from LMW, Trützschler, Rieter, and Saurer.
+Key Milestones & Focus:
+Spinning Mill Establishment
+Machinery Modernization
+Operational Excellence
+33rd Generation
+Next-Gen Growth & Technology
+### Keerthan Asok Kumar
+Joint Managing Director (JMD)
+Directs current operations, quality benchmarking, and strategic expansion into synthetic-cotton blends (PC/CP) and high-end combed cotton yarns. Focused on automation, digital quality tracking, and global buyer relationships.
+Key Milestones & Focus:
+Product Diversification
+Uster Quality Standards
+Strategic Client Partnerships
+Core Values
+## What Our Leadership Brings
+Our customers deal directly with decision-makers who have skin in the game.
+### Cotton Knowledge
+Three generations of hands-on expertise understanding cotton fibre from harvest and ginning to ring spinning.
+### Hands-on Production Oversight
+Leadership is actively present on the mill floor daily. Quality standards and technical tolerances are monitored personally.
+### Direct Family Communication
+No corporate bureaucracy or impersonal account reps. Buyers discuss specifications and commercial terms directly with the leadership.
+### Quality Accountability
+Quality is an inherited family reputation. Every shipment of 100% cotton, PC, and CP yarn is backed by our direct personal guarantee.
+### Speak Directly With Our Leadership
+Whether you need a specialized blend ratio, custom yarn counts, or scheduled export contracts, MD Asok Kumar and JMD Keerthan Asok Kumar are available to discuss your specifications personally.
+Contact Leadership Team ⟨/contact⟩
+Let's Work Together
+## Partner With AKR Spinning Mills
+Experience the difference of precision-engineered yarns backed by decades of expertise. Contact our team to discuss your specific textile requirements.
+Get in Touch ⟨/contact⟩View Product Catalogue ⟨/products⟩

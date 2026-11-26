@@ -1,0 +1,61 @@
+# PAGE: contact.html
+
+TITLE: Contact Us | AKR Spinning Mills | AKR Spinning Mills
+META description: Get in touch with AKR Spinning Mills for yarn enquiries, count availability, bulk orders, or general business discussions.
+META og:title: Contact Us | AKR Spinning Mills | AKR Spinning Mills
+META og:description: Get in touch with AKR Spinning Mills for yarn enquiries, count availability, bulk orders, or general business discussions.
+META og:url: https://akrmills.com/contact/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: Contact Us | AKR Spinning Mills | AKR Spinning Mills
+META twitter:description: Get in touch with AKR Spinning Mills for yarn enquiries, count availability, bulk orders, or general business discussions.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/contact/">
+
+===== MAIN CONTENT =====
+
+Let's Talk Business
+# Let's Discuss Your
+Yarn Requirement.
+Speak directly with our management. Tell us your required count, blend, and application — we will respond with availability, test data, and pricing.
+Email Us
+info@akrmills.com
+⟨mailto:info@akrmills.com⟩
+### Corporate Office & Mill
+No. 85/16 Palakkad Road, Gandhi Nagar, Pollachi - 642001, Coimbatore, Tamil Nadu, India
+View on Google Maps ⟨https://maps.app.goo.gl/uazSDGGynKSW3vef8?g_st=iw⟩
+Email
+info@akrmills.com
+⟨mailto:info@akrmills.com⟩
+### Business Hours
+Monday – Saturday
+9:00 AM – 6:00 PM IST
+### GSTIN
+33ACPFA1219G1ZP
+[IFRAME https://maps.google.com/maps?q=AKR%20Spinning%20Mills,%20Palakkad%20Road,%20Pollachi&t=&z=15&ie=UTF8&iwloc=&output=embed] Open App ⟨https://maps.app.goo.gl/uazSDGGynKSW3vef8?g_st=iw⟩
+## Send an Enquiry
+Include your required count and application (e.g. knitting T-shirts, weaving towels) for accurate details.
+### Enquiry Sent!
+Thank you for reaching out. Our sales team will get back to you shortly.
+Send Another Enquiry
+Full Name *
+[FIELD input name=name type=text placeholder=None required=True id=name]
+Company Name *
+[FIELD input name=company type=text placeholder=None required=True id=company]
+Email Address *
+[FIELD input name=email type=email placeholder=None required=True id=email]
+Phone Number
+[FIELD input name=phone type=tel placeholder=None required=False id=phone]
+Product Interest
+[FIELD select name=product_interest type=None placeholder=None required=False id=product_interest] [OPTION value=''] Select a product
+[OPTION value='Polyester Cotton Yarn'] Polyester Cotton Yarn
+[OPTION value='Cotton Polyester Yarn'] Cotton Polyester Yarn
+[OPTION value='100% Combed Cotton Yarn'] 100% Combed Cotton Yarn
+[OPTION value='100% Cotton Karded Yarn'] 100% Cotton Karded Yarn
+[OPTION value='General Enquiry'] General Enquiry
+Message *
+[FIELD textarea name=message type=None placeholder=None required=True id=message]
+[TURNSTILE sitekey=0x4AAAAAAFLcYcZtHXWmvIMh]
+Submit Enquiry

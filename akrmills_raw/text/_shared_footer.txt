@@ -1,0 +1,23 @@
+PEOPLE|QUALITY|COMMUNITY|CRAFTSMANSHIP
+[IMG src=/images/akr-logo.webp alt='AKR Spinning Mills logo'] ⟨/⟩
+A three-generation family-run mill rooted in cotton trading and ginning, producing premium 100% cotton karded, combed, and blended yarns from Tamil Nadu, India.
+### Our Products
+- Product Portfolio ⟨/products⟩
+- Polyester Cotton Yarn ⟨/products/polyester-cotton⟩
+- Cotton Polyester Yarn ⟨/products/cotton-polyester⟩
+- 100% Cotton Karded Yarn ⟨/products/karded-yarn⟩
+- 100% Combed Cotton Yarn ⟨/products/combed-yarn⟩
+### Company
+- Our Story ⟨/about⟩
+- History & Heritage ⟨/about/history⟩
+- Management ⟨/about/management⟩
+- Manufacturing Process ⟨/manufacturing/process⟩
+- Infrastructure ⟨/manufacturing/infrastructure⟩
+- Insights & Industry ⟨/insights⟩
+- People & CSR ⟨/people-and-csr⟩
+### Mill & Head Office
+No. 85/16 Palakkad Road, Gandhi Nagar, Pollachi - 642001, Coimbatore, Tamil Nadu, India
+Google Maps Location ⟨https://maps.app.goo.gl/uazSDGGynKSW3vef8?g_st=iw⟩
+info@akrmills.com ⟨mailto:info@akrmills.com⟩
+© 2026 AKR Spinning Mills. All rights reserved.
+Privacy Policy ⟨/privacy⟩•Terms & Conditions ⟨/terms⟩

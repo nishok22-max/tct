@@ -1,0 +1,31 @@
+# PAGE: terms.html
+
+TITLE: Terms & Conditions | AKR Spinning Mills | AKR Spinning Mills
+META description: Terms and conditions governing the use of the AKR Spinning Mills website and general B2B enquiry standards.
+META og:title: Terms & Conditions | AKR Spinning Mills | AKR Spinning Mills
+META og:description: Terms and conditions governing the use of the AKR Spinning Mills website and general B2B enquiry standards.
+META og:url: https://akrmills.com/terms/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: Terms & Conditions | AKR Spinning Mills | AKR Spinning Mills
+META twitter:description: Terms and conditions governing the use of the AKR Spinning Mills website and general B2B enquiry standards.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/terms/">
+
+===== MAIN CONTENT =====
+
+Legal & Governance
+# Terms & Conditions
+General guidelines and conditions applicable to browsing our catalogue and communicating with AKR Spinning Mills.
+## 1. Website Usage
+The content on this website is for informational purposes regarding yarn specifications, product counts, manufacturing processes, and mill capabilities. Reproduction of imagery, logos, or copy without written authorization is strictly prohibited.
+## 2. Product Specifications & Availability
+Product counts (e.g. 20s to 40s Karded & Combed cotton yarn), CSP figures, and technical metrics listed on the website represent baseline standards. Official commercial contracts and proforma invoices provide exact agreed parameters for individual yarn lots.
+## 3. Enquiries & Quotations
+Submitting an enquiry via our web forms or email does not constitute a binding contract. Formal quotes, delivery schedules, and payment terms will be issued directly by AKR Spinning Mills management.
+## 4. Intellectual Property
+All brand trademarks, trade names, logo assets, and technical documentation displayed on this platform are the property of AKR Spinning Mills.
+## 5. Governing Law
+These terms are governed by the laws of India. Any legal disputes arising from business transactions shall be subject to the jurisdiction of the courts in Pollachi / Coimbatore, Tamil Nadu, India.

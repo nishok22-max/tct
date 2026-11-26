@@ -1,0 +1,14 @@
+---
+// Unobtrusive enquiry prompt right after the cinematic opening, for buyers who came to source yarn.
+import { company } from '../../data/site';
+---
+<aside class="band" aria-label="Enquire">
+  <div class="container band__inner">
+    <p><strong>Sourcing yarn?</strong> Speak directly with the family — no sales reps, no intermediaries.</p>
+    <div class="band__actions">
+      <a class="textlink" href="#products">Explore our yarns</a>
+      <a class="btn btn--forest btn--sm" href="#contact">Request a sample <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="textlink" href={`mailto:${company.email}`}>{company.email}</a>
+    </div>
+  </div>
+</aside>

@@ -1,0 +1,72 @@
+---
+// Manufacturing story — the seven stages exactly as AKR documents them (manufacturing/process
+// page), with the mill's own infrastructure photographs. Normal scroll with editorial reveals.
+import { Picture } from 'astro:assets';
+import { processScene as ps, scale } from '../../data/site';
+import aisle from '../../assets/images/hero.webp';
+---
+<section class="section mfg" id="manufacturing" aria-labelledby="mfg-title">
+  <div class="container">
+    <header class="sec-head">
+      <p class="eyebrow">Manufacturing · {ps.eyebrow}</p>
+      <h2 id="mfg-title" class="display display--lg" data-split>{ps.title}</h2>
+      <p class="lede">{ps.intro}</p>
+    </header>
+  </div>
+
+  <figure class="mfg__opener" data-opener>
+    <div class="mfg__opener-frame" data-opener-frame>
+      <Picture src={aisle} alt="Rows of ring spinning frames with white cotton yarn packages lining a long mill aisle" formats={['avif']} fallbackFormat="webp" widths={[640, 1024, 1376]} sizes="100vw" loading="lazy" decoding="async" data-opener-img />
+    </div>
+  </figure>
+
+  <div class="container">
+    <ol class="stages">
+      {ps.stages.map((s, i) => (
+        <li class:list={['stage', { 'stage--flip': i % 2 === 1 }]} data-stage>
+          <div class:list={['stage__media', 'img-frame', { 'stage__media--small': s.lowRes }]} data-stage-media>
+            <Picture
+              src={s.image}
+              alt={s.alt}
+              formats={['avif']}
+              fallbackFormat="webp"
+              widths={s.lowRes ? [s.image.width] : [480, 800, Math.min(1200, s.image.width)]}
+              sizes={s.lowRes ? `${s.image.width}px` : '(min-width: 64rem) 50vw, 100vw'}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="stage__copy" data-stage-copy>
+            <p class="stage__n"><span aria-hidden="true">{s.n}</span><span class="sr-only">Stage {Number(s.n)} of {ps.stages.length}</span><span class="stage__total" aria-hidden="true"> / 0{ps.stages.length}</span></p>
+            <h3 class="stage__name">{s.name}</h3>
+            <p class="stage__machinery">{s.machinery}{' '}<span>· {s.origin}</span></p>
+            <p class="stage__purpose">{s.purpose}</p>
+            <p>{s.body}</p>
+            <dl class="checkpoint"><dt>Quality checkpoint</dt><dd>{s.checkpoint}</dd></dl>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <div class="partners-wrap" id="machinery">
+      <header class="sec-head sec-head--sm">
+        <p class="eyebrow">{scale.eyebrow}</p>
+        <h3 class="display display--md">{scale.title}</h3>
+        <p class="lede">{scale.intro}</p>
+      </header>
+      <ul class="partners">
+        {scale.partners.map((p) => (
+          <li class="partner" data-partner>
+            <p class="partner__name">{p.name}</p>
+            <p class="partner__country">{p.country}</p>
+            <p class="partner__role">{p.role}</p>
+          </li>
+        ))}
+      </ul>
+      <div class="audit">
+        <p>{scale.audit}</p>
+        <a class="btn btn--forest" href="/#contact">Schedule a factory visit <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>

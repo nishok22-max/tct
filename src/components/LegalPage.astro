@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import { company } from '../data/site';
+
+interface Section { h: string; p: string[]; list?: string[] }
+interface Props { title: string; description: string; intro: string; sections: Section[]; eyebrow: string }
+const { title, description, intro, sections, eyebrow } = Astro.props;
+// Turn bare emails/URLs in the source text into links.
+const linkify = (t: string) =>
+  t
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/(https:\/\/[^\s)]+)/g, '<a href="$1" rel="noopener">$1</a>')
+    .replace(new RegExp(company.email.replace('.', '\\.'), 'g'), `<a href="mailto:${company.email}">${company.email}</a>`);
+---
+<Base title={`${title} | ${company.name}`} description={description}>
+  <article class="container legal">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol><li><a href="/">Home</a></li><li><a href={Astro.url.pathname} aria-current="page">{title}</a></li></ol>
+    </nav>
+    <div class="prose" style="margin-top: var(--s-8);">
+      <p class="label">{eyebrow}</p>
+      <h1 style="font-size: var(--step-4);">{title}</h1>
+      <p class="lede">{intro}</p>
+      {sections.map((s) => (
+        <>
+          <h2>{s.h}</h2>
+          {s.p.map((para) => <p set:html={linkify(para)} />)}
+          {s.list && <ul>{s.list.map((li) => <li>{li}</li>)}</ul>}
+        </>
+      ))}
+    </div>
+  </article>
+</Base>

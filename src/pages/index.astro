@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import Film from '../components/cinema/Film.astro';
+import FibreToYarn from '../components/cinema/FibreToYarn.astro';
+import EnquiryBand from '../components/cinema/EnquiryBand.astro';
+import Story from '../components/cinema/Story.astro';
+import Manufacturing from '../components/cinema/Manufacturing.astro';
+import Quality from '../components/cinema/Quality.astro';
+import Products from '../components/cinema/Products.astro';
+import BrandReveal from '../components/cinema/BrandReveal.astro';
+import Contact from '../components/scenes/Contact.astro';
+import { company, seo } from '../data/site';
+
+// Organization + WebSite, from the original site's JSON-LD (foundingDate kept as published).
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${company.url}/#org`,
+      name: company.name,
+      url: company.url,
+      logo: `${company.url}/icon-512.png`,
+      description: 'Three-generation karded cotton and blended yarn manufacturer based in Pollachi, Tamil Nadu, India.',
+      foundingDate: company.foundingDate,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: company.address.street,
+        addressLocality: company.address.locality,
+        postalCode: company.address.postalCode,
+        addressRegion: company.address.region,
+        addressCountry: company.address.countryCode,
+      },
+      contactPoint: { '@type': 'ContactPoint', contactType: 'sales', email: company.email },
+      knowsAbout: company.knowsAbout,
+    },
+    { '@type': 'WebSite', name: company.name, url: company.url, publisher: { '@id': `${company.url}/#org` } },
+  ],
+};
+---
+<Base title={seo.home.title} description={seo.home.description} jsonLd={jsonLd} overlayHeader>
+  <Film />
+  <FibreToYarn />
+  <EnquiryBand />
+  <Story />
+  <Manufacturing />
+  <Quality />
+  <Products />
+  <BrandReveal />
+  <Contact />
+</Base>
+
+<script>
+  import { initEnquiryForm } from '../scripts/form';
+  import { initCinema } from '../scripts/cinema';
+  initEnquiryForm();
+  initCinema();
+</script>

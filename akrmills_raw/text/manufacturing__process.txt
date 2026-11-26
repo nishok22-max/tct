@@ -1,0 +1,88 @@
+# PAGE: manufacturing__process.html
+
+TITLE: Manufacturing Process | AKR Spinning Mills | AKR Spinning Mills
+META description: Explore AKR Spinning Mills' seven-stage karded yarn production process — from opening and cleaning raw cotton to final yarn quality testing.
+META og:title: Manufacturing Process | AKR Spinning Mills | AKR Spinning Mills
+META og:description: Explore AKR Spinning Mills' seven-stage karded yarn production process — from opening and cleaning raw cotton to final yarn quality testing.
+META og:url: https://akrmills.com/manufacturing/process/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: Manufacturing Process | AKR Spinning Mills | AKR Spinning Mills
+META twitter:description: Explore AKR Spinning Mills' seven-stage karded yarn production process — from opening and cleaning raw cotton to final yarn quality testing.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/manufacturing/process/">
+
+===== MAIN CONTENT =====
+
+[IMG src=/images/spinning_process_hero.webp alt='AKR Spinning Mills process floor']
+Manufacturing ⟨/manufacturing⟩/Our Process
+Manufacturing Process
+# Seven Stages.
+One Consistent Yarn.
+Every cone of AKR karded yarn passes through a structured, seven-stage ring spinning process. Understanding how we make it helps you understand why you can rely on it.
+01Opening & Cleaning ⟨#stage-1⟩02Carding ⟨#stage-2⟩03Drawing & Doubling ⟨#stage-3⟩04Roving / Simplex ⟨#stage-4⟩05Ring Spinning ⟨#stage-5⟩06Autoconer Winding ⟨#stage-6⟩07Testing & Quality Release ⟨#stage-7⟩
+STAGE 01
+## Opening & Cleaning
+LMW & Trützschler Full Line
+Remove impurities and open raw cotton and blend fibres
+Raw cotton bales and synthetic fibres are opened on our automated Trützschler and LMW blowroom lines. A synchronized sequence of coarse and fine openers, dust extractors, and micro-cleaners separates the fibres gently while removing leaf particles, seed coats, and micro-dust without fibre degradation.
+Quality Checkpoint
+Trash content and fibre tuft regularity monitored continuously at blowroom exit.
+STAGE 02
+## Carding
+Trützschler & LMW High-Production Cards
+Individualize fibres and extract remaining neps and short fibres
+Treated fibres pass through high-production Trützschler and LMW carding frames. Precision revolving wire flats individualize tangled clumps into singular parallel fibres, systematically removing neps and short fly waste to deliver a clean, uniform sliver.
+Quality Checkpoint
+Sliver weight (hank), nep count, and short fibre percentage tested at card delivery.
+STAGE 03
+## Drawing & Doubling
+LMW & Rieter Autoleveller Draw Frames
+Improve sliver evenness, parallelize fibres, and blend components
+Multiple card slivers are combined and drafted on Rieter and LMW autoleveller draw frames. Digital autolevelling compensates for sliver mass variations instantaneously, ensuring perfect fibre parallelism and uniform blend distribution for 100% cotton, PC, and CP yarns.
+Quality Checkpoint
+Sliver evenness (CV% < 0.6%) and linear density verified with continuous autoleveller monitoring.
+STAGE 04
+## Roving / Simplex
+LMW Speed Frames
+Attenuate sliver and apply protective twist for ring spinning
+The drawn sliver is drafted down on LMW speed frames and given a controlled protective twist to create a slender roving. Roving bobbins are loaded onto overhead creel tracks to eliminate manual handling shocks before ring drafting.
+Quality Checkpoint
+Roving count (hank), twist factor, and bobbin tension uniformity verified.
+STAGE 05
+## Ring Spinning
+LMW Ring Spinning Fleet
+Draft, insert final twist, and spin into finished yarn
+Precision LMW ring frames draft the roving to the exact yarn count (Ne 16s to Ne 60s) and insert the final twist through synchronized ring-and-traveller mechanisms. Spindle speeds and drafting zones are tailored for each count to ensure optimal tensile tenacity and low hairiness.
+Quality Checkpoint
+Count (Ne), twist-per-inch (TPI), breaking tenacity (cN/tex), and elongation tested regularly on spindle doffs.
+STAGE 06
+## Autoconer Winding
+Saurer & Muratec Precision Autoconers
+Transfer to export cones, clear defects, and thermo-splice
+Yarn is wound from spinning bobbins onto delivery cones on Saurer and Muratec automatic winding machines. High-speed electronic yarn clearers scan every centimetre, cutting out thick spots, thin places, and neps, replacing them with knot-free splices.
+Quality Checkpoint
+Electronic clearer settings verified; splice strength tested; cone density checked for high-speed knitting and warping.
+STAGE 07
+## Testing & Quality Release
+Uster Benchmarked Testing Laboratory
+Verify lot-to-lot parameters meet global standards before dispatch
+Yarn packages from each production lot are conditioned and tested in our laboratory against Uster global benchmark standards. Measurements cover count variation (CV%), tensile strength, elongation, mass evenness, imperfection indices, and hairiness before release.
+Quality Checkpoint
+Full Uster testing, tenacity testing, and comprehensive lot test certificates generated for buyer inspection.
+For Buyers
+## What This Process Means for Your Order
+### Consistent Count
+Count variation (CV%) is controlled at drawing, roving, and monitored at ring frame and testing. Consistent count means consistent fabric weight.
+### Controlled Imperfections
+Yarn clearers at winding remove thick places, thin places, and neps from the delivery package. Imperfection levels are tracked against Uster benchmarks.
+### Reliable Strength
+Tenacity and elongation tested on finished yarn ensure each lot has the mechanical performance required for your knitting or weaving application.
+### Lot-Level Quality Data
+Each production lot is tracked through the process. Quality data is available for discussion when you place an enquiry for a specific specification.
+Let's Work Together
+## Partner With AKR Spinning Mills
+Experience the difference of precision-engineered yarns backed by decades of expertise. Contact our team to discuss your specific textile requirements.
+Get in Touch ⟨/contact⟩View Product Catalogue ⟨/products⟩

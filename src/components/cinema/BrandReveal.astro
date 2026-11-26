@@ -1,0 +1,26 @@
+---
+// Final brand reveal: rows of finished cones → camera pulls back → warm cream → the real AKR logo.
+import { Image, Picture } from 'astro:assets';
+import { reveal, company } from '../../data/site';
+import cones from '../../assets/images/products/combed-cotton-yarn.webp';
+import logo from '../../assets/brand/akr-logo-alpha.png';
+---
+<section class="reveal" id="reveal" aria-labelledby="reveal-title" data-reveal>
+  <div class="reveal__stage" data-reveal-stage>
+    <div class="reveal__frame" data-reveal-frame>
+      <Picture src={cones} alt="Rows of finished cotton yarn cones" formats={['avif']} fallbackFormat="webp" widths={[640, 1024]} sizes="100vw" loading="lazy" decoding="async" data-reveal-img />
+    </div>
+    <div class="reveal__copy container" data-reveal-copy>
+      <Image class="reveal__logo" src={logo} alt={company.name} width={360} widths={[360, 720]} sizes="(min-width: 48rem) 22rem, 70vw" loading="lazy" data-reveal-logo />
+      <h2 id="reveal-title" class="display display--xl">
+        <span class="line"><span>{reveal.lines[0]}</span></span>
+        <span class="line"><span><em>{reveal.lines[1]}</em></span></span>
+      </h2>
+      <p class="reveal__sub" data-reveal-sub>{reveal.sub}</p>
+      <div class="reveal__ctas" data-reveal-sub>
+        <a class="btn btn--forest" href={reveal.primary.href}>{reveal.primary.label} <span class="arrow" aria-hidden="true">↑</span></a>
+        <a class="btn btn--outline" href={reveal.secondary.href}>{reveal.secondary.label} <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>

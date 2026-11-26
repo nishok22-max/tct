@@ -1,0 +1,38 @@
+---
+// Our Story — the family's real heritage (source: about/history/management pages).
+import { Picture } from 'astro:assets';
+import { family, company } from '../../data/site';
+const numerals = ['I', 'II', 'III'];
+---
+<section class="section story" id="story" aria-labelledby="story-title">
+  <div class="container">
+    <header class="sec-head">
+      <p class="eyebrow">Our story · {family.eyebrow}</p>
+      <h2 id="story-title" class="display display--lg" data-split>{family.title}</h2>
+      <p class="lede">{family.intro}</p>
+    </header>
+
+    <ol class="gens">
+      {family.generations.map((g, i) => (
+        <li class="gen" data-gen>
+          <p class="gen__numeral" aria-hidden="true">{numerals[i]}</p>
+          <div class="gen__body">
+            <p class="gen__label">{g.gen}</p>
+            <h3 class="gen__name">{g.name}</h3>
+            <p class="gen__role">{g.role}</p>
+            <p class="gen__chapter">{g.chapter}</p>
+            <p>{g.body}</p>
+            <ul class="chips" aria-label={`${g.name} — focus`}>{g.focus.map((f) => <li>{f}</li>)}</ul>
+          </div>
+          {g.image && (
+            <div class="gen__media img-frame" data-parallax-frame>
+              <Picture src={g.image.src} alt={g.image.alt} formats={['avif']} fallbackFormat="webp" widths={[480, 800, 1200]} sizes="(min-width: 64rem) 34vw, 100vw" loading="lazy" decoding="async" data-parallax-img />
+            </div>
+          )}
+        </li>
+      ))}
+    </ol>
+
+    <p class="story__base">{company.tagline}</p>
+  </div>
+</section>

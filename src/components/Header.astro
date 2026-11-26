@@ -1,0 +1,48 @@
+---
+// Floating header. On the home page it starts transparent over the footage (white mono logo,
+// white links) and becomes a cotton-cream glass bar once the page scrolls (`.is-solid`).
+// Other pages render it solid from the start.
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/akr-logo-alpha.png';
+import { nav, navCta, company } from '../data/site';
+interface Props { overlay?: boolean }
+const { overlay = false } = Astro.props;
+---
+<header class:list={['site-header', { 'is-overlay': overlay, 'is-solid': !overlay }]} data-header>
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label={`${company.name} — home`}>
+      <Image class="brand__img brand__img--color" src={logo} alt="" width={180} widths={[180, 360]} sizes="180px" loading="eager" />
+      <Image class="brand__img brand__img--mono" src={logo} alt="" width={180} widths={[180, 360]} sizes="180px" loading="eager" />
+    </a>
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+      <ul>
+        {nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        <li class="nav-mobile-only"><a href={navCta.href}>{navCta.label}</a></li>
+      </ul>
+      <p class="nav-mobile-only primary-nav__meta">{company.address.locality}, {company.address.region} · <a href={`mailto:${company.email}`}>{company.email}</a></p>
+    </nav>
+    <a class="btn btn--sm header-cta" href={navCta.href}>{navCta.label}</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span></span>
+      <span class="nav-toggle__label">Menu</span>
+    </button>
+  </div>
+</header>
+<script>
+  // Header state: transparent over the opening footage, cream glass once the page has scrolled.
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  if (header?.classList.contains('is-overlay')) {
+    let solid = false;
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const next = window.scrollY > 24;
+      if (next !== solid) {
+        solid = next;
+        header.classList.toggle('is-solid', solid);
+      }
+    };
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    update();
+  }
+</script>

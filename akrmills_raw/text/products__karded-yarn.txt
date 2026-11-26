@@ -1,0 +1,258 @@
+# PAGE: products__karded-yarn.html
+
+TITLE: 100% Karded Cotton Yarn | AKR Spinning Mills | AKR Spinning Mills
+META description: AKR Spinning Mills' flagship product: 100% Karded Cotton Yarn produced by ring spinning in Tamil Nadu. Details on specifications, applications, quality assurance, and buyer guidance.
+META og:title: 100% Karded Cotton Yarn | AKR Spinning Mills | AKR Spinning Mills
+META og:description: AKR Spinning Mills' flagship product: 100% Karded Cotton Yarn produced by ring spinning in Tamil Nadu. Details on specifications, applications, quality assurance, and buyer guidance.
+META og:url: https://akrmills.com/products/karded-yarn/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: 100% Karded Cotton Yarn | AKR Spinning Mills | AKR Spinning Mills
+META twitter:description: AKR Spinning Mills' flagship product: 100% Karded Cotton Yarn produced by ring spinning in Tamil Nadu. Details on specifications, applications, quality assurance, and buyer guidance.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/products/karded-yarn/">
+
+JSON-LD:
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "100% Karded Cotton Yarn",
+      "description": "Ring-spun 100% karded cotton yarn benchmarked against Uster standards for knitting, weaving, and apparel production.",
+      "image": "https://akrmills.com/images/products/karded-yarn.webp",
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "AKR Spinning Mills"
+      },
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "INR",
+        "price": "0",
+        "priceValidUntil": "2027-10-29"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://akrmills.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "https://akrmills.com/products"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Karded Cotton Yarn",
+          "item": "https://akrmills.com/products/karded-yarn"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is 100% karded cotton yarn?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Karded cotton yarn is produced without the combing step, retaining a blend of long and short cotton fibres for a soft, natural handle and cost-effective strength ideal for knitting and weaving."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What applications is karded cotton yarn best suited for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Karded yarn is commonly used for knitted garments, T-shirts, jersey fabrics, shirting, denim, and terry towels."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What quality standards does AKR Spinning Mills follow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AKR Spinning Mills benchmarks yarn quality parameters (evenness, imperfections, hairiness, and strength) against Uster standards."
+          }
+        }
+      ]
+    }
+  ]
+}
+
+===== MAIN CONTENT =====
+
+Products ⟨/products⟩/Karded Cotton Yarn
+[IMG src=/images/products/karded-yarn.webp alt='AKR 100% karded cotton yarn cones']
+Send an Enquiry ⟨#enquiry⟩How We Make It ⟨/manufacturing/process⟩
+Flagship Product
+# 100% Karded Cotton Yarn
+AKR Spinning Mills produces 100% karded cotton yarn as our core, signature product — a ring-spun, natural-cotton yarn produced through our complete seven-stage spinning process.
+On This Page
+Benefits ⟨#benefits⟩Natural Characteristics ⟨#characteristics⟩Cost Efficiency ⟨#cost⟩Applications ⟨#applications⟩Count Range ⟨#count-range⟩Specifications ⟨#specifications⟩Karded vs Combed ⟨#comparison⟩Buyer Guidance ⟨#buyer-guidance⟩Quality Assurance ⟨#quality⟩Enquire Now ⟨#enquiry⟩
+Why Choose Karded Yarn
+## The Benefits of Karded Cotton
+### Natural Handle
+Karded yarn retains a broader mix of fibre lengths than combed, giving it a slightly bulkier, softer feel — preferred for comfortable everyday garments and towels.
+### Cost Efficiency
+No combing step means less fibre waste (no noil removal) and a shorter process path — making karded yarn the economical choice for applications that don't require the premium finish of combing.
+### Reliable Consistency
+Even without combing, our carding and drawing stages are carefully managed to deliver a consistent count, controlled evenness, and minimal imperfection levels — lot after lot.
+### Versatile Application
+Karded yarn performs across a wide range of end products — from knitted garments and jerseys to towels and shirting fabrics — making it a versatile choice for manufacturers with varied production needs.
+Natural Characteristics
+## What Makes Karded Yarn What It Is
+Karded yarn's character is shaped by the carding process itself — the stage that gives this yarn its name. Unlike combed yarn, where short fibres are removed by a combing cylinder, karded yarn retains a distribution of fibre lengths. This is not a flaw — it is a defining characteristic that makes karded yarn what it is.
+In fabric, karded yarn produces a slightly softer, more textured surface than combed. For T-shirts, jerseys, and towels — where comfort and absorbency matter more than surface smoothness — these characteristics are an asset.
+The slight hairiness of karded yarn also contributes to the softness that end-consumers expect in everyday cotton garments and household textiles.
+Fibre DistributionMix of short and long fibres post-carding
+Surface TextureSlightly more textured than combed yarn
+HairinessHigher than combed — contributes to fabric softness
+Bulk & CoverGood cover in fabric for its count
+AbsorbencyRetains cotton's natural absorbency fully
+Cost Efficiency
+## Value Without Compromise
+### No Combing Waste
+Combing removes 12–20% of fibre as noil. Karded yarn uses the full card sliver — reducing raw material waste and keeping the process cost down.
+### Shorter Process Path
+Karded yarn skips the combing stage entirely. Fewer machines, fewer handling stages, and faster throughput all contribute to a leaner cost structure.
+### Right Fit for Application
+For everyday knitwear, jerseys, towels, and standard shirting, karded yarn delivers the required properties at a cost point that works commercially.
+Applications
+## Where Our Yarn Is Used
+AKR karded cotton yarn is currently confirmed for the following applications. Additional applications will be added as verified with buyers.
+### Knitted T-Shirts & Single Jersey
+Suited for producing high-quality knitted t-shirts & single jersey based on current specifications.
+### Terry Bath & Hand Towels
+Suited for producing high-quality terry bath & hand towels based on current specifications.
+### Fleece Sweatshirts & Hoodies
+Suited for producing high-quality fleece sweatshirts & hoodies based on current specifications.
+### Heavy Weaving & Denims
+Suited for producing high-quality heavy weaving & denims based on current specifications.
+Yarn Count Range
+## Count Availability
+ℹ
+Note on Count Availability: Count range data for AKR Spinning Mills is managed in our product database and updated as our production capabilities are confirmed. Please contact us with your specific count requirement to check current availability.
+Yarn Count System
+English Count (Ne)
+Twist Direction
+Z-twist standard; S-twist on enquiry
+Ply
+Single (1-ply) and plied on enquiry
+### Understanding Yarn Count (Ne)
+Yarn count in the English (Ne) system indicates how many 840-yard hanks of yarn weigh one pound. A higher Ne number means a finer yarn — a 40s yarn is finer than a 20s yarn.
+For karded yarn, the practical count range is typically in the coarser to medium segment of the market. Fine karded yarn is possible, but the natural variation from retained short fibres makes combed more suitable at very fine counts. We recommend discussing your count requirement with us directly.
+Specifications
+## Product Specifications
+Parameter
+Details
+Fibre Composition
+100% Pure Virgin Cotton
+Yarn Type
+Karded Ring Spun
+Count Range
+Ne 16s to Ne 40s (Single & Plied)
+Twist Direction
+Z-Twist (S-Twist on enquiry)
+Evenness / Uster
+Tested to Uster Statistics 25–50% standards
+Packaging
+Cones / 24-cone woven export bags or carton boxes
+Technical Comparison
+## Karded vs. Combed — Which is Right?
+Property
+Karded Yarn
+Combed Yarn
+Short Fibre Content
+Retained (broader fibre distribution)
+Removed by combing stage
+Surface Texture
+Slightly textured / hairy
+Smoother, more lustrous
+Strength (Tenacity)
+Good for most applications
+Higher — due to longer fibre alignment
+Evenness (U%)
+Controlled; monitored at Uster tester
+Better — shorter fibres that cause variation removed
+Hairiness
+Higher — contributes to fabric softness
+Lower — cleaner, smoother surface
+Imperfections
+Monitored and controlled at card / clearers
+Lower — combing reduces neps and short fibre effects
+Cost
+Lower — no combing stage; less fibre waste
+Higher — combing waste (noil) adds to raw material cost
+Typical Applications
+T-shirts, jerseys, towels, everyday knitwear
+Fine shirting, premium knitwear, fine fabrics
+Count Range (typical)
+Coarser to medium counts
+Medium to fine counts
+AKR currently produces karded yarn. If your application requires combed, please contact us to discuss your requirement.
+For Buyers
+## What to Specify When You Enquire
+The more clearly you specify your requirement, the better we can confirm availability, lead time, and pricing. Here is what to consider before sending an enquiry.
+### Yarn Type
+Required
+Karded ring spun is our standard. If you are considering karded for an application that typically uses combed, please mention this so we can advise.
+### Count (Ne)
+Required
+The yarn count you need. If you are unsure, describe your end product (e.g., 180 GSM single jersey T-shirt) and we can suggest an appropriate count range.
+### Fibre Composition
+Required
+We produce 100% cotton karded yarn. If you need a blend (e.g., cotton-polyester), please specify.
+### Application
+Required
+What you are making with the yarn — knitting (and if so, what structure), weaving, terry. This helps us confirm suitability and recommend the right specification.
+### Quantity
+Required
+Approximate order quantity in kilograms or cones. This affects lead time and minimum order discussions.
+### Ply
+Optional
+Single (1-ply) is standard. Two-ply and other constructions are available on enquiry — specify if needed.
+### Twist Direction
+Optional
+Z-twist is our standard. S-twist (or specific TPI) can be discussed on enquiry.
+### Quality Parameters
+Optional
+If you have specific Uster or customer quality requirements, please share them. We can review against our tested results.
+### Packaging Requirements
+Optional
+Standard delivery is on cones. If you need cone weight, core size, or labelling specifications, mention these in your enquiry.
+### Delivery Requirements
+Optional
+Expected delivery destination, lead time requirements, and Incoterms preference.
+Quality Assurance
+## How We Ensure Quality at Every Lot
+### Uster Benchmark Standards
+Uster Technologies publishes annual statistics that benchmark yarn quality parameters — evenness, imperfections, hairiness — against global production averages. These statistics are the industry standard reference for yarn quality assessment.
+We test our finished yarn on testing equipment that produces results comparable to Uster statistics. Quality positioning for each production lot can be discussed with buyers on enquiry. We do not publish specific Uster percentile claims without confirmed, current lot data.
+### Parameters We Test
+Count (Ne)Actual count vs. target count; CV% (Count Variation)
+Tensile Strength (Tenacity)Force required to break the yarn, measured in cN/tex
+Elongation at BreakHow much the yarn stretches before breaking
+Evenness (U%)Measured by Uster tester; indicates mass variation in the yarn
+ImperfectionsThin places, thick places, and neps per 1000 metres
+HairinessThe fibre hairs extending from the yarn body — measured by Uster H value
+### Lot-to-Lot Traceability
+Each production lot is tracked through our process. Quality test results are maintained for each lot and can be made available to buyers as part of the supply relationship. Consistency across lots is a key part of how we approach quality management.
+Send an Enquiry
+## Ready to Discuss Your Requirement?
+Tell us your count, application, and quantity. We'll respond with availability, lead time, and next steps. No pressure, no intermediaries — you'll speak directly with the family.
+Send an Enquiry ⟨/contact?product=100%25%20Cotton%20Karded%20Yarn⟩View Our Process ⟨/manufacturing/process⟩
+Let's Work Together
+## Partner With AKR Spinning Mills
+Experience the difference of precision-engineered yarns backed by decades of expertise. Contact our team to discuss your specific textile requirements.
+Get in Touch ⟨/contact⟩View Product Catalogue ⟨/products⟩

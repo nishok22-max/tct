@@ -1,0 +1,133 @@
+# PAGE: manufacturing__infrastructure.html
+
+TITLE: Machinery & Infrastructure | AKR Spinning Mills | AKR Spinning Mills
+META description: Explore AKR Spinning Mills' infrastructure: Blowroom Line, Carding Machine, Draw Frame, Roving Frame, Ring Spinning Frame, Autoconer, and Yarn Testing Lab.
+META og:title: Machinery & Infrastructure | AKR Spinning Mills | AKR Spinning Mills
+META og:description: Explore AKR Spinning Mills' infrastructure: Blowroom Line, Carding Machine, Draw Frame, Roving Frame, Ring Spinning Frame, Autoconer, and Yarn Testing Lab.
+META og:url: https://akrmills.com/manufacturing/infrastructure/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: Machinery & Infrastructure | AKR Spinning Mills | AKR Spinning Mills
+META twitter:description: Explore AKR Spinning Mills' infrastructure: Blowroom Line, Carding Machine, Draw Frame, Roving Frame, Ring Spinning Frame, Autoconer, and Yarn Testing Lab.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/manufacturing/infrastructure/">
+
+===== MAIN CONTENT =====
+
+[IMG src=/images/infrastructure.webp alt='AKR Spinning Mills manufacturing infrastructure']
+Manufacturing ⟨/manufacturing⟩/InfrastructureWorld-Class Machinery Fleet
+# Precision Engineering at Every Spindle.
+AKR Spinning Mills operates seven precision stages — from blowroom bale opening to our on-site yarn testing lab — powered by global pioneers: LMW, Trützschler, Rieter, Saurer, and Muratec.
+Technology Partnerships With Global Spinning Pioneers
+### LMW
+India
+Blowroom, Cards, Draw Frames, Roving & Ring Spinning
+### Trützschler
+Germany
+Blowroom Line & Precision Carding Machines
+### Rieter
+Switzerland
+High-Speed Autoleveller Draw Frames
+### Saurer
+Switzerland
+Automatic Cone Winding & Electronic Clearing
+### Muratec
+Japan
+High-Efficiency Autoconer Winding
+Line by Line
+## Seven Production & Testing Stages
+Explore our complete plant infrastructure. Every machine is calibrated for minimal fibre stress, high elongation, and lot-to-lot consistency.
+01Blowroom Line ⟨#stage-01⟩02Carding Machine ⟨#stage-02⟩03Draw Frame ⟨#stage-03⟩04Roving Frame ⟨#stage-04⟩05Ring Spinning Frame ⟨#stage-05⟩06Autoconer ⟨#stage-06⟩07Yarn Testing Lab ⟨#stage-07⟩
+[IMG src=/images/infrastructure/blowroom-line.webp alt='Blowroom Line at AKR Spinning Mills']
+STAGE 01
+India & Germany
+LMW & Trützschler Full Line
+Equipment OverviewIndia & Germany
+### Blowroom Line
+LMW & Trützschler Full Line
+Automated bale opening and multi-stage cleaning lines from Trützschler and LMW. Gently separates raw cotton and synthetic staple fibres while extracting foreign matter, trash, seed coats, and micro-dust without fibre degradation.
+Key Performance Capabilities:
+Gentle tuft opening preserving fibre length
+Continuous electronic contamination extraction
+Uniform blowroom chute feed regularity
+[IMG src=/images/infrastructure/carding-machine.webp alt='Carding Machine at AKR Spinning Mills']
+STAGE 02
+Germany & India
+Trützschler & LMW High-Production Cards
+Equipment OverviewGermany & India
+### Carding Machine
+Trützschler & LMW High-Production Cards
+Precision carding frames from Trützschler and LMW individualize tangled fibre clumps into single parallel fibres. High-density wire flats systematically remove neps, short fibres, and seed coat fragments to form an ultra-consistent sliver.
+Key Performance Capabilities:
+Active nep extraction and elimination
+Precision stationary and revolving flats
+Integrated autolevelling for weight consistency
+[IMG src=/images/infrastructure/draw-frame.webp alt='Draw Frame at AKR Spinning Mills']
+STAGE 03
+India & Switzerland
+LMW & Rieter Autoleveller Draw Frames
+Equipment OverviewIndia & Switzerland
+### Draw Frame
+LMW & Rieter Autoleveller Draw Frames
+High-speed draw frames from Rieter and LMW combine multiple card slivers, double-drafting them to parallelize fibres and achieve perfect blend homogeneity for 100% Cotton, PC, and CP/CVC yarns.
+Key Performance Capabilities:
+State-of-the-art digital autolevelling
+Hook straightening and fibre alignment
+Guaranteed sliver CV% < 0.6%
+[IMG src=/images/infrastructure/roving-frame.webp alt='Roving Frame at AKR Spinning Mills']
+STAGE 04
+India
+LMW Speed Frames
+Equipment OverviewIndia
+### Roving Frame
+LMW Speed Frames
+LMW speed frames gently draft the drawn sliver into a slender, uniform roving package with controlled helical twist. Roving packages are smoothly transported on creels to ring frames to prevent accidental drafting.
+Key Performance Capabilities:
+Computerized 4-roller drafting system
+Tension-controlled bobbin build
+Minimal roving count variation
+[IMG src=/images/infrastructure/LMW-RF-1.webp alt='Ring Spinning Frame at AKR Spinning Mills']
+STAGE 05
+India
+LMW Ring Spinning Fleet
+Equipment OverviewIndia
+### Ring Spinning Frame
+LMW Ring Spinning Fleet
+Our modern LMW ring spinning frames deliver the final draft and twist to produce ring-spun yarn in counts from Ne 16s to Ne 60s. Precision spindles and inverter-driven speed curves ensure consistent tension, minimal end breaks, and high yarn strength.
+Key Performance Capabilities:
+Spindle speeds optimized for low hairiness
+Electronic cop-forming & auto-doffing
+Consistent twist multiplier across all spindles
+[IMG src=/images/infrastructure/autoconer.webp alt='Autoconer at AKR Spinning Mills']
+STAGE 06
+Switzerland & Japan
+Saurer & Muratec Precision Autoconers
+Equipment OverviewSwitzerland & Japan
+### Autoconer
+Saurer & Muratec Precision Autoconers
+Saurer and Muratec automatic winding machines transfer yarn from ring bobbins onto precision export cones. Integrated electronic yarn clearers detect and excise thick places, thin places, and neps, replacing them with invisible thermopneumatic splices.
+Key Performance Capabilities:
+Optical and capacitive digital yarn clearers
+High-tenacity knotless thermopneumatic splices
+Uniform cone density for warping and knitting
+[IMG src=/images/infrastructure/yarn-testing-lab.webp alt='Yarn Testing Lab at AKR Spinning Mills']
+STAGE 07
+Benchmarked to Uster Standards
+Climate-Controlled Quality Laboratory
+Equipment OverviewBenchmarked to Uster Standards
+### Yarn Testing Lab
+Climate-Controlled Quality Laboratory
+Our dedicated on-site testing facility verifies every production lot under controlled temperature and relative humidity. Equipped with high-precision testing apparatus to measure count variation, tensile tenacity, elongation, mass evenness, and hairiness against global Uster statistics.
+Key Performance Capabilities:
+Constant atmospheric conditioning (20°C, 65% RH)
+Lot-by-lot Uster evenness and imperfection testing
+Comprehensive digital test certificates issued with consignments
+## Request Factory Specifications & Lot Audits
+Detailed technical sheets, spindle counts, autoconer clearer setting parameters, and Uster testing certificates are available for buyer audits.
+Schedule Factory Visit / Enquire ⟨/contact⟩View Spinning Process ⟨/manufacturing/process⟩
+Let's Work Together
+## Partner With AKR Spinning Mills
+Experience the difference of precision-engineered yarns backed by decades of expertise. Contact our team to discuss your specific textile requirements.
+Get in Touch ⟨/contact⟩View Product Catalogue ⟨/products⟩

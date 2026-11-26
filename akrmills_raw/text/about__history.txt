@@ -1,0 +1,46 @@
+# PAGE: about__history.html
+
+TITLE: Our History | AKR Spinning Mills | AKR Spinning Mills
+META description: Trace AKR Spinning Mills' story from raw cotton trading and ginning founded by N. Srinivasan, through expansion into spinning under MD Asok Kumar, to modern operations led by JMD Keerthan Asok Kumar.
+META og:title: Our History | AKR Spinning Mills | AKR Spinning Mills
+META og:description: Trace AKR Spinning Mills' story from raw cotton trading and ginning founded by N. Srinivasan, through expansion into spinning under MD Asok Kumar, to modern operations led by JMD Keerthan Asok Kumar.
+META og:url: https://akrmills.com/about/history/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: Our History | AKR Spinning Mills | AKR Spinning Mills
+META twitter:description: Trace AKR Spinning Mills' story from raw cotton trading and ginning founded by N. Srinivasan, through expansion into spinning under MD Asok Kumar, to modern operations led by JMD Keerthan Asok Kumar.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/about/history/">
+
+===== MAIN CONTENT =====
+
+About ⟨/about⟩/HistoryThree-Generation Heritage
+# Traders. Ginners. Spinners.
+We didn't start in spinning. We started as raw cotton traders under N. Srinivasan, expanded into ginners, and grew into ring spinners under MD Asok Kumar and JMD Keerthan Asok Kumar.
+First Generation · Founded by N. Srinivasan
+## The Foundation: Cotton Trading
+Raw Cotton Merchanting & Market Knowledge
+The AKR story begins with our founder, N. Srinivasan. Operating in the fertile cotton heartlands of Tamil Nadu, he built the enterprise from the ground up as a raw cotton trader.
+In the early days of cotton merchanting, business was forged on word of mouth, sharp eye for staple length, and fair dealing with local growers. N. Srinivasan developed an intimate understanding of cotton varieties, micronaire values, and seasonal yields — instilling the core values of integrity and fibre knowledge that continue to define AKR.
+Second Generation · Led by Asok Kumar (MD)
+## The Expansion: Ginning to Ring Spinning
+Ginning Facilities & Commissioning the Spinning Mill
+Building on the trading foundation, Asok Kumar expanded the business into cotton ginning. By setting up ginning operations, the family took control of the separation of lint from seed — ensuring superior fibre cleanliness and minimal contamination.
+Recognizing that their profound knowledge of cotton fibre gave them a unique edge over conventional mill owners, Asok Kumar made the visionary leap from ginning into manufacturing, establishing AKR Spinning Mills.
+He oversaw the acquisition and commissioning of high-precision ring spinning machinery from global leaders — including LMW and Trützschler blowroom and carding lines, Rieter draw frames, and Saurer and Muratec autoconers.
+Third Generation · Operated by Keerthan Asok Kumar (JMD)
+## Today & Beyond: Modernization & Diversification
+Blended Fibres, Combed Yarns & Uster Standards
+Today, AKR Spinning Mills is managed by the third generation, with Keerthan Asok Kumar serving as Joint Managing Director.
+Carrying forward the family's deep-rooted respect for cotton, Keerthan Asok Kumar has spearheaded technical modernization — benchmarking production to international Uster standards and expanding the product portfolio beyond pure karded cotton to include 100% Combed Cotton, high-tenacity Polyester Cotton (PC), and breathable Cotton Polyester (CP / CVC) blends.
+Under this three-generation continuity, AKR maintains its defining distinction: buyers communicate directly with the family leadership, ensuring personal accountability for every cone shipped.
+Milestones & Achievements
+## Key Chapters in Our Growth
+Explore the critical turning points that marked our expansion from regional cotton trading to a modern multi-fibre spinning mill.
+View Our Milestones ⟨/about/milestones⟩Meet Leadership ⟨/about/management⟩
+Let's Work Together
+## Partner With AKR Spinning Mills
+Experience the difference of precision-engineered yarns backed by decades of expertise. Contact our team to discuss your specific textile requirements.
+Get in Touch ⟨/contact⟩View Product Catalogue ⟨/products⟩

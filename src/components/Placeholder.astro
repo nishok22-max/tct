@@ -1,0 +1,11 @@
+---
+import { config } from '../data/site';
+interface Props { label: string; class?: string }
+const { label, class: cls = '' } = Astro.props;
+---
+{config.showPlaceholders && (
+  <div class:list={['placeholder', cls]} role="note">
+    <strong>Placeholder — replace before launch</strong>
+    <span>{label}</span>
+  </div>
+)}

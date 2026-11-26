@@ -1,0 +1,80 @@
+# PAGE: products__combed-yarn.html
+
+TITLE: 100% Combed Cotton Yarn | AKR Spinning Mills | AKR Spinning Mills
+META description: AKR Spinning Mills' 100% Combed Cotton Yarn — Precision-combed to remove short fibres and neps. Ultra-smooth, lustrous, high-tensile yarn for luxury shirting and fine knits.
+META og:title: 100% Combed Cotton Yarn | AKR Spinning Mills | AKR Spinning Mills
+META og:description: AKR Spinning Mills' 100% Combed Cotton Yarn — Precision-combed to remove short fibres and neps. Ultra-smooth, lustrous, high-tensile yarn for luxury shirting and fine knits.
+META og:url: https://akrmills.com/products/combed-yarn/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: 100% Combed Cotton Yarn | AKR Spinning Mills | AKR Spinning Mills
+META twitter:description: AKR Spinning Mills' 100% Combed Cotton Yarn — Precision-combed to remove short fibres and neps. Ultra-smooth, lustrous, high-tensile yarn for luxury shirting and fine knits.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/products/combed-yarn/">
+
+===== MAIN CONTENT =====
+
+Products ⟨/products⟩/100% Combed Cotton Yarn
+[IMG src=/images/products/combed-cotton-yarn.webp alt='AKR 100% Combed Cotton Yarn Cones - Premium Precision Spun']
+Request Combed Yarn Quote ⟨#enquiry⟩Order Samples ⟨/contact⟩
+Premium Elite Quality
+# 100% Combed Cotton Yarn
+AKR Spinning Mills' 100% Combed Cotton Yarn is the choice of elite garment makers and luxury fabric weavers. By running cotton slivers through an intensive combing cycle, short fibres and neps are completely extracted — leaving only aligned long-staple fibres for a lustrous, silky-smooth yarn.
+Fibre
+100% Long-Staple
+Count Range
+Ne 24s to Ne 60s
+Surface Finish
+Silky & Lustrous
+Target End-Use
+Luxury Apparel & Knits
+On This Page
+Combed Advantages ⟨#benefits⟩Technical Specs ⟨#specifications⟩Key Applications ⟨#applications⟩Enquire / Order ⟨#enquiry⟩
+Refined Elegance & Strength
+## The Combed Difference
+### Silky Smooth Hand & Lustre
+Mechanical combing removes short fibres and parallelizes long staple cotton, imparting a smooth, reflective surface and luxurious drape to finished fabrics.
+### Minimal Hairiness (Low H-Value)
+Reduced protruding fibres result in crisp stitch clarity in knitwear, smoother fabric handle, and significantly reduced pilling after prolonged wear.
+### Superior Tensile Strength
+Long, tightly interlocked cotton fibres provide high breaking strength and elongation, preventing yarn snapping on high-speed circular and warp knitting frames.
+### Low Imperfections & Neps
+Combing removes up to 18% of noils (short fibres, trash, and neps), ensuring ultra-clean yarn that produces flawless, streak-free fabrics when dyed.
+Precision Engineering
+## Combed Yarn Specifications
+Fibre Composition
+100% Premium Long-Staple Cotton
+Yarn Type
+Precision Combed Ring Spun
+Count Range
+Ne 24s to Ne 60s (Single & Double/Plied)
+Twist Direction
+Z-Twist (Knitting & Weaving twist multipliers)
+Tenacity / Strength
+> 16.0 – 19.0 cN/tex (Count dependent)
+Elongation at Break
+5.5% – 6.8%
+Evenness (Uster U%)
+Benchmarked to Uster 5% – 25% elite global standard
+Imperfections (IPI)
+Ultra-low thin, thick, and nep count
+Packaging
+Precision-wound paper cones with protective netting
+High-End End-Use
+## Target Applications
+High-Thread-Count Luxury Shirting
+Premium Single Jersey & Rib Knits
+Fine-Gauge Underwear & Intimates
+Export-Grade Polo Shirts & Tops
+Fine Interlock & Jacquard Fabrics
+High-End Bed Linens & Sheeting
+Export & Domestic Supply
+## Source Premium Combed Cotton Yarn
+Benchmark-tested on modern Uster testers with guaranteed minimum hairiness and high elongation. Enquire for lot test reports and production bookings.
+Enquire for Combed Yarn ⟨/contact?product=100%25%20Combed%20Cotton%20Yarn⟩View All Products ⟨/products⟩
+Let's Work Together
+## Partner With AKR Spinning Mills
+Experience the difference of precision-engineered yarns backed by decades of expertise. Contact our team to discuss your specific textile requirements.
+Get in Touch ⟨/contact⟩View Product Catalogue ⟨/products⟩

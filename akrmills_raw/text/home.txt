@@ -1,0 +1,139 @@
+# PAGE: home.html
+
+TITLE: AKR Spinning Mills | Karded Cotton Yarn Manufacturer, Tamil Nadu | AKR Spinning Mills
+META description: A three-generation family-run spinning mill rooted in cotton trading and ginning, now producing premium 100% cotton, polyester cotton, and blended yarns for knitters, weavers, and textile manufacturers. Based in Tamil Nadu, India.
+META og:title: AKR Spinning Mills | Karded Cotton Yarn Manufacturer, Tamil Nadu | AKR Spinning Mills
+META og:description: A three-generation family-run spinning mill rooted in cotton trading and ginning, now producing premium 100% cotton, polyester cotton, and blended yarns for knitters, weavers, and textile manufacturers. Based in Tamil Nadu, India.
+META og:url: https://akrmills.com/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: AKR Spinning Mills | Karded Cotton Yarn Manufacturer, Tamil Nadu | AKR Spinning Mills
+META twitter:description: A three-generation family-run spinning mill rooted in cotton trading and ginning, now producing premium 100% cotton, polyester cotton, and blended yarns for knitters, weavers, and textile manufacturers. Based in Tamil Nadu, India.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/">
+
+JSON-LD:
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "AKR Spinning Mills",
+      "url": "https://akrmills.com",
+      "logo": "https://akrmills.com/images/akr-logo.webp",
+      "description": "Three-generation karded cotton and blended yarn manufacturer based in Pollachi, Tamil Nadu, India.",
+      "foundingDate": "1998",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "No. 85/16 Palakkad Road, Gandhi Nagar",
+        "addressLocality": "Pollachi",
+        "postalCode": "642001",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "info@akrmills.com"
+      },
+      "knowsAbout": [
+        "Cotton Yarn Manufacturing",
+        "Karded Cotton Yarn",
+        "Ring Spinning",
+        "Textile Processing",
+        "Polyester Cotton Blended Yarns"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "AKR Spinning Mills",
+      "url": "https://akrmills.com"
+    }
+  ]
+}
+
+===== MAIN CONTENT =====
+
+[IMG src=/images/hero.webp alt='AKR Spinning Mills — karded yarn production']
+Tamil Nadu, India · 3-Generation Family Enterprise
+# Cotton Yarn,
+Crafted with Three Generations
+of Knowledge.
+AKR Spinning Mills is a family-run manufacturer supplying 100% cotton, polyester cotton, and blended yarns for knitters and weavers.
+100%Cotton & Blends
+30s – 40sYarn Counts
+35+ YrsHeritage
+Our Products ⟨/products⟩Our Story ⟨/about/history⟩
+A Family Enterprise
+## From Cotton Fields
+to Spinning Frames.
+What began as raw cotton trading and ginning founded by N. Srinivasan — expanded into modern ring spinning by MD Asok Kumar, and now advanced by JMD Keerthan Asok Kumar — has grown across three generations into a trusted spinning operation. Today, AKR Spinning Mills produces pure 100% cotton, polyester cotton, and blended yarns for buyers across India and global markets.
+We are not a distant conglomerate. We are a family that understands cotton fibre from bale to cone, cares about the yarn we produce, and takes pride in long-standing buyer partnerships.
+Read Our Full History ⟨/about/history⟩
+[IMG src=/images/about.webp alt='Inside AKR Spinning Mills production floor']
+3rd
+Generation of cotton & textile expertise
+Our Flagship Product
+## 100% Karded Cotton Yarn
+Produced through our full ring-spinning line — from opening and carding through to winding and testing. Suited for knitting, jersey, shirting, and terry applications.
+[IMG src=/images/products/karded-yarn.webp alt='AKR karded cotton yarn cones']
+### Why Karded Yarn?
+Karded yarn is produced without the combing step — retaining a mix of short and long fibres. This gives the yarn a natural, slightly softer handle and makes it cost-effective for a wide range of everyday textile applications.
+-
+Natural texture well-suited for knitted garments, jerseys, and shirts
+-
+Cost-effective without compromising on strength and evenness
+-
+Available in single and plied constructions (on enquiry)
+-
+Count range managed to your specification — enquire for availability
+-
+Quality benchmarked to Uster standards
+Full Product Details ⟨/products/karded-yarn⟩Send an Enquiry ⟨/contact⟩
+How We Make It
+## The Spinning Process
+01
+STEP 01
+### Opening & Cleaning
+Raw cotton is opened and cleaned to remove impurities and short fibres.
+02
+STEP 02
+### Carding
+Fibres are aligned into a continuous sliver; short fibres and neps are removed.
+03
+STEP 03
+### Drawing
+Multiple card slivers are combined and drawn to improve evenness.
+04
+STEP 04
+### Roving
+The drawn sliver is attenuated further and given a slight twist to prepare for spinning.
+05
+STEP 05
+### Spinning
+Roving is drafted and twisted into yarn on ring spinning frames.
+06
+STEP 06
+### Winding
+Yarn is wound onto cones and inspected for defects during transfer.
+07
+STEP 07
+### Testing
+Finished yarn is tested for count, strength, evenness, hairiness, and imperfections.
+Full Process Walkthrough ⟨/manufacturing/process⟩
+Why Source From Us
+## What Makes AKR a Reliable Partner
+### Manufacturing Heritage
+A three-generation family enterprise rooted in cotton — from trading and ginning to modern ring spinning.
+### Quality Benchmarked
+Yarn evenness, strength, and hairiness measured against Uster standards at every stage of production.
+### People-First
+Committed to employee upskilling, trainee programmes, and community development in Tamil Nadu.
+### Application Support
+Technical guidance on count selection, ply, twist, and quality parameters for your specific end use.
+Let's Work Together
+## Partner With AKR Spinning Mills
+Experience the difference of precision-engineered yarns backed by decades of expertise. Contact our team to discuss your specific textile requirements.
+Get in Touch ⟨/contact⟩View Product Catalogue ⟨/products⟩

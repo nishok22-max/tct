@@ -1,0 +1,78 @@
+---
+import { company, contact, products } from '../../data/site';
+const endpoint = (import.meta.env.PUBLIC_ENQUIRY_ENDPOINT as string | undefined) || '/api/enquiry';
+const turnstile = import.meta.env.PUBLIC_TURNSTILE_SITEKEY as string | undefined;
+---
+<section class="section section--loom on-dark contact" id="contact" aria-labelledby="contact-title">
+  <div class="container contact__grid">
+    <div>
+      <p class="eyebrow eyebrow--gold">{contact.eyebrow}</p>
+      <h2 id="contact-title" class="display display--lg">Tell us the count. <em>We'll tell you what we can spin.</em></h2>
+      <p class="lede" style="margin-top: var(--s-6);">{contact.intro}</p>
+      <dl class="details">
+        <div><dt>Email</dt><dd><a href={`mailto:${company.email}`}>{company.email}</a></dd></div>
+        <div><dt>Mill</dt><dd>{company.address.full}<br /><a href={company.mapsUrl} target="_blank" rel="noopener">View on Google Maps ↗<span class="sr-only"> (opens in a new tab)</span></a></dd></div>
+        <div><dt>Hours</dt><dd>{company.hours.days}, {company.hours.time}</dd></div>
+        <div><dt>GSTIN</dt><dd>{company.gstin}</dd></div>
+      </dl>
+    </div>
+
+    <div class="enquiry" data-form-card>
+      <h3 class="display display--sm">Send an enquiry</h3>
+      <p class="fine" style="margin-top: var(--s-2);">Fields marked <span class="req" aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.</p>
+      <form action={endpoint} method="post" novalidate data-enquiry data-mailto={company.email}>
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Full name <span class="req" aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-error" />
+            <p class="error" id="name-error"></p>
+          </div>
+          <div class="field">
+            <label for="company">Company <span class="req" aria-hidden="true">*</span></label>
+            <input id="company" name="company" type="text" autocomplete="organization" required aria-describedby="company-error" />
+            <p class="error" id="company-error"></p>
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" />
+            <p class="error" id="email-error"></p>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" />
+          </div>
+          <div class="field field--full">
+            <label for="product_interest">Product interest</label>
+            <select id="product_interest" name="product_interest">
+              <option value="">Select a product</option>
+              {products.map((p) => <option value={p.formValue}>{p.name}</option>)}
+              <option value={contact.generalOption}>{contact.generalOption}</option>
+            </select>
+          </div>
+          <div class="field field--full">
+            <label for="message">Message <span class="req" aria-hidden="true">*</span></label>
+            <p class="hint" id="message-hint">{contact.messageHint}</p>
+            <textarea id="message" name="message" required aria-describedby="message-hint message-error"></textarea>
+            <p class="error" id="message-error"></p>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          {turnstile && <div class="field--full cf-turnstile" data-sitekey={turnstile} data-theme="dark"></div>}
+        </div>
+        <div class="form-actions">
+          <button class="btn btn--solid" type="submit">Submit enquiry <span class="arrow" aria-hidden="true">↗</span></button>
+          <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+        </div>
+        <p class="fine" style="margin-top: var(--s-5);">We use your details only to respond to this enquiry. See our <a href="/privacy/">Privacy Policy</a>.</p>
+      </form>
+      <div class="form-success" data-form-success hidden tabindex="-1">
+        <h3>{contact.success.title}</h3>
+        <p>{contact.success.body}</p>
+        <button class="btn btn--line" type="button" data-form-reset>Send another enquiry</button>
+      </div>
+    </div>
+  </div>
+  {turnstile && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+</section>

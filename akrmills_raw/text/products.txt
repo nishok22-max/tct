@@ -1,0 +1,156 @@
+# PAGE: products.html
+
+TITLE: Yarn Products & Blends | AKR Spinning Mills | AKR Spinning Mills
+META description: Explore AKR Spinning Mills' specialized yarn range: Polyester Cotton (PC), Cotton Polyester (CP/CVC), 100% Cotton Karded Yarn, and 100% Combed Cotton Yarn. Ring-spun for weaving and knitting.
+META og:title: Yarn Products & Blends | AKR Spinning Mills | AKR Spinning Mills
+META og:description: Explore AKR Spinning Mills' specialized yarn range: Polyester Cotton (PC), Cotton Polyester (CP/CVC), 100% Cotton Karded Yarn, and 100% Combed Cotton Yarn. Ring-spun for weaving and knitting.
+META og:url: https://akrmills.com/products/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: Yarn Products & Blends | AKR Spinning Mills | AKR Spinning Mills
+META twitter:description: Explore AKR Spinning Mills' specialized yarn range: Polyester Cotton (PC), Cotton Polyester (CP/CVC), 100% Cotton Karded Yarn, and 100% Combed Cotton Yarn. Ring-spun for weaving and knitting.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/products/">
+
+===== MAIN CONTENT =====
+
+Spinning Portfolio · Tamil Nadu, India
+# Engineered Yarns.
+Four Signature Products Done Well.
+Manufactured with three generations of spinning knowledge. From resilient synthetic blends to ultra-luxurious combed cotton, every cone is benchmarked to international Uster standards.
+4
+Specialized Lines
+Ne 16s–60s
+Count Range
+Uster
+Quality Benchmarked
+Ring Spun
+Single & Plied
+Our Core Collection
+## The Four Pillar Products
+Discover our specialized yarn lines engineered for specific weaving and knitting requirements. Click on any product for full technical specifications and direct mill quotations.
+[IMG src=/images/products/polyester-cotton.webp alt='Polyester Cotton Yarn']
+PC BlendHigh Tenacity & Durable
+Ring Spun · Z-Twist
+### Polyester Cotton Yarn
+Engineered for high tensile strength, crease recovery, and dimensional stability. Combining high-tenacity polyester staple fibres with premium cotton to withstand heavy industrial washing and demanding wear.
+Composition65% Polyester / 35% Cotton (Custom ratios available)
+Count RangeNe 20s to Ne 45s
+High breaking tenacity (Rkm > 16.5) prevents loom stoppage
+Superior wrinkle recovery and shape retention
+Low shrinkage across commercial laundry cycles
+Cost-efficient performance for high-volume apparel
+Ideal Applications:
+Industrial UniformsWorkwearShirtingCircular Knitting
+Full Technical Specs ⟨/products/polyester-cotton⟩Request Sample ⟨/contact?product=Polyester%20Cotton%20Yarn⟩
+[IMG src=/images/products/cotton-polyester.webp alt='Cotton Polyester Yarn']
+CP / CVC BlendChief Value Cotton
+Ring Spun · Z-Twist
+### Cotton Polyester Yarn
+Cotton-dominant Chief Value Cotton (CVC) blend offering the breathable natural comfort of pure cotton alongside the durability, wash-fastness, and low shrinkage of polyester.
+Composition60% Cotton / 40% Polyester (Cotton-Rich)
+Count RangeNe 20s to Ne 40s
+Cotton-rich softness and cooling breathability
+Reduced pilling and superior dimensional stability
+Vibrant dye affinity and exceptional wash fastness
+Ideal for next-to-skin casual apparel and bed linens
+Ideal Applications:
+Casual T-ShirtsAthleisureBed LinensFashion Knits
+Full Technical Specs ⟨/products/cotton-polyester⟩Request Sample ⟨/contact?product=Cotton%20Polyester%20Yarn⟩
+[IMG src=/images/products/karded-cotton-yarn.webp alt='100% Cotton Karded Yarn']
+100% Natural CottonFull Bulk & Authentic Value
+Karded Ring Spun · Z-Twist
+### 100% Cotton Karded Yarn
+Authentic ring-spun karded cotton yarn retaining natural fibre character, full-bodied bulk, and high absorbency. An economical and dependable foundation for circular knitting, fleece, and terry goods.
+Composition100% Pure Virgin Cotton
+Count RangeNe 16s to Ne 40s
+100% natural virgin cotton with natural textured handle
+Full bulk and excellent fabric cover factor
+High natural absorbency for towels and everyday garments
+Cost-effective with consistent lot-to-lot Uster evenness
+Ideal Applications:
+Single Jersey T-ShirtsTerry TowelsFleeceEveryday Apparel
+Full Technical Specs ⟨/products/karded-yarn⟩Request Sample ⟨/contact?product=100%25%20Cotton%20Karded%20Yarn⟩
+[IMG src=/images/products/combed-cotton-yarn.webp alt='100% Combed Cotton Yarn']
+100% Long-StapleUltra-Smooth & Lustrous
+Precision Combed Ring Spun
+### 100% Combed Cotton Yarn
+Precision-combed to remove all short fibres and neps. Delivers an ultra-smooth, lustrous finish, superior tensile strength, and minimal hairiness for high-end fashion and fine-gauge textiles.
+Composition100% Premium Long-Staple Cotton
+Count RangeNe 24s to Ne 60s
+Short fibres removed for an ultra-clean, silky handle
+Minimal hairiness (low H-value) for sharp fabric clarity
+Exceptional tensile strength and elongation for fine counts
+Flawless surface finish preferred for luxury exports
+Ideal Applications:
+Luxury ShirtingFine KnitsUnderwear & IntimatesExport Textiles
+Full Technical Specs ⟨/products/combed-yarn⟩Request Sample ⟨/contact?product=100%25%20Combed%20Cotton%20Yarn⟩
+Specification Guide
+## Side-by-Side Product Comparison
+Compare fibre compositions, counts, tensile characteristics, and target fabric end-uses across our product lines.
+Product Name
+Composition
+Count Range (Ne)
+Tensile Tenacity
+Surface Handle
+Shrinkage
+Details
+Polyester Cotton (PC) ⟨/products/polyester-cotton⟩
+65% Poly / 35% Cotton
+Ne 20s – 45s
+Very High (Rkm > 16.5)
+Smooth & Crisp
+Minimal (< 2%)
+View ⟨/products/polyester-cotton⟩
+Cotton Polyester (CP/CVC) ⟨/products/cotton-polyester⟩
+60% Cotton / 40% Poly
+Ne 20s – 40s
+High (Rkm > 15.0)
+Soft & Breathable
+Low (< 3%)
+View ⟨/products/cotton-polyester⟩
+100% Cotton Karded ⟨/products/karded-yarn⟩
+100% Virgin Cotton
+Ne 16s – 40s
+Good (Rkm > 13.5)
+Natural, Textured Bulk
+Standard Cotton (~4-5%)
+View ⟨/products/karded-yarn⟩
+100% Combed Cotton ⟨/products/combed-yarn⟩
+100% Long-Staple
+Ne 24s – 60s
+High (Rkm > 16.0)
+Silky Smooth & Lustrous
+Controlled (< 3.5%)
+View ⟨/products/combed-yarn⟩
+Buyer Guidance
+## Understanding the Four Choices
+### Polyester Cotton (PC) vs. Cotton Polyester (CP)
+The difference lies in which fibre dominates the blend:
+- •PC (Poly-Rich, 65/35): Maximizes tensile strength, wrinkle recovery, and longevity. Preferred for institutional uniforms, heavy workwear, and fabrics requiring high abrasion resistance.
+- •CP / CVC (Cotton-Rich, 60/40): Prioritizes natural breathability, moisture management, and skin-friendly softness, with polyester providing stability and low shrinkage. Preferred for casual t-shirts, polos, and bedding.
+### Karded Cotton vs. Combed Cotton
+The difference lies in the mechanical combing stage:
+- •Karded Yarn: Retains a natural mix of short and long fibres after carding. Bulkier hand, natural texture, highly absorbent, and cost-effective — ideal for everyday knits, fleece, and terry goods.
+- •Combed Yarn: Short fibres and impurities are mechanically combed out (removing up to 18% noil). Results in an ultra-smooth, lustrous, high-strength yarn with minimal hairiness — ideal for luxury shirting, fine knits, and export-grade apparel.
+### Need Help Choosing the Right Count & Blend?
+Our spinning masters will assist you in matching the optimal yarn count, twist factor, and fibre composition to your specific loom or knitting gauge.
+Speak With Technical Team ⟨/contact⟩
+Commitment to Consistency
+## Tested Against Global Uster Standards
+Every lot of Polyester Cotton, Cotton Polyester, Karded Cotton, and Combed Cotton yarn produced at AKR is tested in our climate-controlled laboratory for count variation, tensile tenacity, evenness, and hairiness.
+100%
+#### Lot Traceability
+Complete records maintained from raw cotton bale to finished cone.
+± 1.5%
+#### Tight Count CV
+Rigidly controlled count variation across all single and plied yarns.
+Sample
+#### Dispatch Within 48h
+Test cones and lab data sheets promptly dispatched to serious buyers.
+Let's Work Together
+## Partner With AKR Spinning Mills
+Experience the difference of precision-engineered yarns backed by decades of expertise. Contact our team to discuss your specific textile requirements.
+Get in Touch ⟨/contact⟩View Product Catalogue ⟨/products⟩

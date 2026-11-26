@@ -1,0 +1,43 @@
+# PAGE: manufacturing.html
+
+TITLE: Manufacturing & Infrastructure | AKR Spinning Mills | AKR Spinning Mills
+META description: AKR Spinning Mills operates a precision ring spinning line producing 100% cotton, polyester cotton, and blended yarns powered by LMW, Trützschler, Rieter, Saurer, and Muratec machinery.
+META og:title: Manufacturing & Infrastructure | AKR Spinning Mills | AKR Spinning Mills
+META og:description: AKR Spinning Mills operates a precision ring spinning line producing 100% cotton, polyester cotton, and blended yarns powered by LMW, Trützschler, Rieter, Saurer, and Muratec machinery.
+META og:url: https://akrmills.com/manufacturing/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: Manufacturing & Infrastructure | AKR Spinning Mills | AKR Spinning Mills
+META twitter:description: AKR Spinning Mills operates a precision ring spinning line producing 100% cotton, polyester cotton, and blended yarns powered by LMW, Trützschler, Rieter, Saurer, and Muratec machinery.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/manufacturing/">
+
+===== MAIN CONTENT =====
+
+Manufacturing Excellence
+# How We Make Precision Yarns.
+Our ring spinning operation combines advanced European and Indian machinery — Trützschler, LMW, Rieter, Saurer, and Muratec. Every production stage is monitored against global Uster benchmark standards.
+## Our Process
+A step-by-step walkthrough of how we turn raw cotton and blend fibres into finished ring-spun yarn across seven synchronized stages.
+Explore
+⟨/manufacturing/process⟩
+## Machinery Fleet
+Explore our world-class machinery fleet from LMW, Trützschler, Rieter, Saurer, and Muratec.
+Explore
+⟨/manufacturing/infrastructure⟩
+The Seven Stages
+## From Raw Cotton to Finished Yarn
+01Opening & Cleaning
+02Carding
+03Drawing
+04Roving
+05Spinning
+06Winding
+07Testing
+View Detailed Process ⟨/manufacturing/process⟩
+Let's Work Together
+## Partner With AKR Spinning Mills
+Experience the difference of precision-engineered yarns backed by decades of expertise. Contact our team to discuss your specific textile requirements.
+Get in Touch ⟨/contact⟩View Product Catalogue ⟨/products⟩

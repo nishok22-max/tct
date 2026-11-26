@@ -1,0 +1,62 @@
+---
+// Quality — what the mill tests and why it matters (source: home/quality/process pages),
+// followed by the people commitment. Values are only those published by AKR.
+import { Picture } from 'astro:assets';
+import { quality, why, people } from '../../data/site';
+---
+<section class="section quality on-dark" id="quality" aria-labelledby="quality-title">
+  <div class="container">
+    <header class="sec-head">
+      <p class="eyebrow eyebrow--gold">Quality · {quality.eyebrow}</p>
+      <h2 id="quality-title" class="display display--lg" data-split>{quality.title}</h2>
+      <p class="lede">{quality.intro}</p>
+    </header>
+
+    <ul class="metrics">
+      {quality.metrics.map((m) => (
+        <li class="metric">
+          <p class="metric__num" aria-hidden="true">{m.prefix}<span data-count={m.value} data-decimals={m.decimals}>{m.value.toFixed(m.decimals)}</span>{m.suffix}</p>
+          <p class="sr-only">{m.sr}</p>
+          <p class="metric__label">{m.label}</p>
+          <p class="metric__note">{m.note}</p>
+        </li>
+      ))}
+    </ul>
+
+    <div class="q-grid">
+      <div>
+        <h3 class="display display--sm">Six parameters on every lot</h3>
+        <ol class="params">{quality.parameters.map((p) => <li><strong>{p.name}</strong><span>{p.body}</span></li>)}</ol>
+        <p class="note">{quality.honesty}</p>
+      </div>
+      <div>
+        <h3 class="display display--sm">{why.title}</h3>
+        <p class="q-intro">{why.intro}</p>
+        <ul class="whys">
+          {why.rows.map((r) => (
+            <li>
+              <p class="whys__problem"><s>{r.problem}</s></p>
+              <p class="whys__answer">{r.answer}</p>
+              <p class="whys__detail">{r.detail}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section people" id="people" aria-labelledby="people-title">
+  <div class="container people__grid">
+    <div>
+      <p class="eyebrow">{people.eyebrow}</p>
+      <h2 id="people-title" class="display display--md" data-split>{people.title}</h2>
+      <p class="lede">{people.intro}</p>
+      <ul class="commitments">{people.commitments.map((c) => <li><h3>{c.title}</h3><p>{c.body}</p></li>)}</ul>
+      <p class="note note--light">{people.honesty}</p>
+    </div>
+    <div class="people__img img-frame" data-parallax-frame>
+      <Picture src={people.image.src} alt={people.image.alt} formats={['avif']} fallbackFormat="webp" widths={[480, 800, 1200]} sizes="(min-width: 64rem) 45vw, 100vw" loading="lazy" decoding="async" data-parallax-img />
+    </div>
+  </div>
+</section>

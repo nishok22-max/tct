@@ -1,0 +1,73 @@
+# PAGE: insights__understanding-yarn-count.html
+
+TITLE: Understanding Yarn Count: English Ne Explained | AKR Spinning Mills Insights | AKR Spinning Mills
+META description: Yarn count tells you how fine or coarse a yarn is — but the numbering system can be confusing. This guide explains English count (Ne) in plain language for garment and fabric buyers.
+META og:title: Understanding Yarn Count: English Ne Explained | AKR Spinning Mills Insights | AKR Spinning Mills
+META og:description: Yarn count tells you how fine or coarse a yarn is — but the numbering system can be confusing. This guide explains English count (Ne) in plain language for garment and fabric buyers.
+META og:url: https://akrmills.com/insights/understanding-yarn-count/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: Understanding Yarn Count: English Ne Explained | AKR Spinning Mills Insights | AKR Spinning Mills
+META twitter:description: Yarn count tells you how fine or coarse a yarn is — but the numbering system can be confusing. This guide explains English count (Ne) in plain language for garment and fabric buyers.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/insights/understanding-yarn-count/">
+
+===== MAIN CONTENT =====
+
+Insights ⟨/insights⟩/Yarn Count
+Yarn Count
+# Understanding Yarn Count: English Ne Explained
+Yarn count tells you how fine or coarse a yarn is — but the numbering system can be confusing. This guide explains English count (Ne) in plain language for garment and fabric buyers.
+8 September 20265 min readAKR Spinning Mills
+## What yarn count means
+Yarn count tells you how thick or thin a yarn is. A higher count number means a finer yarn; a lower count number means a coarser yarn. That seems backwards at first, but it follows from how the count is measured.
+## The English count system (Ne)
+Ne is the count system used for cotton yarn in India and in most global cotton trade. It is sometimes written simply as "s" (30s, 40s). The definition: how many 840-yard hanks of that yarn weigh one pound.
+A 30s yarn means 30 hanks of 840 yards (25,200 yards total) weigh 1 pound. A 40s yarn means 40 hanks of 840 yards (33,600 yards) weigh the same pound. Since the 40 hanks weigh the same as the 30 hanks, each 40s hank is lighter, which means the yarn is finer.
+## Count ranges and typical applications
+As a rough guide for karded cotton yarn:
+- Below 20s: heavy fabrics, canvas, rope, thick jersey, blankets
+- 20s to 40s: everyday knitwear, T-shirts, jerseys, towels, casual shirting
+- Above 40s: finer knitwear, lighter fabrics, better shirting
+For everyday T-shirts and jerseys, the 20s to 30s range is most common. Towels use coarser counts because the thick pile structure needs good fibre cover.
+## Count variation (CV%)
+CV% measures how consistent the yarn count is along its length and across packages. A lower CV% means more consistent yarn, which gives you more consistent fabric weight and appearance. When enquiring with us, specifying your target count and acceptable CV% helps us confirm whether our current production fits.
+## Tex and denier
+Tex (grams per 1,000 metres) and denier (grams per 9,000 metres) are used for other fibre types. For cotton yarn sourcing, Ne is the system to use. If you have a count in another system and need a conversion, send us a message.
+## What yarn count means
+Yarn count tells you how thick or thin a yarn is. A higher count number means a finer yarn; a lower count number means a coarser yarn. That seems backwards at first, but it follows from how the count is measured.
+## The English count system (Ne)
+Ne is the count system used for cotton yarn in India and in most global cotton trade. It is sometimes written simply as "s" (30s, 40s). The definition: how many 840-yard hanks of that yarn weigh one pound.
+A 30s yarn means 30 hanks of 840 yards (25,200 yards total) weigh 1 pound. A 40s yarn means 40 hanks of 840 yards (33,600 yards) weigh the same pound. Since the 40 hanks weigh the same as the 30 hanks, each 40s hank is lighter, which means the yarn is finer.
+## Count ranges and typical applications
+As a rough guide for karded cotton yarn:
+- Below 20s: heavy fabrics, canvas, rope, thick jersey, blankets
+- 20s to 40s: everyday knitwear, T-shirts, jerseys, towels, casual shirting
+- Above 40s: finer knitwear, lighter fabrics, better shirting
+For everyday T-shirts and jerseys, the 20s to 30s range is most common. Towels use coarser counts because the thick pile structure needs good fibre cover.
+## Count variation (CV%)
+CV% measures how consistent the yarn count is along its length and across packages. A lower CV% means more consistent yarn, which gives you more consistent fabric weight and appearance. When enquiring with us, specifying your target count and acceptable CV% helps us confirm whether our current production fits.
+## Tex and denier
+Tex (grams per 1,000 metres) and denier (grams per 9,000 metres) are used for other fibre types. For cotton yarn sourcing, Ne is the system to use. If you have a count in another system and need a conversion, send us a message.
+### About AKR Spinning Mills
+A three-generation family-run spinning mill in Tamil Nadu producing 100% cotton, polyester cotton, and blended yarns for knitting and weaving applications.
+Our Story → ⟨/about⟩
+### Our Product
+100% Karded Cotton Yarn - full specifications, applications, and buyer guidance.
+View Product Details ⟨/products/karded-yarn⟩
+### Related Insights
+Warping vs. Weft Yarn: Standards for High-Speed Airjet & Sulzer Looms
+Technical Guide · 6 min read
+⟨/insights/warp-vs-weft-yarn-weaving-standards⟩
+What Is Karded Yarn? A Plain-Language Guide for Textile Buyers
+Buyer Education · 6 min read
+⟨/insights/what-is-karded-yarn⟩
+Karded vs. Combed Yarn: Which Is Right for Your Product?
+Buyer Education · 7 min read
+⟨/insights/karded-vs-combed-which-is-right⟩
+Let's Work Together
+## Partner With AKR Spinning Mills
+Experience the difference of precision-engineered yarns backed by decades of expertise. Contact our team to discuss your specific textile requirements.
+Get in Touch ⟨/contact⟩View Product Catalogue ⟨/products⟩

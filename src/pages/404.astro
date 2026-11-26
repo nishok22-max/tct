@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import { company, products } from '../data/site';
+---
+<Base title={`Page not found | ${company.name}`} description="The page you were looking for could not be found." noindex>
+  <section class="container legal" aria-labelledby="nf-title">
+    <div class="prose">
+      <p class="label">Error 404</p>
+      <h1 id="nf-title" style="font-size: var(--step-4);">This thread came loose.</h1>
+      <p class="lede">The page you were looking for doesn't exist or has moved. Try one of these instead:</p>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#manufacturing">Our seven-stage process</a></li>
+        {products.map((p) => <li><a href={`/products/${p.slug}/`}>{p.name}</a></li>)}
+        <li><a href="/#contact">Send an enquiry</a></li>
+      </ul>
+    </div>
+  </section>
+</Base>

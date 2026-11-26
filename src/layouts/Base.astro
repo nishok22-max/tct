@@ -1,0 +1,63 @@
+---
+import '@fontsource-variable/instrument-sans/wght.css';
+import '@fontsource/instrument-serif/latin-400.css';
+import '@fontsource/instrument-serif/latin-400-italic.css';
+import '../styles/global.css';
+import serifWoff2 from '@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2?url';
+import sansWoff2 from '@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2?url';
+import SeoHead from '../components/SeoHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: 'website' | 'article' | 'product';
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown> | null;
+  /** Home page: header floats transparently over the opening footage. */
+  overlayHeader?: boolean;
+}
+const { overlayHeader = false, ...props } = Astro.props;
+const gtm = import.meta.env.PUBLIC_GTM_ID as string | undefined;
+---
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#243B2E" />
+    <!-- Marks JS availability before paint; animation classes are still only added by scripts. -->
+    <script is:inline>
+      // js: scripts run. cine: the scroll film will run (motion allowed) — its layout is applied before paint.
+      (function (d) { d.classList.add('js'); try { if (matchMedia('(prefers-reduced-motion: no-preference)').matches && d.dataset.film !== 'off') d.classList.add('cine'); } catch (e) {} })(document.documentElement);
+    </script>
+    <link rel="preload" href={serifWoff2} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={sansWoff2} as="font" type="font/woff2" crossorigin />
+    <SeoHead {...props} />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    {gtm && (
+      <script is:inline define:vars={{ gtm }}>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',gtm);
+      </script>
+    )}
+  </head>
+  <body>
+    {gtm && (
+      <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtm}`} height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+    )}
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <Header overlay={overlayHeader} />
+    <main id="main" tabindex="-1" class:list={{ 'main--offset': !overlayHeader }}>
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import '../scripts/nav';
+    </script>
+  </body>
+</html>

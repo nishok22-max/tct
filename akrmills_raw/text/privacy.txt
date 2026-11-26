@@ -1,0 +1,35 @@
+# PAGE: privacy.html
+
+TITLE: Privacy Policy | AKR Spinning Mills | AKR Spinning Mills
+META description: Privacy Policy of AKR Spinning Mills detailing how we collect, use, and safeguard customer and website visitor information.
+META og:title: Privacy Policy | AKR Spinning Mills | AKR Spinning Mills
+META og:description: Privacy Policy of AKR Spinning Mills detailing how we collect, use, and safeguard customer and website visitor information.
+META og:url: https://akrmills.com/privacy/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: Privacy Policy | AKR Spinning Mills | AKR Spinning Mills
+META twitter:description: Privacy Policy of AKR Spinning Mills detailing how we collect, use, and safeguard customer and website visitor information.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/privacy/">
+
+===== MAIN CONTENT =====
+
+Legal & Transparency
+# Privacy Policy
+At AKR Spinning Mills, we are committed to protecting your privacy and ensuring transparent handling of your business enquiries.
+## 1. Information We Collect
+We collect information provided directly by you when submitting business enquiries, sample requests, or communications with our team. This includes your name, company name, email address, and specific yarn requirements.
+## 2. How We Use Your Information
+We use collected details exclusively for legitimate B2B operations:
+- Responding to price enquiries and count availability requests.
+- Processing sample shipments and specification sheets.
+- Fulfilling orders and delivering ongoing customer support.
+- Improving our website performance and buyer experience.
+## 3. Data Protection & Security
+We employ industry-standard data protection measures to keep your business communications confidential. We do not sell, rent, or trade customer contact details with any third parties.
+## 4. Analytics
+We use Google Analytics to understand website traffic and visitor interactions and to improve our website. Google Analytics may use cookies and similar technologies to collect usage information. For more details, please refer to Google's Privacy Policy ⟨https://policies.google.com/privacy⟩.
+## 5. Contact Us
+If you have any questions regarding this Privacy Policy or your personal data, please email us at info@akrmills.com ⟨mailto:info@akrmills.com⟩.

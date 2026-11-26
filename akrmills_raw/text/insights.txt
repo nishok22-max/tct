@@ -1,0 +1,60 @@
+# PAGE: insights.html
+
+TITLE: Insights | AKR Spinning Mills | AKR Spinning Mills
+META description: Textile industry knowledge, buyer education, and yarn expertise from AKR Spinning Mills — covering karded yarn, yarn count, spinning, and more.
+META og:title: Insights | AKR Spinning Mills | AKR Spinning Mills
+META og:description: Textile industry knowledge, buyer education, and yarn expertise from AKR Spinning Mills — covering karded yarn, yarn count, spinning, and more.
+META og:url: https://akrmills.com/insights/
+META og:image: https://akrmills.com/images/akr-logo.webp
+META og:type: website
+META og:site_name: AKR Spinning Mills
+META twitter:card: summary_large_image
+META twitter:title: Insights | AKR Spinning Mills | AKR Spinning Mills
+META twitter:description: Textile industry knowledge, buyer education, and yarn expertise from AKR Spinning Mills — covering karded yarn, yarn count, spinning, and more.
+META twitter:image: https://akrmills.com/images/akr-logo.webp
+<link rel="canonical" href="https://akrmills.com/insights/">
+
+===== MAIN CONTENT =====
+
+Industry Knowledge
+# Insights from the Mill.
+Original articles on cotton yarn, spinning, quality, and buyer guidance — written from the perspective of a family that has been in the cotton and textile business for three generations.
+All
+Technical Guide
+Buyer Education
+Yarn Count
+Spinning
+[IMG src=/images/insights/warp-weft-weaving.webp alt='Modern high-speed airjet and projectile looms in a weaving facility fed by quality cotton yarn cones']
+Technical Guide
+## Warping vs. Weft Yarn: Standards for High-Speed Airjet & Sulzer Looms
+High-speed airjet and Sulzer looms demand strict yarn mechanical benchmarks. Discover how AKR tests 100% karded cotton and CP yarns in-house on Uster Tester 5 (UT5) post-winding to ensure peak weaving efficiency.
+29 September 20266 min read
+⟨/insights/warp-vs-weft-yarn-weaving-standards⟩
+[IMG src=/images/insights/karded-yarn-guide.webp alt='Natural cotton yarn cones in a modern spinning mill']
+Buyer Education
+## What Is Karded Yarn? A Plain-Language Guide for Textile Buyers
+Karded yarn is one of the most widely used types of cotton yarn — but what exactly does 'karded' mean, and how does it differ from combed? A clear explanation for buyers.
+1 September 20266 min read
+⟨/insights/what-is-karded-yarn⟩
+[IMG src=/images/insights/understanding-yarn-count.webp alt='Different yarn thicknesses illustrating yarn count in textile manufacturing']
+Yarn Count
+## Understanding Yarn Count: English Ne Explained
+Yarn count tells you how fine or coarse a yarn is — but the numbering system can be confusing. This guide explains English count (Ne) in plain language for garment and fabric buyers.
+8 September 20265 min read
+⟨/insights/understanding-yarn-count⟩
+[IMG src=/images/insights/karded-vs-combed-yarn.webp alt='Comparison of karded and combed cotton yarn textures']
+Buyer Education
+## Karded vs. Combed Yarn: Which Is Right for Your Product?
+Choosing between karded and combed yarn depends on your end product, your quality standards, and your cost structure. This article helps you decide.
+15 September 20267 min read
+⟨/insights/karded-vs-combed-which-is-right⟩
+[IMG src=/images/insights/ring-spinning-explained.webp alt='Close-up of a modern ring spinning frame in action']
+Spinning
+## Ring Spinning Explained: Why It Remains the Most Trusted Yarn Manufacturing Method
+Ring spinning has been the backbone of cotton yarn manufacturing for over a century. This article explains how it works and why it continues to be the dominant spinning technology.
+22 September 20268 min read
+⟨/insights/ring-spinning-explained⟩
+Let's Work Together
+## Partner With AKR Spinning Mills
+Experience the difference of precision-engineered yarns backed by decades of expertise. Contact our team to discuss your specific textile requirements.
+Get in Touch ⟨/contact⟩View Product Catalogue ⟨/products⟩
