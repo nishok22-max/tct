@@ -895,6 +895,8 @@ export type SceneProps = {
   sun?: { x: number; y: number };
   /** [ext] 0.35–1 blade / dot density multiplier for small screens. */
   detail?: number;
+  /** [ext] false → draw only the featured plant on a transparent canvas (no sky/field/plants). */
+  field?: boolean;
   /** [ext] Featured plant; null/undefined → not drawn. */
   featured?: FeaturedState | null;
 };
@@ -930,6 +932,19 @@ export function drawScene(
   const zoom = (props.scale / 100) * (1 + progress * 0.085);
   const parallax = (progress - 0.5) * 0.018;
   const cam = cameraFor(w, h, progress, props.cameraDepth ?? 0.12);
+
+  // [ext] Featured-plant-only mode: composited over other media (e.g. live footage).
+  if (props.field === false) {
+    if (featuredCtx) featuredCtx.clearRect(0, 0, w, h);
+    if (props.featured) {
+      const target = featuredCtx ?? ctx;
+      target.save();
+      target.translate(0, cam.tilt * (1 - easeInOut(clamp(props.featured.approach, 0, 1))));
+      drawFeaturedPlant(target, w, h, time, props.wind / 50, zoom, cam, props.featured);
+      target.restore();
+    }
+    return;
+  }
   const detail = clamp(props.detail ?? 1, 0.3, 1);
   const sun = props.sun ?? DEFAULT_SUN;
 
@@ -1036,6 +1051,7 @@ export type LiveState = Required<Pick<SceneProps, "scale" | "density" | "particl
   animate: boolean;
   /** Backing-store scale for the field layer (0.3–1). Lower while defocused: cheaper, and blur hides it. */
   resolution: number;
+  field: boolean;
 };
 
 export type StatePatch = Partial<LiveState> & { featuredPatch?: Partial<FeaturedState> | null };
@@ -1055,6 +1071,7 @@ export function initialState(o: Partial<LiveState> = {}): LiveState {
     speed: o.speed ?? 42,
     animate: o.animate ?? true,
     resolution: o.resolution ?? 1,
+    field: o.field ?? true,
   };
 }
 
@@ -1089,7 +1106,7 @@ export class FieldRenderer {
    * finished bitmap per frame instead.
    */
   constructor(canvas: AnyCanvas, featured: AnyCanvas | null, state: LiveState, maxDpr = 1.6, cpuRaster = false) {
-    const ctx = canvas.getContext("2d", { alpha: false, willReadFrequently: cpuRaster }) as Ctx | null;
+    const ctx = canvas.getContext("2d", { alpha: state.field === false, willReadFrequently: cpuRaster }) as Ctx | null;
     if (!ctx) throw new Error("Canvas 2D is not supported");
     this.canvas = canvas;
     this.featured = featured;

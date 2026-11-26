@@ -4,7 +4,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
-import { VideoScrubber } from './scrubber';
+import { VideoScrubber, lowData } from './scrubber';
 import type { Field } from './index';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -24,15 +24,17 @@ const T = {
   flareIn: [2.3, 2.72],
   flareOut: [2.72, 3.3],
   reveal: [2.42, 3.0],
-  camera: [2.45, 5.3],
+  // Live-action field: wind plays in real time; scroll only moves the camera.
+  pullBack: [2.45, 4.55],      // steady, unhurried camera pull-back through the plants
   originIn: [3.1, 3.5],
-  originOut: [4.4, 4.8],
-  defocus: [4.8, 5.4],
-  approach: [4.9, 6.3],
-  open: [5.4, 6.8],
-  glow: [6.3, 6.9],
-  bloomIn: [6.7, 7.2],
-  bloomVideo: [6.7, 8.6],
+  originOut: [4.15, 4.45],
+  zoomOut: [4.5, 5.5],         // the shot pulls back into a framed print and recedes…
+  frameOut: [5.25, 5.6],       // …revealing the next frame behind it
+  approach: [5.05, 6.4],
+  open: [5.5, 6.9],
+  glow: [6.4, 7.0],
+  bloomIn: [6.8, 7.3],
+  bloomVideo: [6.8, 8.6],
   bloomCopyIn: [7.0, 7.4],
   bloomCopyOut: [8.1, 8.5],
   fibres: [8.25, 9.2],
@@ -90,8 +92,10 @@ function registerFilm(ctx: gsap.Context, field: Field | null, mobile: boolean) {
   const heroScene = q('[data-scene="hero"]', film)!;
   const originScene = q('[data-scene="origin"]', film)!;
   const bloomScene = q('[data-scene="bloom"]', film)!;
+  const focusScene = q('[data-scene="focus"]', film)!;
   const heroMedia = q('[data-hero-media]', film)!;
-  const fieldCanvas = field?.canvas ?? null;
+  const liveFrame = q('[data-live-frame]', film)!;
+  const bokeh = q('[data-focus-bokeh]', film) ?? q('.focus__bokeh', film);
   const flare = q('[data-flare]', film)!;
   const fibres = q<SVGSVGElement>('[data-fibres]', film)!;
   const strands = q<SVGGElement>('[data-fibre-strands]', fibres)!;
@@ -123,12 +127,33 @@ function registerFilm(ctx: gsap.Context, field: Field | null, mobile: boolean) {
   ctx.add(() => () => removeEventListener('scroll', startHero));
   ctx.add(() => () => { heroVideo.destroy(); bloomVideo.destroy(); });
 
+  /* ---- Live-action field: a seamless 12 s wind loop that plays in real time ---- */
+  // Not scrubbed — wind should move at its own natural pace. It loads during the hero, plays only
+  // while its chapter is on screen, and pauses otherwise (no hidden decoding).
+  const fieldVideo = q<HTMLVideoElement>('[data-field-video]', film);
+  let fieldLoaded = false;
+  let fieldPlaying = false;
+  const loadField = () => {
+    if (fieldLoaded || !fieldVideo || lowData()) return;
+    fieldLoaded = true;
+    fieldVideo.src = (matchMedia('(max-aspect-ratio: 3/4)').matches ? fieldVideo.dataset.srcTall : fieldVideo.dataset.srcWide) ?? '';
+    fieldVideo.preload = 'auto';
+    fieldVideo.addEventListener('playing', () => fieldVideo.classList.add('is-ready'), { once: true });
+    fieldVideo.addEventListener('error', () => { fieldVideo.removeAttribute('src'); fieldVideo.classList.remove('is-ready'); }, { once: true });
+    fieldVideo.load();
+  };
+  const setFieldPlaying = (want: boolean) => {
+    if (!fieldVideo || !fieldLoaded || want === fieldPlaying) return;
+    fieldPlaying = want;
+    if (want) fieldVideo.play().catch(() => { fieldPlaying = false; }); // poster stays if autoplay is refused
+    else fieldVideo.pause();
+  };
+  ctx.add(() => () => { fieldVideo?.pause(); fieldPlaying = false; });
+
   /* ---- Live values pushed to the canvas + videos once per tick (never React/DOM state) ---- */
-  const s = { hero: 0, cam: 0, approach: 0, boll: 0, glow: 0, blur: 0, bloom: BLOOM_MATCH_T / 5.25 };
-  const fieldWindow = [T.reveal[0] - 0.1, T.bloomIn[1] + 0.1];
-  let fieldOn = false;
-  let lastBlur = -1;
-  let lowRes = false;
+  const s = { hero: 0, approach: 0, boll: 0, glow: 0, bloom: BLOOM_MATCH_T / 5.25 };
+  const plantWindow = [T.zoomOut[0] - 0.1, T.bloomIn[1] + 0.1];
+  let plantOn = false;
   let masked = true;
 
   const targetRadius = () => {
@@ -144,41 +169,32 @@ function registerFilm(ctx: gsap.Context, field: Field | null, mobile: boolean) {
   const push = (progress: number) => {
     const t = progress * T.end;
     heroVideo.setProgress(s.hero);
-    if (t > T.camera[0] - 1) bloomVideo.load();
+    if (t > 0.6) loadField();
+    setFieldPlaying(t >= T.reveal[0] - 0.15 && t <= T.frameOut[1] && !document.hidden);
+    if (t > T.zoomOut[0] - 1) bloomVideo.load();
     bloomVideo.setProgress(s.bloom);
-    if (!field) return;
     // The feathered reveal mask costs compositing on a full-screen layer; drop it once fully open.
     const needMask = t < T.reveal[1];
     if (needMask !== masked) { masked = needMask; originScene.classList.toggle('is-masked', needMask); }
-    const on = t >= fieldWindow[0]! && t <= fieldWindow[1]!;
-    if (on !== fieldOn) {
-      fieldOn = on;
-      field.ctl.setRunning(on); // ambient clock only while the field is on screen
+    if (!field) return;
+    const on = t >= plantWindow[0]! && t <= plantWindow[1]!;
+    if (on !== plantOn) {
+      plantOn = on;
+      field.ctl.setRunning(on); // the plant's wind only runs while it is on screen
     }
     if (!on) return;
-    field.ctl.setCamera(s.cam);
     field.ctl.setFeatured({ boll: s.boll, approach: s.approach, glow: s.glow, targetRadius: tR });
-    const blur = Math.round(s.blur * 20) / 20;
-    if (blur !== lastBlur && fieldCanvas) {
-      lastBlur = blur;
-      // Depth of field: the field softens and dims; the featured layer stays sharp. While defocused the
-      // field renders at a fraction of its resolution — cheaper to draw, and the softness is wanted —
-      // so only a small CSS blur is needed on top.
-      fieldCanvas.style.filter = mobile ? `brightness(${1 - blur * 0.3})` : `blur(${(blur * 4).toFixed(1)}px) brightness(${1 - blur * 0.22})`;
-      const wantLow = blur > 0.3;
-      if (wantLow !== lowRes) { lowRes = wantLow; field.ctl.set({ resolution: wantLow ? (mobile ? 0.5 : 0.42) : 1 }); }
-    }
   };
+  const onVisibility = () => push(tl.progress());
+  document.addEventListener('visibilitychange', onVisibility);
+  ctx.add(() => () => document.removeEventListener('visibilitychange', onVisibility));
   if (field) {
     field.ctl.setRunning(false);
-    ctx.add(() => () => {
-      fieldCanvas?.style.removeProperty('filter');
-      field.ctl.set({ resolution: 1 });
-      field.ctl.setRunning(true);
-    });
+    ctx.add(() => () => field.ctl.setRunning(true));
   }
 
-  gsap.set([originScene, bloomScene], { autoAlpha: 0 });
+  gsap.set([originScene, focusScene, bloomScene], { autoAlpha: 0 });
+  gsap.set(liveFrame, { scale: 1.22, transformOrigin: '50% 46%' });
   // Feathered radial mask, opened from the sun's position (see .scene--origin in CSS).
   gsap.set(originScene, { '--reveal': '0%' });
   originScene.classList.add('is-masked');
@@ -219,21 +235,27 @@ function registerFilm(ctx: gsap.Context, field: Field | null, mobile: boolean) {
   add(flare, { autoAlpha: 0, scale: 1.35, ease: 'power1.out' }, T.flareOut);
   tl.set(originScene, { autoAlpha: 1 }, T.reveal[0]);
   add(originScene, { '--reveal': '170%', ease: 'power2.inOut' }, T.reveal);
-  tl.set(heroScene, { autoAlpha: 0 }, T.reveal[1]);
 
-  // 2 · ORIGIN — depth-aware dolly through the rows
-  add(s, { cam: 1, ease: 'power1.inOut' }, T.camera);
+  // 2 · ORIGIN — live footage; the camera pulls back steadily while the wind plays on its own
+  add(liveFrame, { scale: 1 }, T.pullBack);
   tl.fromTo(q('[data-origin-copy]', film), { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, duration: span(T.originIn).d, ease: 'power2.out' }, T.originIn[0]);
   add(q('[data-origin-copy]', film), { autoAlpha: 0, y: -40 }, T.originOut);
 
-  // 3 · BLOOM — field defocuses, one boll is singled out, opens, catches the light
-  add(s, { blur: 1 }, T.defocus);
+  // Zoom-out — the shot keeps pulling back until it becomes a framed print that recedes, revealing
+  // the next frame: the same field, now out of focus, with one cotton plant stepping forward.
+  tl.set(focusScene, { autoAlpha: 1 }, T.zoomOut[0]);
+  tl.set(heroScene, { autoAlpha: 0 }, T.zoomOut[0]);
+  add(liveFrame, { scale: mobile ? 0.5 : 0.4, borderRadius: mobile ? 14 : 18, yPercent: -4, ease: 'power2.inOut' }, T.zoomOut);
+  if (bokeh) tl.fromTo(bokeh, { scale: 1.16 }, { scale: 1, duration: span(T.zoomOut).d + 0.4, ease: 'power1.out' }, T.zoomOut[0]);
+  add(originScene, { autoAlpha: 0, ease: 'power1.in' }, T.frameOut);
+
+  // 3 · BLOOM — unchanged cotton treatment: one boll is singled out, opens, catches the light
   add(s, { approach: 1 }, T.approach);
   add(s, { boll: 1 }, T.open);
   add(s, { glow: 1 }, T.glow);
   add(bloomScene, { autoAlpha: 1 }, T.bloomIn);
   add(s, { bloom: 1 }, T.bloomVideo);
-  tl.set(originScene, { autoAlpha: 0 }, T.bloomIn[1]);
+  tl.set(focusScene, { autoAlpha: 0 }, T.bloomIn[1]);
   tl.fromTo(q('[data-bloom-copy]', film), { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, duration: span(T.bloomCopyIn).d, ease: 'power2.out' }, T.bloomCopyIn[0]);
   add(q('[data-bloom-copy]', film), { autoAlpha: 0, y: -40 }, T.bloomCopyOut);
 

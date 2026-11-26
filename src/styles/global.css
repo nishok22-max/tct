@@ -218,7 +218,15 @@ main { display: block; }
 .scene__sub { max-width: 34ch; font-size: var(--step-1); line-height: 1.5; color: rgb(255 255 255 / 0.9); }
 .scene__ctas { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3) var(--s-6); margin-top: var(--s-2); }
 .field-canvas--featured { z-index: 1; pointer-events: none; }
-.scene--origin .scene__media { background: #c79a6b; }
+/* Live-action field: the frame is the 'camera' — scaled for the pull-back, then shrunk into a print. */
+.scene--origin .scene__media { background: transparent; }
+.live-frame { position: absolute; inset: 0; overflow: hidden; background: #8a5a3a; border-radius: 0; }
+.cine .film .live-frame { will-change: transform; box-shadow: 0 50px 140px rgb(24 16 8 / 0.5), 0 0 0 1px rgb(255 240 214 / 0.18); }
+/* Focus frame (revealed by the zoom-out): real bokeh + the featured cotton plant. */
+.scene--focus .scene__media { background: #6b4a30; }
+.focus__bokeh, .scene--focus picture { position: absolute; inset: 0; width: 100%; height: 100%; }
+.focus__bokeh img, .scene--focus img { width: 100%; height: 100%; object-fit: cover; }
+html:not(.cine) .scene--focus { display: none; }
 .has-field .scene__poster--nojs { display: none; }
 .film__mark { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }
 
@@ -244,10 +252,11 @@ main { display: block; }
    length exists before the browser restores a scroll position or jumps to a #hash. */
 .cine .film { --film-len: 10.4; background: var(--ivory); height: calc(var(--film-len) * 100vh); height: calc(var(--film-len) * 100svh); }
 @media (max-width: 63.99rem) { .cine .film { --film-len: 6.6; } }
-.cine .scene--origin, .cine .scene--bloom { visibility: hidden; }
+.cine .scene--origin, .cine .scene--focus, .cine .scene--bloom { visibility: hidden; }
 .film__mark { scroll-margin-top: calc(-1 * (var(--header-h) + 1rem)); }
 .cine .film .film__stage { height: 100vh; height: 100svh; overflow: hidden; }
 .cine .film .scene { position: absolute; inset: 0; min-height: 0; }
+.cine .film .scene--focus { z-index: 1; }
 .cine .film .scene--origin { z-index: 2; }
 .cine .film .scene--origin.is-masked { --reveal: 0%; -webkit-mask-image: radial-gradient(circle at 53% 38%, #000 calc(var(--reveal) - 28%), transparent var(--reveal)); mask-image: radial-gradient(circle at 53% 38%, #000 calc(var(--reveal) - 28%), transparent var(--reveal)); }
 .cine .film .scene--bloom { z-index: 3; }

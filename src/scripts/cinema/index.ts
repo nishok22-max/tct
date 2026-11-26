@@ -5,41 +5,36 @@
 import type { CottonFieldController } from '../../lib/cotton-field/engine';
 import { createCottonFieldAuto } from '../../lib/cotton-field/offthread';
 
-export type Field = { ctl: CottonFieldController; canvas: HTMLCanvasElement; featured: HTMLCanvasElement };
+export type Field = { ctl: CottonFieldController; canvas: HTMLCanvasElement };
 
-/** Sun behind the tree, as in the opening frame of the footage, so the two shots rhyme. */
-export const FIELD_LOOK = { sun: { x: 0.535, y: 0.545 }, sunlight: 94, wind: 46, particles: 46 } as const;
+/** The featured plant's camera: fixed, so the plant enters the frame at the same scale as before. */
+const FOCUS_CAMERA = 0.6;
+const STILL = { featured: { boll: 1, approach: 1, glow: 0.6 } };
 
-const clampN = (n: number, a: number, b: number) => Math.min(b, Math.max(a, n));
-
-const STILL = { cameraProgress: 0.42, featured: { boll: 1, approach: 0, glow: 0.6 } };
-
+// The field itself is now live-action footage; the canvas only draws the featured cotton plant
+// (plant-only mode) over a real out-of-focus field, so its boll can still open with scroll.
 async function mountField(): Promise<Field | null> {
-  const canvas = document.querySelector<HTMLCanvasElement>('[data-field-canvas]');
-  const featured = document.querySelector<HTMLCanvasElement>('[data-featured-canvas]');
-  if (!canvas || !featured) return null;
+  const canvas = document.querySelector<HTMLCanvasElement>('[data-featured-canvas]');
+  if (!canvas) return null;
   const small = matchMedia('(max-width: 40rem)').matches;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const portrait = matchMedia('(max-aspect-ratio: 3/4)').matches;
   try {
     // Rendered in a Web Worker (OffscreenCanvas) where supported; main thread otherwise.
     const ctl = await createCottonFieldAuto(canvas, {
-      ...FIELD_LOOK,
-      featuredCanvas: featured,
+      field: false,
+      wind: 46,
       observe: canvas.closest('[data-scene]'),
+      cameraProgress: FOCUS_CAMERA,
       cameraDepth: small ? 0.5 : 0.62,
-      detail: small ? 0.5 : 1,
-      density: small ? 70 : 72,
-      // Portrait screens: the composition is landscape-tuned, so plants and tree are scaled to the width.
-      scale: portrait ? Math.round(clampN(innerWidth / innerHeight / 0.75, 0.55, 1) * 100) : 100,
-      maxDpr: small ? 1 : 1.6, // phones: CPU-rasterised in the worker, so keep the pixel count modest
+      scale: portrait ? Math.round(Math.min(1, Math.max(0.55, innerWidth / innerHeight / 0.75)) * 100) : 100,
+      maxDpr: small ? 1.25 : 1.6,
       animate: !reduce,
-      ...(reduce ? STILL : { cameraProgress: 0, featured: { boll: 0, approach: 0, glow: 0 } }),
+      featured: reduce ? STILL.featured : { boll: 0, approach: 0, glow: 0 },
     });
     document.documentElement.classList.add('has-field');
-    return { ctl, canvas, featured };
+    return { ctl, canvas };
   } catch {
-    // No 2D canvas: the poster image under it stays visible.
     return null;
   }
 }

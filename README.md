@@ -35,7 +35,7 @@ Story: NATURE → COTTON FIELD → BLOOM → FIBRE → MANUFACTURING → YARN �
 
 | Order | Section (`src/components/cinema/`) | Technique |
 |---|---|---|
-| 1–3 | `Film.astro` — hero `#top`, field `#origin`, bloom `#bloom` | One GSAP-pinned 100svh stage inside a tall container (`--film-len` in CSS). Footage is scroll-scrubbed; scenes dissolve through a sun flare and a feathered radial mask; fibres fill the screen into cream. |
+| 1–3 | `Film.astro` — hero `#top`, field `#origin`, bloom `#bloom` | One GSAP-pinned 100svh stage inside a tall container (`--film-len` in CSS). The hero footage is scroll-scrubbed. A sun flare and feathered mask reveal the **live-action field**: a seamless 12 s wind loop that plays in real time while scroll pulls the camera back (scale 1.22 → 1). The shot then **zooms out** into a framed print (→ 0.4) that recedes, revealing the next frame: real out-of-focus field (`field-bokeh.webp`) with the featured cotton plant (canvas engine, `field: false` plant-only mode). Its scroll-driven boll opening, macro bloom and fibre wash are unchanged. |
 | 4 | `FibreToYarn.astro` `#fibre` | SVG fibres converge into a two-ply strand, stroke-drawn by scroll. No pin. |
 | — | `EnquiryBand.astro` | Unobtrusive enquiry prompt after the opening. |
 | 5 | `Story.astro` `#story` | Three generations (real heritage copy). |
@@ -64,6 +64,7 @@ Story: NATURE → COTTON FIELD → BLOOM → FIBRE → MANUFACTURING → YARN �
 
 | Need | Asset used | Status |
 |---|---|---|
+| Live-action field (wind loop) | Pexels 13943183 "Cotton Plants under Clear Sky" by Lio Voo — Pexels License; sky replaced and graded (`scripts/footage/grade-field.sh`) | Free, no attribution required; must not be presented as AKR's own field. See `media-source/pexels-13943183/LICENSE-NOTES.md` |
 | Opening landscape → cotton | Gemini clip (supplied) | AI-generated; shows a Gemini ✦ mark bottom-right — supply a clean export if available |
 | Bloom macro | Same clip, 4.75–10 s | AI-generated, illustrative |
 | Heritage | `about.webp` (cones on winding frame) | No archive photos or portraits exist — needed |

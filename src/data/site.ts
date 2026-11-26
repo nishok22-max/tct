@@ -607,6 +607,7 @@ export const film = {
     posterAlt: 'A lone tree on a hill at golden hour, overlooking open countryside',
   },
   origin: {
+    posterAlt: 'Mature cotton plants with open white bolls swaying against a golden evening sky',
     eyebrow: 'Chapter one · The field',
     title: 'Rooted in nature.',
     sub: 'Every remarkable journey begins with something small.',
@@ -621,6 +622,9 @@ export const film = {
   video: {
     hero: { wide: '/video/film-hero-wide.mp4', tall: '/video/film-hero-tall.mp4' },
     bloom: { wide: '/video/film-bloom-wide.mp4', tall: '/video/film-bloom-tall.mp4' },
+    // Live-action field: Pexels video 13943183 "Cotton Plants under Clear Sky" by Lio Voo (Pexels License),
+    // sky replaced with a golden-hour plate, warm-graded, looped. See media-source/pexels-13943183/LICENSE-NOTES.md.
+    field: { wide: '/video/field-wind-wide.mp4', tall: '/video/field-wind-tall.mp4' },
   },
 };
 
