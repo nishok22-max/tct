@@ -181,7 +181,8 @@ function registerFilm(ctx: gsap.Context, field: Field | null, mobile: boolean) {
   const push = (progress: number) => {
     const t = progress * T.end;
     heroVideo.setProgress(s.hero);
-    if (t > 0.6) loadField();
+    // Phones: wait until the hero is well under way so its frames don't compete for bandwidth.
+    if (t > (mobile ? 1.7 : 0.6)) loadField();
     setFieldPlaying(t >= T.reveal[0] - 0.15 && t <= T.frameOut[1] && !document.hidden);
     if (t > T.zoomOut[0] - 1) bloomVideo.load();
     bloomVideo.setProgress(bloomProgress(s.bloom));

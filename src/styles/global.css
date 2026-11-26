@@ -283,6 +283,13 @@ html:not(.cine) .scene--focus { display: none; }
   .site-header.is-solid { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgb(243 235 221 / 0.97); }
 }
 
+/* Elements that move during the hero get their own GPU layer, so the large soft text-shadow and the
+   gradients are rasterised once and then only composited (no per-frame repaint). Applies on all screens;
+   this comes after the phone block on purpose so it wins over its will-change reset. */
+.cine .film [data-hero-copy] { will-change: transform, opacity; }
+.cine .film [data-hero-media] { will-change: transform; }
+.cine .film [data-scroll-cue] { will-change: opacity; }
+
 @media (max-aspect-ratio: 3/4) {
   .scene__copy--hero h1 { font-size: clamp(2.6rem, 11.5vw, 4.4rem); }
   .scene__copy { padding-bottom: var(--s-24); }
