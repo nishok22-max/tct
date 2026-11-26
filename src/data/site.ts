@@ -140,7 +140,8 @@ export const family = {
       body:
         'Spearheads technical modernisation — benchmarking production to international Uster standards and expanding beyond karded cotton into 100% combed cotton, polyester cotton (PC) and cotton polyester (CP / CVC) blends.',
       focus: ['Product diversification', 'Uster quality standards', 'Strategic client partnerships'],
-      image: { src: about, alt: 'Cotton yarn cones mounted on a winding frame on the mill floor' } as null | { src: ImageMetadata; alt: string },
+      // Photo removed: it duplicated the People section image. Add a portrait of the JMD here if one is supplied.
+      image: null as null | { src: ImageMetadata; alt: string },
       placeholder: 'Portrait of JMD Keerthan Asok Kumar',
     },
   ],
@@ -625,6 +626,12 @@ export const film = {
     // Live-action field: Pexels video 13943183 "Cotton Plants under Clear Sky" by Lio Voo (Pexels License),
     // sky replaced with a golden-hour plate, warm-graded, looped. See media-source/pexels-13943183/LICENSE-NOTES.md.
     field: { wide: '/video/field-wind-wide.mp4', tall: '/video/field-wind-tall.mp4' },
+  },
+  // Phones scrub pre-decoded stills instead of seeking video (480×640 WebP, 15 fps, portrait crop).
+  // bloom frames start at 2.0 s into the bloom clip — the part the scroll actually uses.
+  frames: {
+    hero: { base: '/frames/hero', count: 71 },
+    bloom: { base: '/frames/bloom', count: 49, fromClipSeconds: 2.0 },
   },
 };
 

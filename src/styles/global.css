@@ -266,6 +266,23 @@ html:not(.cine) .scene--focus { display: none; }
 .cine .film .film__wash { display: block; position: absolute; inset: 0; z-index: 6; background: var(--ivory); opacity: 0; visibility: hidden; pointer-events: none; }
 .film__fibres path { stroke: #fffdf5; fill: none; }
 
+/* Phone image sequences (replace scroll-seeked video; see scripts/cinema/sequence.ts) */
+.scene__seq { display: none; position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s var(--ease-out); }
+.film.uses-frames .scene__seq { display: block; }
+.film.uses-frames .scene__seq.is-ready { opacity: 1; }
+.film.uses-frames [data-film-video] { display: none; }
+
+/* ---- Phones & tablets: lighter compositing for smooth touch scrolling ---- */
+@media (max-width: 63.99rem) {
+  /* Native sticky stage instead of a JS pin; lvh so the frame stays full when the address bar hides. */
+  .cine .film .film__stage { position: sticky; top: 0; height: 100vh; height: 100lvh; }
+  .cine .film .scene__media { will-change: auto; }
+  .cine .film .film__flare { mix-blend-mode: normal; background: radial-gradient(circle at 52% 36%, rgb(255 240 210 / 0.85) 0%, rgb(255 210 150 / 0.5) 22%, rgb(240 170 96 / 0) 58%); }
+  .cine .film .live-frame { box-shadow: 0 24px 60px rgb(24 16 8 / 0.45); }
+  /* No live backdrop blur over moving video — it is re-blurred on every frame. */
+  .site-header.is-solid { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgb(243 235 221 / 0.97); }
+}
+
 @media (max-aspect-ratio: 3/4) {
   .scene__copy--hero h1 { font-size: clamp(2.6rem, 11.5vw, 4.4rem); }
   .scene__copy { padding-bottom: var(--s-24); }
@@ -285,16 +302,20 @@ html:not(.cine) .scene--focus { display: none; }
 .fibre__head .lede { text-align: center; }
 .fibre__art { margin-top: clamp(var(--s-8), 5vw, var(--s-16)); }
 .fibre__art svg { width: 100%; height: auto; overflow: visible; }
-.fibre__loose path { fill: none; stroke: var(--gold); opacity: var(--o, 0.6); stroke-linecap: round; }
-.fibre__yarn path { fill: none; stroke: url(#yarn-shade); stroke-width: 3.2; stroke-linecap: round; }
-.fibre__node { fill: var(--gold); }
-
-/* Enquiry band */
-.band { background: var(--cream); border-block: 1px solid var(--hair); }
-.band__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-4) var(--s-8); padding-block: var(--s-6); }
-.band p { font-size: var(--step-0); }
-.band strong { font-family: var(--font-display); font-weight: 400; font-size: var(--step-2); color: var(--forest); margin-right: var(--s-3); }
-.band__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3) var(--s-6); }
+/* Yarn winding onto a cone (same cream ground, warm brown → olive palette) */
+.wind__thread { fill: none; stroke: var(--gold); stroke-width: 2.2; stroke-linecap: round; }
+.wind__eye { fill: var(--ivory); stroke: #8A6A3E; stroke-width: 2.5; }
+.wind__feed { stroke: var(--gold); stroke-width: 1.8; stroke-linecap: round; }
+.wind__tube { fill: #4E5A3A; }
+.wind__outline { fill: none; stroke: rgb(138 106 62 / 0.35); stroke-width: 1.5; stroke-dasharray: 4 6; }
+.wind__body { fill: url(#wind-body); }
+.wind__wraps path { fill: none; stroke: url(#wind-yarn); stroke-linecap: round; opacity: 0.85; }
+.wind__shadow { fill: rgb(36 59 46 / 0.08); }
+@media (max-width: 40rem) {
+  /* Phones: frame the eyelet and cone rather than shrinking the whole wide scene. */
+  .fibre__art { overflow: hidden; }
+  .fibre__art svg { width: 190%; max-width: none; margin-left: -78%; }
+}
 
 /* ======================================================================
    Our story
@@ -495,8 +516,8 @@ html:not(.cine) .scene--focus { display: none; }
 .footer__grid { display: grid; gap: var(--s-10); padding-block: var(--s-16) var(--s-10); }
 @media (min-width: 56rem) { .footer__grid { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; } }
 .footer__brand p { margin-top: var(--s-5); max-width: 38ch; color: var(--on-dark-muted); font-size: var(--step--1); }
-.footer__logo { display: inline-block; background: var(--cream); padding: var(--s-3) var(--s-4); border-radius: 4px; }
-.footer__logo img { height: 2.4rem; width: auto; }
+.footer__logo { display: inline-block; }
+.footer__logo img { height: 3.25rem; width: auto; }
 .site-footer h2 { font-family: var(--font-body); font-size: var(--step--1); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: var(--s-4); font-weight: 600; color: var(--gold-soft); }
 .site-footer address { font-style: normal; color: var(--on-dark-muted); font-size: var(--step--1); display: grid; gap: var(--s-3); }
 .site-footer ul.links { list-style: none; padding: 0; display: grid; }

@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import logo from '../assets/brand/akr-logo.png';
+import logo from '../assets/brand/akr-logo-alpha.png';
 import { company, products, nav } from '../data/site';
 const year = new Date().getFullYear();
 ---
@@ -12,7 +12,7 @@ const year = new Date().getFullYear();
     <div class="footer__grid">
       <div class="footer__brand">
         <a class="footer__logo" href="/" aria-label={`${company.name} — home`}>
-          <Image src={logo} alt="" width={200} widths={[200, 400]} sizes="200px" loading="lazy" />
+          <Image src={logo} alt="" width={220} widths={[220, 440]} sizes="220px" loading="lazy" />
         </a>
         <p>{company.description}</p>
       </div>

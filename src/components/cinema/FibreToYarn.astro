@@ -1,41 +1,46 @@
 ---
-// Chapter 4 · CRAFT begins: loose fibres drift in from the left, converge, and twist into one
-// continuous two-ply strand that runs off towards the mill. Paths are generated at build time
-// (deterministic), drawn by scroll (stroke-dashoffset, scrubbed). Normal scroll — no pin.
+// Chapter 4 · CRAFT begins: a single thread runs in through a guide eyelet and is wound onto a cone —
+// the last step of the mill's process (autoconer winding). As the visitor scrolls, the thread draws in,
+// cross-wound layers build up on the cone, and the feed point traverses up and down it like a real
+// winding head. Generated at build time (deterministic SVG), driven by scroll. Normal scroll — no pin.
 import { fibre } from '../../data/site';
 
 const W = 1600;
 const H = 520;
-const NODE = { x: 640, y: 260 };
+const EYE = { x: 880, y: 270 };
 
-// Deterministic PRNG so the build output is stable.
-let seed = 7;
-const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+// Cone (cross-wound package) standing upright on the right.
+const C = { cx: 1290, top: 112, bottom: 448, topHalf: 66, bottomHalf: 150 };
+const halfAt = (y: number) => C.topHalf + ((y - C.top) / (C.bottom - C.top)) * (C.bottomHalf - C.topHalf);
+const L = (y: number) => C.cx - halfAt(y);
+const R = (y: number) => C.cx + halfAt(y);
+const conePath = `M${L(C.top)} ${C.top} Q${C.cx} ${C.top - 14} ${R(C.top)} ${C.top} L${R(C.bottom)} ${C.bottom} Q${C.cx} ${C.bottom + 30} ${L(C.bottom)} ${C.bottom} Z`;
 
-const fibres = Array.from({ length: 14 }, (_, i) => {
-  const y0 = 70 + (i / 13) * (H - 140) + (rnd() - 0.5) * 30;
-  const x0 = -40 + rnd() * 160;
-  const c1x = 180 + rnd() * 140;
-  const c1y = y0 + (rnd() - 0.5) * 120;
-  const c2x = 440 + rnd() * 90;
-  const c2y = NODE.y + (y0 - NODE.y) * (0.25 + rnd() * 0.2);
-  return { d: `M${x0.toFixed(1)} ${y0.toFixed(1)} C ${c1x.toFixed(1)} ${c1y.toFixed(1)}, ${c2x.toFixed(1)} ${c2y.toFixed(1)}, ${NODE.x} ${NODE.y}`, w: (0.6 + rnd() * 0.9).toFixed(2), o: (0.35 + rnd() * 0.5).toFixed(2) };
-});
+// Paper tube protruding from the narrow end.
+const tube = `M${C.cx - 30} ${C.top - 4} L${C.cx - 24} ${C.top - 46} Q${C.cx} ${C.top - 54} ${C.cx + 24} ${C.top - 46} L${C.cx + 30} ${C.top - 4} Q${C.cx} ${C.top - 12} ${C.cx - 30} ${C.top - 4} Z`;
 
-// Two-ply yarn: two strands wrapped around each other (S-twist look), slowly tightening.
-const ply = (phase: number) => {
-  const pts: string[] = [];
-  for (let x = NODE.x; x <= W + 40; x += 6) {
-    const t = (x - NODE.x) / (W - NODE.x);
-    const amp = 9 - 3 * t;
-    const freq = 0.085 + t * 0.02;
-    const y = NODE.y + Math.sin((x - NODE.x) * freq + phase) * amp * Math.min(1, (x - NODE.x) / 60);
-    pts.push(`${x === NODE.x ? 'M' : 'L'}${x.toFixed(1)} ${y.toFixed(2)}`);
-  }
-  return pts.join(' ');
-};
-const plyA = ply(0);
-const plyB = ply(Math.PI);
+// Cross-wound layers: diagonal wraps alternating direction, ordered bottom → top so they build up.
+const wraps: { d: string; w: string }[] = [];
+const N = 30;
+for (let i = 0; i < N; i++) {
+  const y = C.bottom - 6 - (i / (N - 1)) * (C.bottom - C.top - 12);
+  const rise = 46;
+  const dir = i % 2 === 0 ? -1 : 1;
+  const y1 = y;
+  const y2 = Math.max(C.top + 4, Math.min(C.bottom - 2, y + dir * rise));
+  const xl = L(y1) - 4;
+  const xr = R(y2) + 4;
+  wraps.push({ d: `M${xl.toFixed(1)} ${y1.toFixed(1)} Q${C.cx} ${((y1 + y2) / 2 + 10).toFixed(1)} ${xr.toFixed(1)} ${y2.toFixed(1)}`, w: (1.4 + (i % 3) * 0.35).toFixed(2) });
+}
+
+// Incoming thread: a long, gently undulating single yarn from the left edge to the eyelet.
+const pts: string[] = [];
+for (let x = -20; x <= EYE.x; x += 10) {
+  const t = (x + 20) / (EYE.x + 20);
+  const y = EYE.y + Math.sin(x * 0.012) * 26 * (1 - t) + (1 - t) * 40;
+  pts.push(`${x === -20 ? 'M' : 'L'}${x} ${y.toFixed(1)}`);
+}
+const threadIn = pts.join(' ');
 ---
 <section class="fibre" id="fibre" aria-labelledby="fibre-title" data-fibre-section>
   <div class="container fibre__head">
@@ -44,22 +49,37 @@ const plyB = ply(Math.PI);
     <p class="lede">{fibre.body}</p>
   </div>
   <div class="fibre__art" aria-hidden="true">
-    <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" focusable="false" data-fibre-svg>
+    <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" focusable="false" data-wind-svg>
       <defs>
-        <linearGradient id="yarn-shade" x1="0" y1="0" x2="1" y2="0">
+        <linearGradient id="wind-yarn" x1="0" y1="1" x2="0" y2="0">
           <stop offset="0" stop-color="#C68F4C" />
-          <stop offset="0.5" stop-color="#8A6A3E" />
-          <stop offset="1" stop-color="#243B2E" />
+          <stop offset="0.55" stop-color="#8A6A3E" />
+          <stop offset="1" stop-color="#4E5A3A" />
         </linearGradient>
+        <linearGradient id="wind-body" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#E9D8BA" />
+          <stop offset="0.45" stop-color="#F6EBD6" />
+          <stop offset="1" stop-color="#D9C19A" />
+        </linearGradient>
+        <clipPath id="wind-clip"><path d={conePath} /></clipPath>
       </defs>
-      <g class="fibre__loose">
-        {fibres.map((f) => <path d={f.d} pathLength="1" stroke-width={f.w} style={`--o:${f.o}`} data-fibre-path />)}
+
+      <!-- floor shadow -->
+      <ellipse class="wind__shadow" cx={C.cx} cy={C.bottom + 34} rx={C.bottomHalf + 40} ry="14" />
+
+      <!-- thread in, guide eyelet, live feed to the cone -->
+      <path class="wind__thread" d={threadIn} pathLength="1" data-wind-thread />
+      <circle class="wind__eye" cx={EYE.x} cy={EYE.y} r="9" data-wind-eye />
+      <line class="wind__feed" x1={EYE.x} y1={EYE.y} x2={L(C.bottom - 20)} y2={C.bottom - 20} data-wind-feed data-eye-x={EYE.x} data-eye-y={EYE.y}
+        data-top={C.top + 10} data-bottom={C.bottom - 14} data-cx={C.cx} data-top-half={C.topHalf} data-bottom-half={C.bottomHalf} data-cone-top={C.top} data-cone-bottom={C.bottom} />
+
+      <!-- the cone: tube, yarn body that fills in, and the cross-wound layers -->
+      <path class="wind__tube" d={tube} />
+      <path class="wind__outline" d={conePath} />
+      <path class="wind__body" d={conePath} data-wind-body />
+      <g clip-path="url(#wind-clip)" class="wind__wraps">
+        {wraps.map((w) => <path d={w.d} pathLength="1" stroke-width={w.w} data-wind-wrap />)}
       </g>
-      <g class="fibre__yarn">
-        <path d={plyA} pathLength="1" data-yarn-path />
-        <path d={plyB} pathLength="1" data-yarn-path />
-      </g>
-      <circle class="fibre__node" cx={NODE.x} cy={NODE.y} r="5" data-fibre-node />
     </svg>
   </div>
 </section>

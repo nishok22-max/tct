@@ -36,6 +36,7 @@ const srcset = (imgs: { src: string; options: { width?: number } }[]) => imgs.ma
         </picture>
         <video class="scene__video" muted playsinline preload="none" tabindex="-1" aria-hidden="true" disablepictureinpicture disableRemotePlayback
           data-film-video="hero" data-src-wide={film.video.hero.wide} data-src-tall={film.video.hero.tall}></video>
+        <canvas class="scene__seq" aria-hidden="true" data-seq="hero" data-base={film.frames.hero.base} data-count={film.frames.hero.count}></canvas>
         <div class="scene__shade scene__shade--hero"></div>
       </div>
       <div class="container scene__copy scene__copy--hero" data-hero-copy>
@@ -90,6 +91,7 @@ const srcset = (imgs: { src: string; options: { width?: number } }[]) => imgs.ma
         <Picture class="scene__poster" src={macro} alt={film.bloom.posterAlt} formats={['avif']} fallbackFormat="webp" widths={[640, 1280]} sizes="100vw" loading="lazy" decoding="async" />
         <video class="scene__video" muted playsinline preload="none" tabindex="-1" aria-hidden="true" disablepictureinpicture disableRemotePlayback
           data-film-video="bloom" data-src-wide={film.video.bloom.wide} data-src-tall={film.video.bloom.tall}></video>
+        <canvas class="scene__seq" aria-hidden="true" data-seq="bloom" data-base={film.frames.bloom.base} data-count={film.frames.bloom.count}></canvas>
         <div class="scene__shade scene__shade--bloom"></div>
       </div>
       <div class="container scene__copy scene__copy--bloom" data-bloom-copy>

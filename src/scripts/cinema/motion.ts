@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import { VideoScrubber, lowData } from './scrubber';
+import { FrameSequence } from './sequence';
 import type { Field } from './index';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -100,7 +101,7 @@ function registerFilm(ctx: gsap.Context, field: Field | null, mobile: boolean) {
   const fibres = q<SVGSVGElement>('[data-fibres]', film)!;
   const strands = q<SVGGElement>('[data-fibre-strands]', fibres)!;
   const wash = q('[data-wash]', film)!;
-  buildFibres(strands, mobile ? 70 : 150);
+  buildFibres(strands, mobile ? 36 : 150);
 
   /* ---- Anchor marks (#top, #origin, #bloom) sit at their chapter's scroll position ---- */
   const marks = qa('[data-mark]', film);
@@ -115,8 +116,19 @@ function registerFilm(ctx: gsap.Context, field: Field | null, mobile: boolean) {
   ctx.add(() => () => marks.forEach((m, i) => { homes[i]!.prepend(m); m.style.top = ''; }));
 
   /* ---- Video scrubbers ---- */
-  const heroVideo = new VideoScrubber(q<HTMLVideoElement>('[data-film-video="hero"]', film)!, () => ScrollTrigger.refresh());
-  const bloomVideo = new VideoScrubber(q<HTMLVideoElement>('[data-film-video="bloom"]', film)!);
+  // Desktop seeks real video; phones scrub pre-decoded stills (see sequence.ts for why).
+  const seq = (name: string) => {
+    const c = q<HTMLCanvasElement>(`[data-seq="${name}"]`, film)!;
+    return new FrameSequence(c, c.dataset.base ?? '', Number(c.dataset.count ?? 0));
+  };
+  const useFrames = mobile;
+  film.classList.toggle('uses-frames', useFrames);
+  ctx.add(() => () => film.classList.remove('uses-frames'));
+  const heroVideo = useFrames ? seq('hero') : new VideoScrubber(q<HTMLVideoElement>('[data-film-video="hero"]', film)!, () => ScrollTrigger.refresh());
+  const bloomVideo = useFrames ? seq('bloom') : new VideoScrubber(q<HTMLVideoElement>('[data-film-video="bloom"]', film)!);
+  // The bloom stills begin where the canvas boll hands over (BLOOM_MATCH_T into the clip).
+  const bloomFrom = BLOOM_MATCH_T / 5.25;
+  const bloomProgress = (p: number) => (useFrames ? (p - bloomFrom) / (1 - bloomFrom) : p);
   // The poster is the clip's first frame, so nothing visible waits on the video. Start downloading
   // after the page's own load (fonts, LCP image), or immediately if the visitor starts scrolling.
   const startHero = () => heroVideo.load();
@@ -172,9 +184,9 @@ function registerFilm(ctx: gsap.Context, field: Field | null, mobile: boolean) {
     if (t > 0.6) loadField();
     setFieldPlaying(t >= T.reveal[0] - 0.15 && t <= T.frameOut[1] && !document.hidden);
     if (t > T.zoomOut[0] - 1) bloomVideo.load();
-    bloomVideo.setProgress(s.bloom);
+    bloomVideo.setProgress(bloomProgress(s.bloom));
     // The feathered reveal mask costs compositing on a full-screen layer; drop it once fully open.
-    const needMask = t < T.reveal[1];
+    const needMask = !mobile && t < T.reveal[1];
     if (needMask !== masked) { masked = needMask; originScene.classList.toggle('is-masked', needMask); }
     if (!field) return;
     const on = t >= plantWindow[0]! && t <= plantWindow[1]!;
@@ -196,8 +208,10 @@ function registerFilm(ctx: gsap.Context, field: Field | null, mobile: boolean) {
   gsap.set([originScene, focusScene, bloomScene], { autoAlpha: 0 });
   gsap.set(liveFrame, { scale: 1.22, transformOrigin: '50% 46%' });
   // Feathered radial mask, opened from the sun's position (see .scene--origin in CSS).
-  gsap.set(originScene, { '--reveal': '0%' });
-  originScene.classList.add('is-masked');
+  if (!mobile) {
+    gsap.set(originScene, { '--reveal': '0%' });
+    originScene.classList.add('is-masked');
+  }
   ctx.add(() => () => { originScene.classList.remove('is-masked'); originScene.style.removeProperty('--reveal'); });
   gsap.set(fibres, { autoAlpha: 0 });
   gsap.set(qa('path', strands), { strokeDasharray: 1, strokeDashoffset: 1 });
@@ -211,7 +225,9 @@ function registerFilm(ctx: gsap.Context, field: Field | null, mobile: boolean) {
       trigger: film,
       start: 'top top',
       end: 'bottom bottom',
-      pin: stage,
+      // Desktop: GSAP pin. Phones: the stage is position: sticky in CSS — native, compositor-driven,
+      // and unaffected by the address bar showing/hiding (a JS pin re-positions on every resize).
+      pin: mobile ? false : stage,
       pinSpacing: false, // the film's own height (CSS --film-len) provides the scroll distance
       scrub: mobile ? true : 0.3,
       invalidateOnRefresh: true,
@@ -233,8 +249,13 @@ function registerFilm(ctx: gsap.Context, field: Field | null, mobile: boolean) {
   // Transition — low sun flares across the lens and the cotton field opens out of the light
   add(flare, { autoAlpha: 1, scale: 1.15, ease: 'power1.in' }, T.flareIn);
   add(flare, { autoAlpha: 0, scale: 1.35, ease: 'power1.out' }, T.flareOut);
-  tl.set(originScene, { autoAlpha: 1 }, T.reveal[0]);
-  add(originScene, { '--reveal': '170%', ease: 'power2.inOut' }, T.reveal);
+  if (mobile) {
+    // Phones: a plain dissolve (a full-screen animated mask is expensive to composite on mobile GPUs).
+    add(originScene, { autoAlpha: 1, ease: 'power1.inOut' }, T.reveal);
+  } else {
+    tl.set(originScene, { autoAlpha: 1 }, T.reveal[0]);
+    add(originScene, { '--reveal': '170%', ease: 'power2.inOut' }, T.reveal);
+  }
 
   // 2 · ORIGIN — live footage; the camera pulls back steadily while the wind plays on its own
   add(liveFrame, { scale: 1 }, T.pullBack);
@@ -261,7 +282,8 @@ function registerFilm(ctx: gsap.Context, field: Field | null, mobile: boolean) {
 
   // Fibres fill the screen and settle into the cream of the next chapter
   tl.set(fibres, { autoAlpha: 1 }, T.fibres[0]);
-  tl.fromTo(fibres, { scale: 0.7 }, { scale: 1.6, duration: span(T.fibres).d, ease: 'power1.in' }, T.fibres[0]);
+  // Scaling a full-screen SVG re-rasterises it every frame; phones draw the strands without the push-in.
+  if (!mobile) tl.fromTo(fibres, { scale: 0.7 }, { scale: 1.6, duration: span(T.fibres).d, ease: 'power1.in' }, T.fibres[0]);
   tl.to(qa('path', strands), { strokeDashoffset: 0, duration: span(T.fibres).d * 0.8, stagger: { each: 0.0025, from: 'random' } }, T.fibres[0]);
   tl.fromTo(q('[data-fibre-core]', fibres), { opacity: 0 }, { opacity: 1, duration: span(T.fibres).d }, T.fibres[0]);
   add(wash, { autoAlpha: 1 }, T.wash);
@@ -292,16 +314,36 @@ function registerSections(desktop: boolean) {
     });
   });
 
-  // Fibre → yarn: loose fibres draw in, converge, then the two plies twist off to the right.
+  // Yarn winding: the thread draws in through the eyelet, then cross-wound layers build up on the cone
+  // while the feed point traverses up and down it (like an autoconer's winding drum).
   const fs = q('[data-fibre-section]');
-  if (fs) {
-    const loose = qa<SVGPathElement>('[data-fibre-path]', fs);
-    const plies = qa<SVGPathElement>('[data-yarn-path]', fs);
-    gsap.set([...loose, ...plies], { strokeDasharray: 1, strokeDashoffset: 1 });
-    gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: fs, start: 'top 75%', end: desktop ? 'bottom 45%' : 'bottom 70%', scrub: true } })
-      .to(loose, { strokeDashoffset: 0, duration: 1, stagger: 0.04 }, 0)
-      .fromTo('[data-fibre-node]', { scale: 0, transformOrigin: '50% 50%' }, { scale: 1, duration: 0.2 }, 0.9)
-      .to(plies, { strokeDashoffset: 0, duration: 1.2 }, 1.0);
+  const feed = fs && q<SVGLineElement>('[data-wind-feed]', fs);
+  if (fs && feed) {
+    const thread = q<SVGPathElement>('[data-wind-thread]', fs);
+    const wraps = qa<SVGPathElement>('[data-wind-wrap]', fs);
+    const body = q('[data-wind-body]', fs);
+    const eye = q('[data-wind-eye]', fs);
+    const n = (k: string) => Number(feed.dataset[k]);
+    const g = { top: n('top'), bottom: n('bottom'), cx: n('cx'), th: n('topHalf'), bh: n('bottomHalf'), ct: n('coneTop'), cb: n('coneBottom') };
+    const wind = { p: 0 };
+    gsap.set([thread, ...wraps], { strokeDasharray: 1, strokeDashoffset: 1 });
+    gsap.set(feed, { autoAlpha: 0 });
+    const traverse = () => {
+      // 7 full traverses over the scroll range; the feed meets the cone's left flank at that height.
+      const s = 0.5 - 0.5 * Math.cos(wind.p * Math.PI * 14);
+      const y = g.bottom - s * (g.bottom - g.top);
+      const half = g.th + ((y - g.ct) / (g.cb - g.ct)) * (g.bh - g.th);
+      feed.setAttribute('x2', (g.cx - half).toFixed(1));
+      feed.setAttribute('y2', y.toFixed(1));
+    };
+    gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: fs, start: 'top 75%', end: desktop ? 'bottom 40%' : 'bottom 65%', scrub: true } })
+      .to(thread, { strokeDashoffset: 0, duration: 0.3 }, 0)
+      .fromTo(eye, { scale: 0, transformOrigin: '50% 50%' }, { scale: 1, duration: 0.06 }, 0.27)
+      .set(feed, { autoAlpha: 1 }, 0.3)
+      .to(wind, { p: 1, duration: 0.7, onUpdate: traverse }, 0.3)
+      .to(wraps, { strokeDashoffset: 0, duration: 0.08, stagger: 0.62 / Math.max(1, wraps.length) }, 0.32)
+      .fromTo(body, { opacity: 0.15 }, { opacity: 1, duration: 0.6 }, 0.35);
+    traverse();
   }
 
   // Manufacturing opener: the aisle opens from a framed print to full bleed.
