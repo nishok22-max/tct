@@ -178,14 +178,15 @@ export const processScene = {
       purpose: 'Individualise fibres and extract remaining neps and short fibres.',
       body: 'Revolving wire flats turn tangled clumps into single parallel fibres, removing neps and short fly waste to deliver a clean, uniform sliver.',
       checkpoint: 'Sliver weight (hank), nep count and short fibre percentage tested at card delivery.',
-      image: carding, alt: 'Carding machine producing a cotton sliver', lowRes: true,
+      // AI-generated lookalike (Canva, 2026-11-26) of the original 447 px photo — illustrative, not AKR's own machine.
+      image: carding, alt: 'High-production carding machine on a spinning mill floor',
     },
     {
       n: '03', name: 'Drawing & Doubling', machinery: 'LMW & Rieter autoleveller draw frames', origin: 'India & Switzerland',
       purpose: 'Improve sliver evenness, parallelise fibres and blend components.',
       body: 'Multiple card slivers are combined and drafted. Digital autolevelling compensates for sliver mass variation, giving uniform blend distribution for 100% cotton, PC and CP yarns.',
       checkpoint: 'Sliver evenness (CV% < 0.6%) and linear density verified with continuous autoleveller monitoring.',
-      image: drawFrame, alt: 'Draw frame combining several slivers into cans', lowRes: true,
+      image: drawFrame, alt: 'Draw frame combining several slivers into cans',
     },
     {
       n: '04', name: 'Roving', machinery: 'LMW speed frames', origin: 'India',
@@ -213,7 +214,7 @@ export const processScene = {
       purpose: 'Verify lot-to-lot parameters before dispatch.',
       body: 'Packages from each lot are conditioned and tested for count variation, tensile strength, elongation, mass evenness, imperfections and hairiness before release.',
       checkpoint: 'Full Uster testing, tenacity testing and lot test certificates generated for buyer inspection.',
-      image: lab, alt: 'Yarn testing laboratory with testing instruments', lowRes: true,
+      image: lab, alt: 'Yarn testing laboratory with testing instruments',
     },
   ] satisfies Stage[],
 };
@@ -270,7 +271,6 @@ export const products: Product[] = [
     image: pcImg,
     heroImage: pcImg,
     alt: 'Polyester cotton blend yarn cones',
-    lowRes: true,
     keyFacts: [
       { label: 'Standard blend', value: '65% Poly / 35% Cotton' },
       { label: 'Count range', value: 'Ne 20s to Ne 45s' },
@@ -325,7 +325,6 @@ export const products: Product[] = [
     image: cpImg,
     heroImage: cpImg,
     alt: 'Cotton polyester CVC blend yarn cones',
-    lowRes: true,
     keyFacts: [
       { label: 'Standard blend', value: '60% Cotton / 40% Poly' },
       { label: 'Count range', value: 'Ne 20s to Ne 40s' },

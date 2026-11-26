@@ -20,7 +20,7 @@ npm run og         # regenerate trimmed logo, OG image, favicons (sharp)
 | 3 | **Karded vs combed** | Karded page: "AKR currently produces karded yarn…" and "We produce 100% cotton karded yarn", yet a combed product page exists | All four products are treated as current. That sentence is not reused. |
 | 4 | **Missing content** | No portraits, client names, testimonials, spindle count, capacity or certifications | Dashed placeholders: "Placeholder — replace before launch". Turn them all off with `config.showPlaceholders` in `src/data/site.ts`. |
 | 5 | **Image authenticity** | Several images look like stock or AI images (e.g. hero.webp, about.webp) | Client must confirm they show the real mill. |
-| 6 | **Low-resolution images** | carding-machine 447px, draw-frame 500px, yarn-testing-lab 516px, polyester-cotton 447px, cotton-polyester 499px | Never full-bleed. They render at native width only, with `object-fit: contain` in frames (`lowRes: true` in data). |
+| 6 | **Low-resolution images** | carding-machine 447px, draw-frame 500px, yarn-testing-lab 516px, polyester-cotton 447px, cotton-polyester 499px | Upscaled (Lanczos3 + light sharpening, `scripts/upscale-photos.mjs`) and shown full size; carding is now an AI lookalike. Originals in `media-source/original-images/`. Upscaling removes pixelation but adds no real detail — real high-res photos are still better. |
 | 7 | **Favicon** | `favicon.png` is a JPEG with a .png extension | Real PNG icons are generated from the logo mark (`npm run og`). |
 | 8 | **Fake Product offer** | Karded JSON-LD has `price: "0"` | Dropped. Product JSON-LD has no `offers`. |
 | 9 | **Combed "Uster 5%–25%"**, "elite" claims | Combed spec page vs. the karded page's "we do not publish Uster percentile claims without current lot data" | Spec values are shown as the source states them. Confirm they are backed by current lot data. |
@@ -69,13 +69,13 @@ Story: NATURE → COTTON FIELD → BLOOM → FIBRE → MANUFACTURING → YARN �
 | Bloom macro | Same clip, 4.75–10 s | AI-generated, illustrative |
 | Heritage | `about.webp` (cones on winding frame) | No archive photos or portraits exist — needed |
 | Opening & cleaning | `infrastructure/blowroom-line.webp` | OK |
-| Carding | `infrastructure/carding-machine.webp` | 447 px — shown at native size on a mat; replace |
-| Drawing | `infrastructure/draw-frame.webp` | 500 px — replace |
+| Carding | `infrastructure/carding-machine.webp` | **AI-generated** 2000 px lookalike (Canva) of the 447 px original, now shown full size. Original kept in `media-source/original-images/` |
+| Drawing | `infrastructure/draw-frame.webp` | Upscaled from 500 px — replace with a real photo when possible |
 | Roving | `infrastructure/roving-frame.webp` | OK |
-| Spinning | `infrastructure/LMW-RF-1.webp`, `hero.webp` (aisle) | Confirm `hero.webp` shows the real mill |
+| Spinning | `infrastructure/LMW-RF-1.webp`, `hero.webp` (aisle) | `hero.webp` is now an **AI-generated** 1920×1080 lookalike (Canva) of the 1376 px original; original kept in `media-source/original-images/` |
 | Winding | `infrastructure/autoconer.webp` | OK |
-| Testing | `infrastructure/yarn-testing-lab.webp` | 516 px — replace |
-| Products | `products/*.webp` | PC and CP photos are 447/499 px — replace |
+| Testing | `infrastructure/yarn-testing-lab.webp` | Upscaled from 516 px — replace with a real photo when possible |
+| Products | `products/*.webp` | All upscaled to ~1.3–1.6k px; PC and CP (originally 447/499 px) should still be re-shot |
 | Finished cones (reveal) | `products/combed-cotton-yarn.webp` | 1024 px; confirm it is AKR stock |
 | Logo | `brand/akr-logo-alpha.png` (white keyed out of the supplied source by `scripts/make-logo-alpha.mjs`) | Supply a vector/transparent master if one exists |
 

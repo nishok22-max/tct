@@ -3,6 +3,7 @@
 // page), with the mill's own infrastructure photographs. Normal scroll with editorial reveals.
 import { Picture } from 'astro:assets';
 import { processScene as ps, scale } from '../../data/site';
+// hero.webp: AI-generated 1920×1080 lookalike (Canva, 2026-11-26) of the original 1376 px photo — illustrative.
 import aisle from '../../assets/images/hero.webp';
 ---
 <section class="section mfg" id="manufacturing" aria-labelledby="mfg-title">
@@ -16,7 +17,7 @@ import aisle from '../../assets/images/hero.webp';
 
   <figure class="mfg__opener" data-opener>
     <div class="mfg__opener-frame" data-opener-frame>
-      <Picture src={aisle} alt="Rows of ring spinning frames with white cotton yarn packages lining a long mill aisle" formats={['avif']} fallbackFormat="webp" widths={[640, 1024, 1376]} sizes="100vw" loading="lazy" decoding="async" data-opener-img />
+      <Picture src={aisle} alt="Rows of ring spinning frames with white cotton yarn packages lining a long mill aisle" formats={['avif']} fallbackFormat="webp" widths={[640, 1024, 1440, 1920]} sizes="100vw" loading="lazy" decoding="async" data-opener-img />
     </div>
   </figure>
 
@@ -24,14 +25,14 @@ import aisle from '../../assets/images/hero.webp';
     <ol class="stages">
       {ps.stages.map((s, i) => (
         <li class:list={['stage', { 'stage--flip': i % 2 === 1 }]} data-stage>
-          <div class:list={['stage__media', 'img-frame', { 'stage__media--small': s.lowRes }]} data-stage-media>
+          <div class="stage__media img-frame" data-stage-media>
             <Picture
               src={s.image}
               alt={s.alt}
               formats={['avif']}
               fallbackFormat="webp"
-              widths={s.lowRes ? [s.image.width] : [480, 800, Math.min(1200, s.image.width)]}
-              sizes={s.lowRes ? `${s.image.width}px` : '(min-width: 64rem) 50vw, 100vw'}
+              widths={[480, 800, 1200, Math.min(1600, s.image.width)]}
+              sizes="(min-width: 64rem) 50vw, 100vw"
               loading="lazy"
               decoding="async"
             />

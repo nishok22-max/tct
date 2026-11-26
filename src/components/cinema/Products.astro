@@ -16,7 +16,7 @@ import { products, productsScene as ps } from '../../data/site';
       {products.map((p, i) => (
         <li class:list={['yarn', { 'yarn--flip': i % 2 === 1 }]} data-yarn>
           <a class:list={['yarn__media', 'img-frame', { 'yarn__media--small': p.lowRes }]} href={`/products/${p.slug}/`} tabindex="-1" aria-hidden="true">
-            <Picture src={p.heroImage} alt="" formats={['avif']} fallbackFormat="webp" widths={p.lowRes ? [p.heroImage.width] : [480, 800, Math.min(1200, p.heroImage.width)]} sizes={p.lowRes ? `${p.heroImage.width}px` : '(min-width: 64rem) 50vw, 100vw'} loading="lazy" decoding="async" data-yarn-img />
+            <Picture src={p.heroImage} alt="" formats={['avif']} fallbackFormat="webp" widths={p.lowRes ? [p.heroImage.width] : [480, 800, 1200, Math.min(1600, p.heroImage.width)]} sizes={p.lowRes ? `${p.heroImage.width}px` : '(min-width: 64rem) 50vw, 100vw'} loading="lazy" decoding="async" data-yarn-img />
           </a>
           <div class="yarn__copy">
             <p class="yarn__n"><span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span> {p.badge} · {p.tagline}</p>
