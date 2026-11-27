@@ -198,13 +198,12 @@ main { display: block; }
 .film__stage { position: relative; }
 .scene { position: relative; display: grid; align-items: center; min-height: 100vh; min-height: 100svh; overflow: hidden; isolation: isolate; }
 .scene__media { position: absolute; inset: 0; z-index: -1; overflow: hidden; background: #1d2a1f; }
-.scene__media img, .scene__media picture, .scene__video, .field-canvas { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; }
+.scene__media img, .scene__media picture, .scene__video { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; }
 .scene--hero .scene__media { background: #b98d63; }
 .scene__video { opacity: 0; transition: opacity 0.5s var(--ease-out); }
 .scene__video.is-ready { opacity: 1; }
 .scene__shade { position: absolute; inset: 0; pointer-events: none; }
 .scene__shade--hero { background: linear-gradient(90deg, rgb(14 22 16 / 0.62) 0%, rgb(14 22 16 / 0.32) 38%, rgb(14 22 16 / 0) 62%), linear-gradient(180deg, rgb(14 22 16 / 0.42) 0%, rgb(14 22 16 / 0) 22%, rgb(14 22 16 / 0) 72%, rgb(14 22 16 / 0.35) 100%); }
-.scene__shade--origin { background: linear-gradient(90deg, rgb(20 30 20 / 0.45) 0%, rgb(20 30 20 / 0) 55%), linear-gradient(0deg, rgb(20 30 20 / 0.35), transparent 40%); }
 .scene__shade--bloom { background: radial-gradient(ellipse at 50% 50%, transparent 35%, rgb(18 24 16 / 0.45) 100%), linear-gradient(0deg, rgb(18 24 16 / 0.55) 0%, transparent 38%); }
 .scene__copy { position: relative; z-index: 2; padding-block: calc(var(--header-h) + var(--s-12)) var(--s-20); }
 .scene__copy h1, .scene__copy h2 { max-width: 13ch; text-shadow: 0 2px 30px rgb(0 0 0 / 0.25); }
@@ -214,20 +213,10 @@ main { display: block; }
 .scene__copy--bloom { align-self: end; text-align: center; justify-items: center; display: grid; gap: var(--s-5); }
 .scene__copy--bloom .eyebrow { justify-content: center; }
 .scene__copy--bloom h2 { max-width: 18ch; margin-inline: auto; }
-.scene__copy--origin { display: grid; gap: var(--s-5); }
 .scene__sub { max-width: 34ch; font-size: var(--step-1); line-height: 1.5; color: rgb(255 255 255 / 0.9); }
 .scene__ctas { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3) var(--s-6); margin-top: var(--s-2); }
-.field-canvas--featured { z-index: 1; pointer-events: none; }
 /* Live-action field: the frame is the 'camera' — scaled for the pull-back, then shrunk into a print. */
-.scene--origin .scene__media { background: transparent; }
-.live-frame { position: absolute; inset: 0; overflow: hidden; background: #8a5a3a; border-radius: 0; }
-.cine .film .live-frame { will-change: transform; box-shadow: 0 50px 140px rgb(24 16 8 / 0.5), 0 0 0 1px rgb(255 240 214 / 0.18); }
 /* Focus frame (revealed by the zoom-out): real bokeh + the featured cotton plant. */
-.scene--focus .scene__media { background: #6b4a30; }
-.focus__bokeh, .scene--focus picture { position: absolute; inset: 0; width: 100%; height: 100%; }
-.focus__bokeh img, .scene--focus img { width: 100%; height: 100%; object-fit: cover; }
-html:not(.cine) .scene--focus { display: none; }
-.has-field .scene__poster--nojs { display: none; }
 .film__mark { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }
 
 /* Scroll cue */
@@ -250,15 +239,12 @@ html:not(.cine) .scene--focus { display: none; }
 /* Live mode */
 /* `html.cine` is set before first paint (Base.astro) when motion is allowed, so the film's scroll
    length exists before the browser restores a scroll position or jumps to a #hash. */
-.cine .film { --film-len: 10.4; background: var(--ivory); height: calc(var(--film-len) * 100vh); height: calc(var(--film-len) * 100svh); }
-@media (max-width: 63.99rem) { .cine .film { --film-len: 6.6; } }
-.cine .scene--origin, .cine .scene--focus, .cine .scene--bloom { visibility: hidden; }
+.cine .film { --film-len: 6.6; background: var(--ivory); height: calc(var(--film-len) * 100vh); height: calc(var(--film-len) * 100svh); }
+@media (max-width: 63.99rem) { .cine .film { --film-len: 4.2; } }
+.cine .scene--bloom { visibility: hidden; }
 .film__mark { scroll-margin-top: calc(-1 * (var(--header-h) + 1rem)); }
 .cine .film .film__stage { height: 100vh; height: 100svh; overflow: hidden; }
 .cine .film .scene { position: absolute; inset: 0; min-height: 0; }
-.cine .film .scene--focus { z-index: 1; }
-.cine .film .scene--origin { z-index: 2; }
-.cine .film .scene--origin.is-masked { --reveal: 0%; -webkit-mask-image: radial-gradient(circle at 53% 38%, #000 calc(var(--reveal) - 28%), transparent var(--reveal)); mask-image: radial-gradient(circle at 53% 38%, #000 calc(var(--reveal) - 28%), transparent var(--reveal)); }
 .cine .film .scene--bloom { z-index: 3; }
 .cine .film .scene__media { will-change: transform; }
 .cine .film .film__flare { display: block; position: absolute; inset: -20%; z-index: 4; pointer-events: none; opacity: 0; visibility: hidden; background: radial-gradient(circle at 52% 36%, rgb(255 246 222 / 0.95) 0%, rgb(255 214 150 / 0.75) 16%, rgb(240 170 96 / 0.35) 36%, rgb(240 170 96 / 0) 62%); mix-blend-mode: screen; }
@@ -278,7 +264,6 @@ html:not(.cine) .scene--focus { display: none; }
   .cine .film .film__stage { position: sticky; top: 0; height: 100vh; height: 100lvh; }
   .cine .film .scene__media { will-change: auto; }
   .cine .film .film__flare { mix-blend-mode: normal; background: radial-gradient(circle at 52% 36%, rgb(255 240 210 / 0.85) 0%, rgb(255 210 150 / 0.5) 22%, rgb(240 170 96 / 0) 58%); }
-  .cine .film .live-frame { box-shadow: 0 24px 60px rgb(24 16 8 / 0.45); }
   /* No live backdrop blur over moving video — it is re-blurred on every frame. */
   .site-header.is-solid { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgb(243 235 221 / 0.97); }
 }
@@ -288,6 +273,7 @@ html:not(.cine) .scene--focus { display: none; }
    this comes after the phone block on purpose so it wins over its will-change reset. */
 .cine .film [data-hero-copy] { will-change: transform, opacity; }
 .cine .film [data-hero-media] { will-change: transform; }
+.cine .film [data-bloom-media] { will-change: transform; }
 .cine .film [data-scroll-cue] { will-change: opacity; }
 
 @media (max-aspect-ratio: 3/4) {
@@ -295,14 +281,19 @@ html:not(.cine) .scene--focus { display: none; }
   .scene__copy { padding-bottom: var(--s-24); }
   .scene--hero { align-items: end; }
   .scene__shade--hero { background: linear-gradient(0deg, rgb(14 22 16 / 0.78) 0%, rgb(14 22 16 / 0.35) 45%, rgb(14 22 16 / 0) 70%), linear-gradient(180deg, rgb(14 22 16 / 0.4) 0%, transparent 18%); }
-  .scene--origin { align-items: start; }
-  .scene__shade--origin { background: linear-gradient(180deg, rgb(20 30 20 / 0.55) 0%, rgb(20 30 20 / 0) 45%); }
 }
 
 /* ======================================================================
    Fibre → yarn
    ====================================================================== */
-.fibre { position: relative; background: var(--ivory); padding-block: var(--s-16) var(--section); overflow: hidden; }
+.fibre { position: relative; background: var(--ivory); padding-block: var(--s-16) var(--section); overflow: clip; }
+/* While the winding animation runs, the section is a tall scroll track and its content stays on screen
+   (native sticky — no JS pin) until the yarn is fully wound; then the page scrolls on. */
+.fibre.is-winding { height: 280vh; height: 280svh; padding-block: 0; }
+.fibre.is-winding .fibre__pin { position: sticky; top: 0; height: 100vh; height: 100svh; display: grid; grid-template-rows: auto minmax(0, 1fr); padding-block: calc(var(--header-h) + var(--s-6)) var(--s-6); }
+/* The art takes the height left under the heading, so the whole cone always fits on screen. */
+.fibre.is-winding .fibre__art { margin-top: var(--s-6); min-height: 0; }
+.fibre.is-winding .fibre__art svg { height: 100%; }
 .fibre__head { display: grid; gap: var(--s-6); justify-items: center; text-align: center; }
 .fibre__head .eyebrow { justify-content: center; }
 .fibre__head h2 { max-width: 14ch; color: var(--forest); }

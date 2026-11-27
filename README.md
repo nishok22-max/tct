@@ -31,12 +31,12 @@ npm run og         # regenerate trimmed logo, OG image, favicons (sharp)
 
 ## 2. Cinematic scroll-story (Nov 2026 rebuild of the home page)
 
-Story: NATURE → COTTON FIELD → BLOOM → FIBRE → MANUFACTURING → YARN → AKR. Business content is unchanged and still comes only from `src/data/site.ts`.
+Story: NATURE → BLOOM (direct zoom) → FIBRE → MANUFACTURING → YARN → AKR. Business content is unchanged and still comes only from `src/data/site.ts`.
 
 | Order | Section (`src/components/cinema/`) | Technique |
 |---|---|---|
-| 1–3 | `Film.astro` — hero `#top`, field `#origin`, bloom `#bloom` | One GSAP-pinned 100svh stage inside a tall container (`--film-len` in CSS). The hero footage is scroll-scrubbed. A sun flare and feathered mask reveal the **live-action field**: a seamless 12 s wind loop that plays in real time while scroll pulls the camera back (scale 1.22 → 1). The shot then **zooms out** into a framed print (→ 0.4) that recedes, revealing the next frame: real out-of-focus field (`field-bokeh.webp`) with the featured cotton plant (canvas engine, `field: false` plant-only mode). Its scroll-driven boll opening, macro bloom and fibre wash are unchanged. |
-| 4 | `FibreToYarn.astro` `#fibre` | SVG fibres converge into a two-ply strand, stroke-drawn by scroll. No pin. |
+| 1–2 | `Film.astro` — hero `#top`, bloom `#bloom` | One GSAP-pinned 100svh stage (CSS sticky on phones) inside a tall container (`--film-len` in CSS). The hero footage is scroll-scrubbed and the camera pushes into the focal plant; under a sun flare the shot **zooms straight into the close-up** — the bloom clip is the same continuous Gemini shot, scrubbed from its first frame — then the fibre burst and wash lead into the page. (The illustrated plant and the live-action field chapter were removed at the client's request; the canvas engine stays in `src/lib/cotton-field/` but is unused on the home page.) |
+| 3 | `FibreToYarn.astro` `#fibre` | Yarn winding onto a cone, drawn by scroll. The section is a tall track (`.fibre.is-winding`, 280svh) with sticky content, so it holds on screen until the cone is fully wound, then scrolls on. |
 | — | `EnquiryBand.astro` | Unobtrusive enquiry prompt after the opening. |
 | 5 | `Story.astro` `#story` | Three generations (real heritage copy). |
 | 6 | `Manufacturing.astro` `#manufacturing`, `#machinery` | The seven documented stages with AKR's own infrastructure photos; machinery partners. |
@@ -45,7 +45,7 @@ Story: NATURE → COTTON FIELD → BLOOM → FIBRE → MANUFACTURING → YARN �
 | 9 | `BrandReveal.astro` `#reveal` | Cones → pull back → cream → logo. Pinned on desktop only. |
 | 10 | `scenes/Contact.astro` `#contact` | Existing enquiry form (unchanged behaviour). |
 
-**Video.** Source: `media-source/gemini-cotton-landscape-original.mp4` (1280×720, 24 fps, 10.03 s, H.264, one keyframe only, 7.3 MB — unsuitable for seeking). Re-encoded copies in `public/video/` (H.264 High, keyframe every 6 frames, no B-frames, faststart, no audio): `film-hero-*.mp4` = 0–4.75 s (tree landscape → cotton rows → focal plant), `film-bloom-*.mp4` = 4.75–10 s (macro boll). `-wide` 1280×720, `-tall` 540×720 centre crop for portrait screens. Posters in `src/assets/film/`. Re-encode with: `ffmpeg -ss 0 -to 4.75 -i <source> -an -c:v libx264 -preset slow -crf 25 -tune film -pix_fmt yuv420p -g 6 -keyint_min 6 -bf 0 -sc_threshold 0 -movflags +faststart public/video/film-hero-wide.mp4` (add `-vf crop=540:720:(iw-540)/2:0` for `-tall`; bloom uses `-ss 4.75 -to 10.03 -crf 24`).
+**Video.** Source: `media-source/gemini-cotton-landscape-original.mp4` (1280×720, 24 fps, 10.03 s, H.264, one keyframe only, 7.3 MB — unsuitable for seeking). Re-encoded copies in `public/video/` (H.264 High, keyframe every 6 frames, no B-frames, faststart, no audio): `film-hero-*.mp4` = 0–4.75 s (tree landscape → cotton rows → focal plant), `film-bloom-*.mp4` = 4.75–10 s (macro boll). `-wide` 1280×720, `-tall` 540×720 centre crop for portrait screens. **Watermark:** the Gemini ✦ (bottom-right of the 1280×720 frame) is removed from the wide clips and wide posters with `-vf removelogo=scripts/footage/gemini-watermark-mask.png`; the 540 px tall crops never contain it. Posters in `src/assets/film/`. Re-encode with: `ffmpeg -ss 0 -to 4.75 -i <source> -an -c:v libx264 -preset slow -crf 25 -tune film -pix_fmt yuv420p -g 6 -keyint_min 6 -bf 0 -sc_threshold 0 -movflags +faststart public/video/film-hero-wide.mp4` (add `-vf crop=540:720:(iw-540)/2:0` for `-tall`; bloom uses `-ss 4.75 -to 10.03 -crf 24`).
 
 **Scrubbing** (`src/scripts/cinema/scrubber.ts`): paused element, one seek in flight, latest target applied on `seeked`, 600 ms watchdog, last frame held, metadata-driven duration, poster stays on error, Save-Data/2G keeps posters only.
 
@@ -64,7 +64,7 @@ Story: NATURE → COTTON FIELD → BLOOM → FIBRE → MANUFACTURING → YARN �
 
 | Need | Asset used | Status |
 |---|---|---|
-| Live-action field (wind loop) | Pexels 13943183 "Cotton Plants under Clear Sky" by Lio Voo — Pexels License; sky replaced and graded (`scripts/footage/grade-field.sh`) | Free, no attribution required; must not be presented as AKR's own field. See `media-source/pexels-13943183/LICENSE-NOTES.md` |
+| Live-action field (wind loop) — **no longer used on the site** | Pexels 13943183 "Cotton Plants under Clear Sky" by Lio Voo — Pexels License; sky replaced and graded (`scripts/footage/grade-field.sh`) | Free, no attribution required; must not be presented as AKR's own field. See `media-source/pexels-13943183/LICENSE-NOTES.md` |
 | Opening landscape → cotton | Gemini clip (supplied) | AI-generated; shows a Gemini ✦ mark bottom-right — supply a clean export if available |
 | Bloom macro | Same clip, 4.75–10 s | AI-generated, illustrative |
 | Heritage | `about.webp` (cones on winding frame) | No archive photos or portraits exist — needed |

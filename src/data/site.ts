@@ -602,35 +602,27 @@ export const film = {
     eyebrow: 'A legacy rooted in nature',
     lines: ['From the earth.', 'Into every thread.'],
     sub: 'Discover the journey of cotton, craftsmanship and generations of textile excellence.',
-    cta: { label: 'Discover our story', href: '#origin' },
+    cta: { label: 'Discover our story', href: '#bloom' },
     skip: { label: 'Skip to the mill', href: '#manufacturing' },
     posterAlt: 'A lone tree on a hill at golden hour, overlooking open countryside',
   },
-  origin: {
-    posterAlt: 'Mature cotton plants with open white bolls swaying against a golden evening sky',
-    eyebrow: 'Chapter one · The field',
-    title: 'Rooted in nature.',
-    sub: 'Every remarkable journey begins with something small.',
-  },
   bloom: {
-    eyebrow: 'Chapter two · The bloom',
+    eyebrow: 'Chapter one · The bloom',
     title: 'Nature creates something extraordinary.',
     posterAlt: 'A fully opened cotton boll, its white fibres lit by low golden sunlight',
   },
   // Source: Gemini-generated clip supplied by AKR (media-source/gemini-cotton-landscape-original.mp4),
-  // split at 4.75 s: landscape → cotton rows (hero) and the macro boll (bloom). Re-encoded for scrubbing.
+  // split at 4.75 s: landscape → cotton rows (hero) and the macro boll (bloom). Re-encoded for scrubbing;
+  // the wide clips have the Gemini ✦ watermark removed (scripts/footage/gemini-watermark-mask.png).
   video: {
     hero: { wide: '/video/film-hero-wide.mp4', tall: '/video/film-hero-tall.mp4' },
     bloom: { wide: '/video/film-bloom-wide.mp4', tall: '/video/film-bloom-tall.mp4' },
-    // Live-action field: Pexels video 13943183 "Cotton Plants under Clear Sky" by Lio Voo (Pexels License),
-    // sky replaced with a golden-hour plate, warm-graded, looped. See media-source/pexels-13943183/LICENSE-NOTES.md.
-    field: { wide: '/video/field-wind-wide.mp4', tall: '/video/field-wind-tall.mp4' },
   },
   // Phones scrub pre-decoded stills instead of seeking video (480×640 WebP, 15 fps, portrait crop).
-  // bloom frames start at 2.0 s into the bloom clip — the part the scroll actually uses.
+  // bloom frames cover the whole bloom clip, so the zoom continues straight from the hero.
   frames: {
     hero: { base: '/frames/hero', count: 71 },
-    bloom: { base: '/frames/bloom', count: 49, fromClipSeconds: 2.0 },
+    bloom: { base: '/frames/bloom', count: 79 },
   },
 };
 

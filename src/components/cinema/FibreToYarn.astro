@@ -2,7 +2,8 @@
 // Chapter 4 · CRAFT begins: a single thread runs in through a guide eyelet and is wound onto a cone —
 // the last step of the mill's process (autoconer winding). As the visitor scrolls, the thread draws in,
 // cross-wound layers build up on the cone, and the feed point traverses up and down it like a real
-// winding head. Generated at build time (deterministic SVG), driven by scroll. Normal scroll — no pin.
+// winding head. Generated at build time (deterministic SVG), driven by scroll. The section holds on
+// screen (CSS sticky, see .fibre.is-winding) until the cone is fully wound, then the page scrolls on.
 import { fibre } from '../../data/site';
 
 const W = 1600;
@@ -43,6 +44,7 @@ for (let x = -20; x <= EYE.x; x += 10) {
 const threadIn = pts.join(' ');
 ---
 <section class="fibre" id="fibre" aria-labelledby="fibre-title" data-fibre-section>
+  <div class="fibre__pin" data-wind-pin>
   <div class="container fibre__head">
     <p class="eyebrow">{fibre.eyebrow}</p>
     <h2 id="fibre-title" class="display display--lg" data-split>{fibre.title}</h2>
@@ -81,5 +83,6 @@ const threadIn = pts.join(' ');
         {wraps.map((w) => <path d={w.d} pathLength="1" stroke-width={w.w} data-wind-wrap />)}
       </g>
     </svg>
+  </div>
   </div>
 </section>
