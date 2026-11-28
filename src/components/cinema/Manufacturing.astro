@@ -3,6 +3,7 @@
 // page), with the mill's own infrastructure photographs. Normal scroll with editorial reveals.
 import { Picture } from 'astro:assets';
 import { processScene as ps, scale } from '../../data/site';
+import Charkha from '../play/Charkha.astro';
 // hero.webp: AI-generated 1920×1080 lookalike (Canva, 2026-11-26) of the original 1376 px photo — illustrative.
 import aisle from '../../assets/images/hero.webp';
 ---
@@ -50,11 +51,14 @@ import aisle from '../../assets/images/hero.webp';
     </ol>
 
     <div class="partners-wrap" id="machinery">
-      <header class="sec-head sec-head--sm">
-        <p class="eyebrow">{scale.eyebrow}</p>
-        <h3 class="display display--md">{scale.title}</h3>
-        <p class="lede">{scale.intro}</p>
-      </header>
+      <div class="partners-head">
+        <header class="sec-head sec-head--sm">
+          <p class="eyebrow">{scale.eyebrow}</p>
+          <h3 class="display display--md">{scale.title}</h3>
+          <p class="lede">{scale.intro}</p>
+        </header>
+        <Charkha />
+      </div>
       <ul class="partners">
         {scale.partners.map((p) => (
           <li class="partner" data-partner>

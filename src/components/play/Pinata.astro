@@ -1,0 +1,63 @@
+---
+// Cone piñata (Quality section): a big yarn cone hangs from a thread. Each tap swings it and cracks it
+// further; the 4th tap bursts it into cotton that falls to the floor of the green section, where it can be
+// thrown around (src/scripts/play/pinata.ts). The cone is a real button, so it works from the keyboard.
+const W = 220;
+const top = { y: 46, half: 34 };
+const bot = { y: 282, half: 100 };
+const cx = W / 2;
+const body = `M${cx - top.half} ${top.y} Q${cx} ${top.y - 9} ${cx + top.half} ${top.y} L${cx + bot.half} ${bot.y} Q${cx} ${bot.y + 20} ${cx - bot.half} ${bot.y} Z`;
+const halfAt = (y: number) => top.half + ((y - top.y) / (bot.y - top.y)) * (bot.half - top.half);
+const wraps = Array.from({ length: 16 }, (_, i) => {
+  const y = bot.y - 6 - (i / 15) * (bot.y - top.y - 12);
+  const dir = i % 2 ? 1 : -1;
+  const y2 = y + dir * 30;
+  return { d: `M${(cx - halfAt(y) - 4).toFixed(1)} ${y.toFixed(1)} Q${cx} ${(y + 8).toFixed(1)} ${(cx + halfAt(y2) + 4).toFixed(1)} ${y2.toFixed(1)}`, light: i % 2 === 0 };
+});
+// three stages of cracks, each with cotton bursting through
+const cracks = [
+  { d: 'M70 150 L86 162 L80 176 L96 188', fluff: [[84, 168, 9], [92, 184, 7]] },
+  { d: 'M150 118 L138 134 L152 146 L140 164 L150 178', fluff: [[144, 140, 10], [146, 170, 9], [138, 156, 7]] },
+  { d: 'M60 220 L80 230 L96 222 L118 238 L136 228 L158 240', fluff: [[82, 228, 11], [118, 234, 12], [150, 236, 10], [100, 222, 8]] },
+];
+---
+<div class="pinata" data-pinata>
+  <div class="pinata__swing" data-pinata-swing>
+    <span class="pinata__thread" aria-hidden="true"></span>
+    <button type="button" class="pinata__cone" data-pinata-cone aria-label="Tap to burst the cone — four taps">
+      <svg viewBox={`0 0 ${W} 310`} focusable="false" aria-hidden="true">
+        <defs>
+          <linearGradient id="pn-body" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#D9C19A" />
+            <stop offset="0.45" stop-color="#F6EBD6" />
+            <stop offset="1" stop-color="#C9AE84" />
+          </linearGradient>
+          <clipPath id="pn-clip"><path d={body} /></clipPath>
+        </defs>
+        <!-- paper tube with the thread tied round it -->
+        <path d={`M${cx - 24} ${top.y + 2} L${cx - 17} 8 Q${cx} 2 ${cx + 17} 8 L${cx + 24} ${top.y + 2} Z`} fill="#4E5A3A" />
+        <ellipse cx={cx} cy="10" rx="9" ry="3" fill="#E9D8BA" />
+        <path d={body} fill="url(#pn-body)" />
+        <g clip-path="url(#pn-clip)" fill="none" stroke-width="2">
+          {wraps.map((w) => <path d={w.d} stroke={w.light ? '#FBF4E6' : '#B99A6B'} opacity="0.75" />)}
+          {cracks.map((c, i) => (
+            <g class="pinata__crack" data-crack={i + 1}>
+              <path d={c.d} stroke="#3A2B1A" stroke-width="2.6" stroke-linejoin="round" />
+              {c.fluff.map(([x, y, r]) => <circle cx={x} cy={y} r={r} fill="#FFFDF7" stroke="none" />)}
+            </g>
+          ))}
+        </g>
+        <path d={body} fill="none" stroke="#8A6A3E" stroke-width="1.4" />
+      </svg>
+    </button>
+  </div>
+  <span class="pinata__pop" aria-hidden="true" data-pinata-pop></span>
+
+  <!-- hand-drawn hint -->
+  <svg class="pinata__hint" viewBox="0 0 200 140" focusable="false" aria-hidden="true">
+    <path class="hand-arrow" pathLength="1" d="M168 18 C 196 52, 170 104, 112 118 C 92 122, 70 120, 52 112" />
+    <path class="hand-arrow hand-arrow--head" pathLength="1" d="M68 100 L50 112 L68 126" />
+  </svg>
+  <p class="hand-note pinata__note" data-pinata-note aria-live="polite">Tap to burst!</p>
+  <button type="button" class="pinata__again" data-pinata-again hidden>Hang another cone ↺</button>
+</div>

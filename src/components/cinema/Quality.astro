@@ -3,6 +3,7 @@
 // followed by the people commitment. Values are only those published by AKR.
 import { Picture } from 'astro:assets';
 import { quality, why, people } from '../../data/site';
+import Pinata from '../play/Pinata.astro';
 ---
 <section class="section quality on-dark" id="quality" aria-labelledby="quality-title">
   <div class="container">
@@ -11,6 +12,7 @@ import { quality, why, people } from '../../data/site';
       <h2 id="quality-title" class="display display--lg" data-split>{quality.title}</h2>
       <p class="lede">{quality.intro}</p>
     </header>
+    <Pinata />
 
     <ul class="metrics">
       {quality.metrics.map((m) => (
@@ -44,6 +46,8 @@ import { quality, why, people } from '../../data/site';
       </div>
     </div>
   </div>
+  <!-- the floor the burst cotton lands on -->
+  <div class="play-floor" aria-hidden="true"></div>
 </section>
 
 <section class="section people" id="people" aria-labelledby="people-title">

@@ -81,6 +81,32 @@ Story: NATURE → BLOOM (direct zoom) → FIBRE → MANUFACTURING → YARN → A
 
 Legacy clips from the previous version (WhatsApp/Gemini "journey") are kept, unused, in `media-source/legacy-video/`; they depict generic AI machinery, so they are not presented as AKR's facility.
 
+### Playgrounds (physics, hand-drawn hints)
+Interactive pieces added at the client's request (Nov 2026). The code lives in `src/scripts/play/` and the markup in `src/components/play/`.
+
+| Where | What | How |
+|---|---|---|
+| Our Story · Gen I / II / III | Containers of real-cotton stickers / yarn balls / yarn cones | `jar.ts` + `physics.ts`. Items drop in, then can be dragged and thrown (they keep their inertia); everything stays inside the container |
+| Machinery partners | Turnable khadi wheel (charkha), with "turn this side" | `Charkha.astro` + `charkha.ts`: GSAP Draggable rotation with InertiaPlugin; the spindle turns 8× faster; arrow keys turn it (`role="slider"`) |
+| Quality (green section) | Cone piñata: "Tap to burst!" | `Pinata.astro` + `pinata.ts`: 4 taps (each cracks it further), then the cotton bursts into a sandbox spanning the section, with its floor at the bottom (`.play-floor`). "Hang another cone" resets it |
+
+- **Physics:** `matter-js` 0.20 (MIT). It's fetched only near a playground, and pre-parsed in idle time after page load.
+- **Drawing:** one canvas per container. The piñata sandbox uses a viewport-sized fixed canvas that draws the section's region, so it isn't section-sized.
+- **CPU-raster canvases** (`willReadFrequently`), so there's no GPU set-up hitch when a playground first draws.
+- **Battery:** loops stop when everything is asleep or off-screen.
+- **Phones:** a touch is captured only when it lands on an object, so swiping still scrolls the page.
+- **Measured** on a 375×812 phone viewport:
+  - full-page scroll: ~7 ms frames, 0 long tasks;
+  - 70 flying cotton pieces: ~0.5 ms JS per frame.
+- **Reduced motion:** containers render a settled, static arrangement.
+- **Cotton stickers** (`public/play/cotton-*.webp`) are cut from the site's own Gemini close-up footage by `scripts/play/make-cotton-stickers.mjs`:
+  1. key the bright cotton inside an ellipse;
+  2. take its convex hull;
+  3. add a white die-cut border and a shadow.
+- **Yarn balls, cones and tufts** are drawn procedurally (`sprites.ts`).
+- **Handwriting font:** Caveat (`@fontsource/caveat`, OFL).
+- `?debug` exposes the playgrounds as `window.__play`.
+
 ## 5. Build workflow (each step has a done-check)
 
 1. **Scaffold.** `npm install` → done when `node_modules` exists with no errors.
