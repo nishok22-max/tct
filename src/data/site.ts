@@ -406,7 +406,7 @@ export const products: Product[] = [
       'Fleece sweatshirts & hoodies',
       'Heavy weaving & denims',
     ],
-    metaTitle: '100% Karded Cotton Yarn (Ne 16s–40s) | AKR Spinning Mills',
+    metaTitle: '100% Cotton Karded Yarn (Ne 16s–40s) | AKR Spinning Mills',
     metaDescription:
       'Ring-spun 100% karded cotton yarn, Ne 16s–40s, benchmarked to Uster standards — for single jersey, terry, fleece and everyday apparel. AKR Spinning Mills, Tamil Nadu.',
   },
@@ -589,8 +589,8 @@ export const legal = {
 export const nav = [
   { href: '/#story', label: 'Our Story' },
   { href: '/#manufacturing', label: 'Manufacturing' },
-  { href: '/#products', label: 'Products' },
   { href: '/#quality', label: 'Quality' },
+  { href: '/#products', label: 'Products' },
 ];
 export const navCta = { href: '/#contact', label: 'Contact Us' };
 

@@ -17,7 +17,11 @@ const { Engine, Bodies, Body, Composite, Constraint, Query, Sleeping } = Matter;
 
 export type Item = {
   sprite: Sprite;
-  shape: { kind: 'circle'; r: number } | { kind: 'trapezoid'; w: number; h: number; topW: number };
+  shape:
+    | { kind: 'circle'; r: number }
+    | { kind: 'trapezoid'; w: number; h: number; topW: number }
+    /** Convex outline in CSS px relative to the sprite centre; the drawing is aligned to its centroid. */
+    | { kind: 'poly'; points: { x: number; y: number }[] };
   /** Sprite draw size (CSS px) and its offset from the body centre. */
   draw: { w: number; h: number; dx?: number; dy?: number };
   x: number;
@@ -144,11 +148,19 @@ export class Playground {
   }
 
   add(items: Item[]) {
-    const bodies = items.map((it) => {
+    const bodies = items.map((item) => {
+      let it = item;
       const common = { restitution: this.opt.restitution ?? 0.32, friction: 0.35, frictionAir: 0.012, angle: it.angle ?? 0, sleepThreshold: 50 };
-      const b = it.shape.kind === 'circle'
-        ? Bodies.circle(it.x, it.y, it.shape.r, common)
-        : Bodies.trapezoid(it.x, it.y, it.shape.w, it.shape.h, 1 - it.shape.topW / it.shape.w, common);
+      let b: Matter.Body;
+      if (it.shape.kind === 'circle') b = Bodies.circle(it.x, it.y, it.shape.r, common);
+      else if (it.shape.kind === 'trapezoid') b = Bodies.trapezoid(it.x, it.y, it.shape.w, it.shape.h, 1 - it.shape.topW / it.shape.w, common);
+      else {
+        // Matter centres the body on the polygon's centroid; offset the drawing by the same amount
+        const points = it.shape.points;
+        const c = Matter.Vertices.centre(points as Matter.Vector[]);
+        it = { ...it, draw: { ...it.draw, dx: (it.draw.dx ?? 0) - c.x, dy: (it.draw.dy ?? 0) - c.y } };
+        b = Bodies.fromVertices(it.x, it.y, [points], common);
+      }
       if (it.vx || it.vy) Body.setVelocity(b, { x: it.vx ?? 0, y: it.vy ?? 0 });
       if (it.spin) Body.setAngularVelocity(b, it.spin);
       this.sprites.set(b.id, it);

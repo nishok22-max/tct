@@ -86,7 +86,8 @@ Interactive pieces added at the client's request (Nov 2026). The code lives in `
 
 | Where | What | How |
 |---|---|---|
-| Our Story · Gen I / II / III | Containers of real-cotton stickers / yarn balls / yarn cones | `jar.ts` + `physics.ts`. Items drop in, then can be dragged and thrown (they keep their inertia); everything stays inside the container |
+| Our Story · Gen I / II / III | Trays of real cotton bolls / yarn balls / yarn cones; each tray ends level with its generation's text | `jar.ts` + `physics.ts`. Items drop in, then can be dragged and thrown (they keep their inertia); everything stays inside the tray. The number of items scales with the tray's area. Cotton collides on its real outline (a convex hull taken from the cutout's alpha) |
+| Manufacturing header | Newton's cradle of 7 yarn balls, numbered 01–07 for the seven stages | `Cradle.astro` + `cradle.ts`: its own pendulum solver (240 Hz steps; touching balls exchange velocity, restitution 0.995), so lift 1 → 1 swings out, lift 3 → 3. Dragging a ball pushes the balls in its way. Lifting a ball shows its stage name. The swing is limited so the balls stay inside the frame. Plays a one-time demo on first view; Enter / Space swings 1, 2 or 3 balls |
 | Machinery partners | Turnable khadi wheel (charkha), with "turn this side" | `Charkha.astro` + `charkha.ts`: GSAP Draggable rotation with InertiaPlugin; the spindle turns 8× faster; arrow keys turn it (`role="slider"`) |
 | Quality (green section) | Cone piñata: "Tap to burst!" | `Pinata.astro` + `pinata.ts`: 4 taps (each cracks it further), then the cotton bursts into a sandbox spanning the section, with its floor at the bottom (`.play-floor`). "Hang another cone" resets it |
 
@@ -99,10 +100,13 @@ Interactive pieces added at the client's request (Nov 2026). The code lives in `
   - full-page scroll: ~7 ms frames, 0 long tasks;
   - 70 flying cotton pieces: ~0.5 ms JS per frame.
 - **Reduced motion:** containers render a settled, static arrangement.
-- **Cotton stickers** (`public/play/cotton-*.webp`) are cut from the site's own Gemini close-up footage by `scripts/play/make-cotton-stickers.mjs`:
-  1. key the bright cotton inside an ellipse;
-  2. take its convex hull;
-  3. add a white die-cut border and a shadow.
+- **Cotton cutouts** (`public/play/cotton-1..3.webp`; mirrored in code, so 6 variants) are cut from the site's own Gemini close-up footage by `scripts/play/make-cotton.mjs`, using trimap matting:
+  1. a deep core inside the boll's hull (keeps the bracts) plus the keyed cotton;
+  2. alpha in the edge band from the pixel's position between the local cotton and background colours;
+  3. edge-colour decontamination, and keeping only the largest connected piece;
+  4. a soft, centred contact shadow.
+
+  There's no border or outline, and the fibre edges are soft.
 - **Yarn balls, cones and tufts** are drawn procedurally (`sprites.ts`).
 - **Handwriting font:** Caveat (`@fontsource/caveat`, OFL).
 - `?debug` exposes the playgrounds as `window.__play`.

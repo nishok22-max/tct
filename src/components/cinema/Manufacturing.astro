@@ -4,16 +4,20 @@
 import { Picture } from 'astro:assets';
 import { processScene as ps, scale } from '../../data/site';
 import Charkha from '../play/Charkha.astro';
+import Cradle from '../play/Cradle.astro';
 // hero.webp: AI-generated 1920×1080 lookalike (Canva, 2026-11-26) of the original 1376 px photo — illustrative.
 import aisle from '../../assets/images/hero.webp';
 ---
 <section class="section mfg" id="manufacturing" aria-labelledby="mfg-title">
   <div class="container">
-    <header class="sec-head">
-      <p class="eyebrow">Manufacturing · {ps.eyebrow}</p>
-      <h2 id="mfg-title" class="display display--lg" data-split>{ps.title}</h2>
-      <p class="lede">{ps.intro}</p>
-    </header>
+    <div class="mfg-head">
+      <header class="sec-head">
+        <p class="eyebrow">Manufacturing · {ps.eyebrow}</p>
+        <h2 id="mfg-title" class="display display--lg" data-split>{ps.title}</h2>
+        <p class="lede">{ps.intro}</p>
+      </header>
+      <Cradle />
+    </div>
   </div>
 
   <figure class="mfg__opener" data-opener>

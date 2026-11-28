@@ -2,6 +2,7 @@
 // tap bursts it into cotton that falls to the floor of the green section (a physics sandbox spanning the
 // section, drawn on a viewport-sized fixed canvas). "Hang another cone" clears it and starts again.
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Playground, prefersStill, isPhone, type Item } from './physics';
 import { cottonStickers, cottonTuft } from './sprites';
 
@@ -43,6 +44,10 @@ export function mountPinata(root: HTMLElement) {
     document.body.appendChild(canvas);
     pg = new Playground(section, canvas, { fixedCanvas: canvas, input: section, still, maxDpr: phone ? 1.5 : 2, restitution: 0.25 });
     section.classList.add('has-sandbox');
+    // the floor opens below the cone (CSS transition); re-measure the scroll animations further down
+    const floor = section.querySelector('.play-floor');
+    floor?.addEventListener('transitionend', () => ScrollTrigger.refresh(), { once: true });
+    if (!floor || still) requestAnimationFrame(() => ScrollTrigger.refresh());
     if (location.search.includes('debug')) ((window as unknown as { __play?: Playground[] }).__play ??= []).push(pg);
     return pg;
   };

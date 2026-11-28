@@ -29,20 +29,33 @@ const { overlay = false } = Astro.props;
   </div>
 </header>
 <script>
-  // Header state: transparent over the opening footage, cream glass once the page has scrolled.
+  // Header state: transparent over the opening footage, cream glass once it has been passed.
+  // (GSAP's autoAlpha leaves the wash at visibility: hidden while it is fully transparent.)
+  // On the home page the film stays on screen for several screens of scroll, so the header stays
+  // transparent until the film's cream wash begins (white links would vanish on it) or the film has
+  // scrolled away. Pages without the film keep the simple "has scrolled" rule.
   const header = document.querySelector<HTMLElement>('[data-header]');
   if (header?.classList.contains('is-overlay')) {
+    const film = document.querySelector<HTMLElement>('[data-film]');
+    const wash = film?.querySelector<HTMLElement>('[data-wash]') ?? null;
     let solid = false;
     let ticking = false;
     const update = () => {
       ticking = false;
-      const next = window.scrollY > 24;
+      const next = film
+        ? (!!wash?.style.visibility && wash.style.visibility !== 'hidden') || film.getBoundingClientRect().bottom <= header.offsetHeight
+        : window.scrollY > 24;
       if (next !== solid) {
         solid = next;
         header.classList.toggle('is-solid', solid);
       }
     };
-    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    let settle = 0;
+    addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      // the film's scrubbed wash catches up shortly after scrolling stops; check once more then
+      if (film) { clearTimeout(settle); settle = window.setTimeout(update, 400); }
+    }, { passive: true });
     update();
   }
 </script>

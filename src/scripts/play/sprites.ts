@@ -5,7 +5,9 @@
 //  • yarn balls and yarn cones: drawn here, in the palette of the yarn-winding animation
 //  • tufts: small fluffy cotton pieces for the piñata burst
 
-export type Sprite = { img: CanvasImageSource; w: number; h: number };
+export type Pt = { x: number; y: number };
+/** `hull`: convex outline in sprite pixels, relative to the sprite's centre (for exact collisions). */
+export type Sprite = { img: CanvasImageSource; w: number; h: number; hull?: Pt[] };
 
 const SS = 2; // supersampling: sprites are drawn at 2× their largest on-screen size
 
@@ -28,8 +30,48 @@ const shade = (hex: string, k: number) => {
   return `rgb(${f(n >> 16)} ${f((n >> 8) & 255)} ${f(n & 255)})`;
 };
 
-/* ---------------- cotton stickers (photographs) ---------------- */
+/* ---------------- cotton (photo cutouts) ---------------- */
+function convexHull(pts: Pt[]): Pt[] {
+  pts.sort((a, b) => a.x - b.x || a.y - b.y);
+  const cross = (o: Pt, a: Pt, b: Pt) => (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x);
+  const lo: Pt[] = [];
+  const up: Pt[] = [];
+  for (const p of pts) { while (lo.length >= 2 && cross(lo[lo.length - 2]!, lo[lo.length - 1]!, p) <= 0) lo.pop(); lo.push(p); }
+  for (let i = pts.length - 1; i >= 0; i--) { const p = pts[i]!; while (up.length >= 2 && cross(up[up.length - 2]!, up[up.length - 1]!, p) <= 0) up.pop(); up.push(p); }
+  return lo.slice(0, -1).concat(up.slice(0, -1));
+}
+
+/** Drop the vertices that add the least area until `max` remain (Visvalingam). */
+function simplify(poly: Pt[], max: number): Pt[] {
+  const p = poly.slice();
+  const area = (a: Pt, b: Pt, c: Pt) => Math.abs((b.x - a.x) * (c.y - a.y) - (c.x - a.x) * (b.y - a.y)) / 2;
+  while (p.length > max) {
+    let k = 0;
+    let best = Infinity;
+    for (let i = 0; i < p.length; i++) {
+      const v = area(p[(i - 1 + p.length) % p.length]!, p[i]!, p[(i + 1) % p.length]!);
+      if (v < best) { best = v; k = i; }
+    }
+    p.splice(k, 1);
+  }
+  return p;
+}
+
+/** Outline from the alpha channel: solid pixels only, pulled in slightly so soft fibre edges can touch. */
+function hullOf(src: CanvasImageSource, w: number, h: number): Pt[] {
+  const c = document.createElement('canvas');
+  c.width = w;
+  c.height = h;
+  const ctx = c.getContext('2d', { willReadFrequently: true })!;
+  ctx.drawImage(src, 0, 0);
+  const d = ctx.getImageData(0, 0, w, h).data;
+  const pts: Pt[] = [];
+  for (let y = 0; y < h; y += 2) for (let x = 0; x < w; x += 2) if (d[(y * w + x) * 4 + 3]! > 150) pts.push({ x, y });
+  return simplify(convexHull(pts), 12).map((p) => ({ x: (p.x - w / 2) * 0.95, y: (p.y - h / 2) * 0.95 }));
+}
+
 let cotton: Promise<Sprite[]> | null = null;
+/** The three cutouts plus mirrored copies — six variants. */
 export function cottonStickers(): Promise<Sprite[]> {
   cotton ??= Promise.all(
     [1, 2, 3].map(async (i) => {
@@ -37,9 +79,16 @@ export function cottonStickers(): Promise<Sprite[]> {
       img.decoding = 'async';
       img.src = `/play/cotton-${i}.webp`;
       await img.decode();
-      return { img, w: img.naturalWidth, h: img.naturalHeight };
+      const w = img.naturalWidth;
+      const h = img.naturalHeight;
+      const hull = hullOf(img, w, h);
+      const { c, ctx } = canvas(w / SS, h / SS);
+      ctx.setTransform(-1, 0, 0, 1, w, 0); // mirror
+      ctx.drawImage(img, 0, 0);
+      const mirrored: Sprite = { img: c, w, h, hull: hull.map((p) => ({ x: -p.x, y: p.y })).reverse() };
+      return [{ img, w, h, hull } as Sprite, mirrored];
     }),
-  );
+  ).then((pairs) => pairs.flat());
   return cotton;
 }
 

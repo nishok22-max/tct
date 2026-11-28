@@ -1,0 +1,18 @@
+---
+// Newton's cradle of seven yarn balls — one per stage of the process (01–07). Pull a ball and let go:
+// momentum passes through the row (src/scripts/play/cradle.ts). Lifting a ball names its stage.
+// Keyboard: Enter / Space swings 1, then 2, then 3 balls.
+import { processScene as ps } from '../../data/site';
+const stages = ps.stages.map((s) => `${s.n} · ${s.name}`);
+---
+<div class="cradle" data-cradle data-stages={JSON.stringify(stages)}>
+  <div class="cradle__stage" role="button" tabindex="0" aria-label="Newton's cradle of seven yarn balls, one for each stage. Press Enter to swing it." data-cradle-stage>
+    <canvas class="cradle__canvas" aria-hidden="true"></canvas>
+    <svg class="cradle__hint" viewBox="0 0 200 120" focusable="false" aria-hidden="true">
+      <path class="hand-arrow" pathLength="1" d="M28 18 C 6 40, 8 78, 40 96 C 52 103, 66 104, 78 100" />
+      <path class="hand-arrow hand-arrow--head" pathLength="1" d="M62 90 L80 100 L64 112" />
+    </svg>
+    <p class="hand-note cradle__note" aria-hidden="true">pull a ball</p>
+  </div>
+  <p class="cradle__label" aria-live="polite" data-cradle-label>Seven stages · one strand</p>
+</div>

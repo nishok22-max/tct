@@ -147,6 +147,9 @@ main { display: block; }
    ====================================================================== */
 .site-header { position: fixed; inset: 0 0 auto; z-index: 50; color: var(--forest); transition: background-color 0.45s var(--ease-out), color 0.45s var(--ease-out), box-shadow 0.45s, backdrop-filter 0.45s; }
 .site-header.is-overlay:not(.is-solid) { color: #fff; --focus: #fff; }
+/* A soft shade behind the transparent header keeps the white links readable over bright footage. */
+.site-header.is-overlay::before { content: ''; position: absolute; inset: 0 0 -70% 0; z-index: -1; pointer-events: none; background: linear-gradient(180deg, rgb(12 18 13 / 0.42), rgb(12 18 13 / 0.16) 55%, rgb(12 18 13 / 0)); transition: opacity 0.45s var(--ease-out); }
+.site-header.is-overlay.is-solid::before, html.menu-open .site-header::before { opacity: 0; }
 .site-header.is-solid { background: rgb(243 235 221 / 0.86); -webkit-backdrop-filter: saturate(1.2) blur(14px); backdrop-filter: saturate(1.2) blur(14px); box-shadow: 0 1px 0 var(--hair); }
 .site-header__inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--s-6); min-height: var(--header-h); }
 .brand { position: relative; z-index: 2; display: inline-flex; align-items: center; min-height: 2.75rem; }
@@ -336,12 +339,13 @@ main { display: block; }
 .gen__media { aspect-ratio: 4 / 5; border-radius: 4px; }
 .gen__media img, .people__img img { height: 112%; top: -6%; position: relative; }
 /* Physics playgrounds (Story): a glass-edged tray the items fall into. */
-.gen__play { position: relative; aspect-ratio: 4 / 5; border-radius: 18px; background: linear-gradient(180deg, rgb(255 253 247 / 0.9), #EFE6D6); box-shadow: inset 0 0 0 1px rgb(31 42 32 / 0.1), inset 0 -26px 40px -30px rgb(31 42 32 / 0.25), 0 20px 50px -34px rgb(31 42 32 / 0.45); overflow: hidden; touch-action: pan-y; }
+/* Height follows the generation's text (the row height), so the tray ends level with it. */
+.gen__play { position: relative; align-self: stretch; min-height: 16rem; border-radius: 18px; background: linear-gradient(180deg, rgb(255 253 247 / 0.9), #EFE6D6); box-shadow: inset 0 0 0 1px rgb(31 42 32 / 0.1), inset 0 -26px 40px -30px rgb(31 42 32 / 0.25), 0 20px 50px -34px rgb(31 42 32 / 0.45); overflow: hidden; touch-action: pan-y; }
 .gen__play .play-canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: default; }
 .gen__play .play-canvas.is-over { cursor: grab; }
 .gen__play .play-canvas.is-grabbing { cursor: grabbing; }
-.gen__play-tag { position: absolute; left: 14px; top: 12px; font-family: var(--font-hand); font-size: 1.25rem; color: var(--gold-ink); pointer-events: none; }
-@media (max-width: 55.99rem) { .gen__play { aspect-ratio: 4 / 3; max-height: 22rem; } }
+.gen__play-tag { position: absolute; left: 14px; top: 10px; font-family: var(--font-hand); font-weight: 600; font-size: 1.3rem; color: var(--gold-ink); pointer-events: none; }
+@media (max-width: 55.99rem) { .gen__play { min-height: 0; height: 14rem; } }
 .story__base { margin-top: var(--s-16); font-size: var(--step--1); letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-align: center; }
 
 /* ======================================================================
@@ -372,8 +376,9 @@ main { display: block; }
 .checkpoint dt { font-size: var(--step--1); letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; color: var(--gold-ink); }
 .checkpoint dd { margin-top: var(--s-1); }
 .partners-wrap { margin-top: clamp(var(--s-20), 12vw, 10rem); padding-top: var(--s-16); border-top: 1px solid var(--hair); }
-.partners { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
-.partner { display: grid; gap: var(--s-2); align-content: start; padding: var(--s-6); background: var(--cream); }
+/* Hairlines are card borders (not a grey grid background), so nothing grey shows while cards fade in. */
+.partners { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 0; border-top: 1px solid var(--hair); border-left: 1px solid var(--hair); }
+.partner { display: grid; gap: var(--s-2); align-content: start; padding: var(--s-6); background: var(--cream); border-right: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
 .partner__name { font-family: var(--font-display); font-size: var(--step-3); line-height: 1; color: var(--forest); }
 .partner__country { font-size: var(--step--1); letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; color: var(--gold-ink); }
 .partner__role { color: var(--muted); font-size: var(--step--1); }
@@ -574,6 +579,23 @@ main { display: block; }
 .hand-arrow--head { transition-delay: 1.15s; transition-duration: 0.35s; }
 .is-in .hand-arrow { stroke-dashoffset: 0; }
 
+/* Newton's cradle (Manufacturing header) */
+.mfg-head { display: grid; gap: var(--s-8); align-items: center; margin-bottom: clamp(var(--s-12), 7vw, var(--s-24)); }
+.mfg-head .sec-head { margin-bottom: 0; }
+@media (min-width: 56rem) { .mfg-head { grid-template-columns: minmax(0, 1fr) minmax(20rem, 28rem); } }
+.cradle { justify-self: center; width: min(100%, 28rem); display: grid; gap: var(--s-3); justify-items: center; }
+.cradle__stage { position: relative; width: 100%; aspect-ratio: 13 / 10; color: var(--gold-ink); border-radius: 12px; touch-action: pan-y; }
+.cradle__stage:focus-visible { outline-offset: 6px; }
+.cradle__canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cradle__stage.is-over, .cradle.is-grabbing .cradle__stage { cursor: grab; }
+.cradle.is-grabbing .cradle__stage { cursor: grabbing; }
+.cradle__hint { position: absolute; left: -9%; top: 2%; width: 30%; height: auto; overflow: visible; pointer-events: none; transition: opacity 0.5s; }
+.cradle__note { position: absolute; left: -12%; top: -9%; rotate: -8deg; opacity: 0; transition: opacity 0.5s 0.9s; }
+.cradle.is-in .cradle__note { opacity: 1; }
+.cradle.is-used .cradle__hint, .cradle.is-used .cradle__note { opacity: 0; transition-delay: 0s; }
+.cradle__label { min-height: 1.5em; font-size: var(--step--1); letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-ink); font-weight: 600; text-align: center; }
+@media (max-width: 55.99rem) { .cradle__stage { margin-top: 1.6rem; } .cradle__hint { left: -2%; top: -4%; width: 26%; } .cradle__note { left: 0; top: -12%; } }
+
 /* Khadi wheel */
 .partners-head { display: grid; gap: var(--s-6); align-items: center; }
 @media (min-width: 56rem) { .partners-head { grid-template-columns: minmax(0, 1fr) minmax(18rem, 26rem); } }
@@ -618,8 +640,10 @@ main { display: block; }
 }
 
 /* the floor the burst cotton lands on, and the sandbox layer */
-.play-floor { height: 30vh; height: 30svh; margin-bottom: calc(var(--section) * -1); background: linear-gradient(180deg, transparent, rgb(0 0 0 / 0.12)); border-bottom: 2px solid rgb(233 216 186 / 0.25); }
-@media (max-width: 40rem) { .play-floor { height: 24vh; height: 24svh; } }
+/* Collapsed until the cone bursts, then it opens into the floor the cotton lands on. */
+.play-floor { height: 0; margin-bottom: 0; overflow: hidden; background: linear-gradient(180deg, transparent, rgb(0 0 0 / 0.12)); border-bottom: 2px solid transparent; transition: height 0.6s var(--ease-out), margin-bottom 0.6s var(--ease-out), border-color 0.6s; }
+.has-sandbox .play-floor { height: 30vh; height: 30svh; margin-bottom: calc(var(--section) * -1); border-bottom-color: rgb(233 216 186 / 0.25); }
+@media (max-width: 40rem) { .has-sandbox .play-floor { height: 24vh; height: 24svh; } }
 .play-layer { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 40; pointer-events: none; display: none; }
 .play-layer.is-on { display: block; }
 
